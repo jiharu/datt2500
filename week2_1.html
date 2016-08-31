@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>3D Modeling</title>
+    
+<link href="css/site.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/highlight.default.css" media="screen" rel="stylesheet" type="text/css" />
+  
+<script src="js/jquery.js"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+<!--
+Write the markdown code below.
+A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
+-->
+
+<div style="display: none" id="sourcetext">
+
+# Modeling techniques
+>## Class schedule
+- A. Lecture: 9:00~10:00. 
+- B. Demonstration / discussion: 10:00 ~ 10:15
+- C. Recess: 15 mins.
+- D. Review: 10:30~10:45
+- E. Lab practice: 10:45~11:45  
+- F. Assignment
+
+------------------------------------
+
+# A. 3D techniques
+Reference: [digital] Modeling by William Vaughan, 2011
+
+### No set way
+
+> An interesting fact in the digital modeling world is that no two artists use the same techniques when creating a digital model, even when the two modelers are working from the same reference material, producing the same final mesh. Consider this example: When I had classes of thirty students working on the same robot model, I never saw any two working with the same method. This just goes to show that there is no set way to work, and that artists are free to work with whatever method(s) they feel most comfortable with.
+
+![robots](img/meth/robots.png)
+
+### More methods
+
+> Don’t limit yourself to just a few modeling methods. Every professional digital modeler I know gravitates to a particular method of modeling for the majority of the meshes each is tasked with, but each modeler is quick to use other methods when needed. The more techniques you become proficient in, the more efficient you will become.
+
+## 3D modeling methods
+### Build Out
+
+####- Point by Point
+![point](img/meth/point.png)
+
+####- Edge Extend
+![edge](img/meth/poy.png)
+
+### Primitive Modeling
+![prim](img/meth/prim.png)
+![prim01](img/meth/primbox.png)
+
+### Box Modeling
+![box](img/meth/box.png)
+![box01](img/meth/boxchar.png)
+
+### Patch Modeling
+  
+![curve](img/meth/curve.png)
+>Using curves, you create a wire cage to define the surface of an object.   
+
+![nurbs](img/meth/nurbs.png)
+
+### Digtial Sculpting
+![scup](img/meth/zbrush.png)    
+>No consideration to the layout of polygons is needed when digital sculpting, leaving the artist’s focus on the shapes, not the underlying geometry.  
+  
+![normal](img/meth/normal.png)    
+>The high-poly meshes are used as source material to enhance low-poly models used in real-time games with the use of normal maps.
+
+________________
+
+### More on [normal maps](http://en.wikipedia.org/wiki/Normal_mapping).
+
+![nor01](img/800px-Normal_map_example_with_scene_and_result.png)
+![nor02](img/800px-Normal_map_example.png)
+
+_________________
+
+### 3D Scanning
+####- Contact scanners
+![cscan](img/meth/scan.png)
+####- Noncontact scanners
+![ncscan](img/meth/scan01.png)
+![tomo](img/meth/tomo.png)
+
+### Modeling with Texture and Animation Tools
+####- Texture Displacement
+![disp](img/meth/disp.png)
+![hair](img/meth/hair.png)
+
+####- Bones, Lattice, and Deformers
+![bone](img/meth/bone.png)
+
+####- Dynamics
+![dynamic](img/meth/mic.png)
+
+All copyrights of images are in [digital] Modeling by William Vaughan, 2011
+
+__________
+# B.
+- Discussion & inspiration
+	
+_____________
+
+# C. Recess
+
+_______________
+
+# D. Review
+- [assignment](http://2016ant3012.tumblr.com)
+
+-----------------
+
+# E. 
+## Smoothing Polygon surfaces
+- [Autodesk: Smoothing polygons](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-8A5D0FF0-9BA1-435F-A4CA-53183311B819-htm.html) 
+	- Smooth a mesh by adding new polygons
+	- Smooth mesh preview overview
+	- Subdiv proxy overview
+	- Smooth a mesh by averaging the distance between vertices
+	- Subdivision surface
+ 
+- Other than the ways from the above list, to see a smooth version of a model, you can change its normal direction (Modeling // Mesh Display / Soften Edge) too.
+
+## Subdivision surface
+
+A subdivision surface lets you subdivide specific regions of a mesh, giving you the ability to finely tune or smooth certain areas without changing the entire mesh.
+
+Subdivision surfaces help you keep a lower polygon count because they only insert control points where you need them (instead of uniformly across the entire mesh). However, subdivision surfaces have the slowest performance of the three smoothing methods. 
+
+Note: Subdivision surfaces are largely unsupported in pipelines outside of Maya, so you need to convert them to polygons or NURBS before exporting to these pipelines. You can convert using either Modify > Convert Subdiv to Polygons or Modify > Convert Subdiv to NURBS.
+For more information on subdivision surfaces, see the [Subdivision Surfaces documentation archive](http://download.autodesk.com/us/support/files/subds.pdf).
+
+### OpenSubdiv 
+OpenSubdiv is an open-source subdivision method developed by Pixar that lets you work with a high-fidelity representation of your model with great accuracy and speed. As a professional standard in the animation industry, OpenSubdiv is implemented in a variety of software packages, improving interoperability by producing the same results when models are transferred between applications. In Maya, OpenSubdiv is the default subdivision method when you preview a smoothed mesh, smooth a mesh using Mesh > Smooth, or create a subdiv proxy.
+
+## Maya subdivision tutorial   
+- [Maya Subdivision Surfaces](https://www.youtube.com/watch?v=LpyJv8hhW_o&index=1&list=PL4fkBUcbgjGXSR7PUnjBuOSO3sDcLRF2F)  
+- [Intro to Maya and 3D Modeling - Lecture B: 5/13 - Subdivision and the Rule of 3](https://www.youtube.com/watch?v=70e-3bidL-w)
+
+
+-------------------------------------
+
+# F. Assignment
+
+- Please upload screenshot image of your subdivison model to our class web portfolio Tumblr:
+	1. Your choice of organic modeling using subdivision method.
+
+Reference image:
+
+![subd](img/lab/subd.png)  
+
+------------------------------------------
+------------------------------------------
+
+# Project 1 - still life modeling.
+## Due date: July 3rd midnight.
+
+- Please collect your final work and related files into one folder:
+
+	1. The name of folder: ```your school id_your name``` (e.g., 123456_your name)
+	  
+	2. Include in the folder: 
+		1. Your final render image: 720~1k pixels size, saved as JPG or PNG. 
+		2. Your Maya file (.mb or ma file) 
+		3. One page documentation PDF file, showing your reference image and a description of your choice and focus.   
+	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space](https://drive.google.com/open?id=0B7x8GrEkHm-LdG9mczJGRTZEaWc).
+	
+	4. Consider the technical and aesthetic challenges. 
+	
+	5. Here are some example rendering results from previous classes: [link](example.html)
+
+____________________________
+
+
+
+</div>
+<div id="wrapper">
+	
+	<div class="header">
+		
+		<h1>ANT3012</h1>		
+		<a href="index.html">Class overview</a><br/>
+		<a href="2016_3dmodeling.pdf">Syllabus</a><br/>
+		<a href=http://2016ant3012.tumblr.com/>Class Portfolio</a><br/><br/>	
+	
+		<h3>Week 1</h3>	
+				<a href="week1_1.html">1: Introduction</a><br/>
+				<a href="week1_2.html">2: 3D modeler and Maya</a><br/>
+				<a href="week1_3.html">3: 3D Modeling</a><br/>
+				<a href="week1_4.html">4: NURBS modeling I</a><br/>
+				<a href="week1_5.html">5: Polygon modeling I</a><br/><br/>									
+		<h3>Week 2</h3>	
+				<a href="week2_1.html">1: Modeling techniques (Project I)</a><br/>
+				<a href="week2_2.html">2: NURBS modeling II (Project I)</a><br/>
+				<a href="week2_3.html">3: Polygon modeling II (Project I)</a><br/>
+				<a href="week2_4.html">4: Shading</a><br/>
+				<a href="week2_5.html">5: Cinematography</a><br/><br/>		
+		<h3>Week 3</h3>	
+				<a href="week3_1.html">1: Character modeling</a><br/>
+				<a href="week3_2.html">2: Environment modeling</a><br/>
+				<a href="week3_3.html">3: Texturing</a><br/>
+				<a href="week3_4.html">4: Global Illumination</a><br/>
+				<a href="week3_5.html">5: Ambient occlusion</a><br/><br/>	
+			
+	</div>
+	<div class="section">
+		<script type="text/javascript">
+		//var converter = new Markdown.Converter();
+		var converter = new Showdown.converter();
+		document.write(converter.makeHtml($('#sourcetext').text()));
+		</script>
+	</div>
+	
+	<div class="footer">HyunKyung (Haru) Ji, 2016</div>
+	
+</div>
+</body>
+</html>
