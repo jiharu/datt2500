@@ -20,74 +20,263 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# 3D modeling
-## Topology 
-- A surface, a two-dimensional manifold, looks flat in a local view, but it can have a more-interesting global structure.
+# Surface modeling
+## Overview of NURBS, Polygon, Subdivision modeling
+   
+Using one of several geometry types, 3D artists can build surfaces, then push and pull points to change their shape.	
 
-- Topological objects are categorized by their genus (number of holes).
+![geom01](img/maya/geom.png)  
+*- Art of Maya, p43.*
 
-	![topo01](img/maya/polygon01/topo01.jpg)   
-	
-### Definition
+### NURBS
+NURBS (Non-Uniform Rational B-Splines) are one geometry type you can use to create 3D curves and surfaces in Maya. 
+NURBS are useful for constructing many types of organic 3D forms because of the smooth and minimal nature of the curves they use to construct surfaces. NURBS surface types are widely used in the fields of animation, games, scientific visualization, and industrial design.
 
-- **Topology is the mathematical study of *shapes* and *spaces*.** It is a major area of mathematics concerned with the most basic properties of space, such as *connectedness*, *continuity* and *boundary*. It is the study of properties that are preserved under continuous deformations including stretching and bending, but not tearing or gluing. Topology developed as a field of study out of geometry and set theory, through analysis of such concepts as space, dimension, and transformation. 
+### Polygon
+Polygons are straight-sided shapes (3 or more sides), defined by three-dimensional points (vertices) and the straight lines that connect them (edges). The interior region of the polygon is called the face. 
+When many faces are connected together they create a network of faces called a polygon mesh (also referred to as a polyset or a polygonal object).
 
-	e.g. a Möbius strip is a kind of object studied in topology which has only one surface and one edge.  
-	
-	![mobius](img/mobius_escher.gif)
-	- The gif clip is from [Mobius from mathcurve.com](http://www.mathcurve.com/surfaces/mobius/mobius.shtml)
-	
-- The definition of topology leads to the following mathematical joke (Renteln and Dundes 2005)	
-	
-	***"What is a topologist?""***  
-	***"Someone who cannot distinguish between a doughnut and a coffee cup."*** [Wolfram mathworld](http://mathworld.wolfram.com/Topology.html), [위상이란 무엇인가?](http://mathnmath.tistory.com/39)   
+### Primitives in Maya
 
-	 ![torus](img/Mug_and_Torus_morph.gif)    
-	- This gif clip is from [wikipedia](http://en.wikipedia.org/wiki/Topology)
+![pri](img/maya/polygon/primitives.png)   
 
-- [Mathworld](http://mathworld.wolfram.com/classroom/TopologicalSpace.html): (1) The mathematical study of object's properties that are preserved through **deformations**, **twistings**, and **stretchings** of objects. Tearing, however, is not allowed. (2) A set along with a collection of subsets that satisfy several defining properties. 
+### Differences between NURBS and polygon surfaces
 
-### More examples
+The difference between NURBS surfaces and polygon objects is similar to the difference between vector images and pixel-based images in 2D drawing programs. NURBS surfaces are like vector images in that they are surfaces interpolated from resolution-independent curves. Polygon objects are similar to pixel-based images in that they are dependent on the number of polygon faces for their resolution.	
 
-There are many surfaces with a variety of looks that are topologically the same.
+## Overview video of modeling   
+- [Pluralsight (digital-tutors) video (2:19).](http://www.digitaltutors.com/tutorial/712-CG101-Modeling)  
+
+_______________________
+_______________________
+
+# NURBS modeling
+## Goal
+
+- Understanding NURBS modeling: curves and surfaces.
+- Being able to create NURBS geometry and to modify its properties.
+
+------------
+# NURBS (Non-Uniform Rational B-Splines)
+[Maya help: NURBS overview](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-5EC05798-3F28-4AD2-8154-36BC444A4DC9)
+
+## NURBS
+**Non-uniform rational basis spline (NURBS)** is a mathematical model commonly used in computer graphics for generating and representing curves and surfaces. It offers great flexibility and precision for handling both analytic (surfaces defined by common mathematical formulae) and modeled shapes. NURBS are commonly used in computer-aided design (CAD), manufacturing (CAM), and engineering (CAE) and are part of numerous industry wide standards.   
+[wikipedia: Non-uniform rational B-spline](https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline)
+
+## Terminology 
+
+	NURBS, CV (Control Vertex), EP (Edit Point), start of curve, curve direction,  
+	curve degree, hull, span, knot spacing..  
+		  
+### In Maya	
+>Maya calls any NURBS curve simply a “curve.” In some menus, Maya will refer to a surface created from curves as a “surface” and sometimes as “NURBS,” such as in the 'Modify/Convert' menu. Although other 3D programs might have more than one type of spline technology, you should know that even though Maya sometimes drops the word “NURBS,” we are still dealing with this technology whenever we use “curves” and “surfaces” within Maya.
+
+### References
+- [NURBS curve flash demo by Jan Foretník](http://geometrie.foretnik.net/files/NURBS-en.swf)  
+- [A (mathematical) summary by Markus Altmann about NURBS](http://web.cs.wpi.edu/~matt/courses/cs563/talks/nurbs.html)  
+- [Parameterization of NURBS curves and surfaces](http://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/MayaLT/files/NURBS-overview-Parameterization-of-NURBS-curves-and-surfaces-htm.html)
+
+-----------------
+
+## Components
+The components of the NURBS surface are very similar to those of the NURBS curve. NURBS surfaces have CVs, hulls and spans which define the shape of a four-sided surface. NURBS models, whether they are organic or industrial in nature, are generally made up of several adjoining four-sided patches. As with the NURBS curve, it is desirable to define surfaces with the fewest evenly spaced isoparms or CVs. The quality and type of curve will affect the characteristics of the surface. 
+
+## Curve
   
-![topo02](img/maya/polygon01/topo.jpg)   
-- The image is from [Math Hangout](http://mathhangout.weebly.com/stuff.html)
+![nrbs04](img/maya/nurbs/curve01.png)   
+ 
 
+### Curve degree
 
-- Check out more about topology from [Annenberg Learner website](http://www.learner.org/courses/mathilluminated/units/4/textbook/03.php)  
+![nbs01](img/maya/nurbs/nurbs01.png)
 
---------------------------------------------
-## Booleans 
-Three boolean operations let you combine objects to make shapes that would otherwise be difficult to model using other techniques. You can add, subtract, or intersect objects to create a new, complex shape. [Examples](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-7DADD144-6C29-4AE3-B877-A9947B2F26E0)
+## Surface
 
-### The example of Boolean process
-![boo01](img/maya/polygon/bl01.png) 
+![nrbs05](img/maya/nurbs/surface.png)  
+![nrbs003](img/maya/nurbs/nurbs_iso.jpg)  
+![nrbs03](img/maya/nurbs/nurbs.png)  
 
-### Different kinds of boolean operation 
-![boo01](img/maya/polygon/bl02.png)  
+### Rebuild
+![rebu01](img/maya/nurbs/rebuild.png)
+  
+### Planar
+![nrbs02](img/maya/nurbs/curve.png)     
 
+### Extrude  
+![ext01](img/maya/nurbs/extr.png)       
+
+----------------
+## How to modify/edit
+- Using F8 key, Marking menu with right mouse button, or select icon from the menu. 
+
+### Command menu in Maya
+![menu](img/maya/nurbs/menu.png)  
 __________
 # Inspiration
-## Game of Thrones intro
-- [Official Show Open 1:41](https://www.youtube.com/watch?v=s7L2PVdrb_8)
-- [Extended Opening 4:27](https://www.youtube.com/watch?v=i9xKpUXbxfM&feature=iv&src_vid=B3vqcbJwgCI&annotation_id=annotation_96828)  
-- [Kirk Shintani from Elastic](http://www.artofvfx.com/?p=1659)
-- [Software used to create the intro of Game of Thrones , Quora](http://www.quora.com/What-software-was-used-to-create-the-intro-for-Game-of-Thrones-TV-series)
+- [Pixar Animation- Luxo Jr.](https://www.youtube.com/watch?v=D4NPQ8mfKU0)
 
-## 3D artists
-- [Kenneth A. Huff](http://www.kennethahuff.com/) 
-- [Meats Meier](https://vimeo.com/53762767)   
+## Reference
+- [Doniel Moore blog](https://subjct1337.wordpress.com/category/unit-51-3d-computer-modelling/)
 
-![meatsMeier](img/Incredible-3D-Art-02.jpg) 
+-----------------
+-----------------
 
-## VR
-- [Kaleidoscope](http://kaleidovr.com/) is a community for Virtual Reality Creators to share their work and build a fanbase, secure funding and distribution, and discover new projects and new collaborators.  
+# Lab
+## To do list
+- Lab practice A: **General setting for all modeling - Tool settings (option box), Attribute Editor, history node (INPUTS node), and Help line.** 
+- Lab practice B: **Editing curves**
+- Lab practice C: Creating surfaces		
+- Lab practice D: Editing surfaces
+- Lab practice E: **Creating Apple - Revolve, Loft, and Trim**
+- Lab practice F: **Creating Wine glass**
+- Lab practice G: Creating your 3D name - Bevel
 
-## Book
-- [Digital Art Masters]((http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=digital+art+masters&rh=i%3Aaps%2Ck%3Adigital+art+masters) [3dtotal](http://www.3dtotal.com/).	
+------------------
 
--------------------------
+## Review
+### Assignment
+- [Lab 1](http://2016datt2500.tumblr.com)
+- [Lab 2](http://2016datt2500lab2.tumblr.com/)     
+- [Lab 3](http://2016datt2500lab3.tumblr.com/)  
+- [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
+
+-------------------------------
+## Lab practice A: General setting
+### Tool settings (option box)
+![tool](img/lab/toolbx.png) 
+
+### Attribute Editor (ctrl + a)
+![tool01](img/lab/atte.png) 
+
+### History nodes (INPUTS nodes)
+#### To delete:
+![tool02](img/lab/history.png) 
+
+### The cursor for the icon & Help line
+- Get a description of/instructions for the action under the cursor.
+- To help you understand the operation of the tools, view the Help Line as you scroll through the menus.
+	
+![help](img/maya/nurbs/help.png) 
+
+---------------------------------
+## Lab practice B: Editing curves
+## Curve Editing
+
+### Editing CVs & EP
+- To modify, use the F8 key, Marking menu with right mouse button, or select icon from the menu. 
+
+![curve](img/lab/curves.png) 
+
+### Detaching & attaching curves
+- Splits a curve into two new curves.
+(Curves / Detach)
+
+![curve01](img/maya/nurbs/curve/detach.png)
+
+- Joins NURBS curves together at their endpoints to form a new curve. You can select two or more curves for attaching.
+(Curves / Attach)
+
+![curve02](img/maya/nurbs/curve/attach.png)
+
+### Cut Curve
+- Splits curves wherever they cross a cutting curve in the view.
+(Curves / Cut)
+
+### Insert knot
+
+### Rebuild
+- Performs various operations to modify the selected curve.
+(Curves / Rebuild)
+
+### Reverse Direction
+
+__________________
+## Lab practice C: Creating surfaces	
+### Revolve
+
+### Loft
+
+### Birail
+- Creates a surface by sweeping between a series of profile curves along two path curves. The resulting surface can maintain continuity with other surfaces. The Birail Tool has options for sweeping 1, 2, or 3 (or more) cross sectional curves along the two path (rail) curves. The resulting surface is interpolated through the profile curves. (Surfaces / [Birail](http://help.autodesk.com/view/MAYAUL/2016/ENU//index.html?guid=GUID-E9C6BCFF-261A-4E8E-8139-468A57E0E0D4))   
+[tutorial](http://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/MayaLT/files/Surfaces--Birail-htm.html)   
+
+![surface01](img/lab/birail.png) 
+
+### Boundary
+- Creates a surface by filling between boundary curves. (Surfaces / Boundary)
+
+### Bevel
+- Creates beveled transition surfaces from a profile curve. (Surfaces / Bevel)
+
+__________________
+## Lab practice D: Editing surfaces
+### Edit surface components
+- To modify, use F8 key, Marking menu with right mouse button, or select icon from the menu. 
+
+### Project Curve on Surface and Trim tool
+- (Surfaces / Project Curve on Surface)
+
+### Boolean
+- NURBS: Surfaces / Booleans
+	1. Create more than 2 surfaces.
+	2. Select Boolean operation.
+	3. Choose model 1 and press Enter key.
+	4. Choose model 2 and press Enter key. 
+
+### Using the Sculpt Geometry tool
+- (Surfaces / Sculpt Geometry Tool)
+- The importance of numbers of sections and spans  
+- [Sculpt Geometry Tool overview](http://help.autodesk.com/view/MAYAUL/2016/ENU//index.html?guid=GUID-5FE84872-54E1-49F9-B585-4031A08AAE56)  
+
+![curve03](img/maya/nurbs/curve/sculpt.png)
+
+### Rebuild
+
+### Reverse Direction
+__________________________
+
+## Tutorial / Inspiration
+- NURBS modeling tutorials: [car rim](http://www.cgarena.com/freestuff/tutorials/maya/modeling-rim/modeling-rim.php)     
+
+---------------------
+## Lab practice E: Creating Apple - Revolve, Loft, and Trim
+
+![ap01](img/maya/nurbs/apple.png)   
+![ap02](img/lab/apple.png)   
+
+--------------------------------------
+## Lab practice G: Creating your 3D name - Bevel
+(Create / Text )
+
+![bb01](img/maya/nurbs/bb.png) 
+![bb02](img/maya/nurbs/bb01.png)
+![bb03](img/maya/nurbs/bb02.png)
+![bb04](img/maya/nurbs/bb03.png) 
+
+-------------------------------------
+
+## Lab practice H: Boolean practice
+
+- NURBs: Surfaces/Edit NURBS/Booleans
+	1. Create more than 2 surfaces.
+	2. Select Boolean operation.
+	3. Choose model 1 and press Enter key.
+	4. Choose model 2 and press Enter key. 
+
+-----------------------------
+-----------------------------
+
+# Assignment
+
+- Please upload your screenshot images of your NURBS models to our class web portfolio Tumblr along with the caption - **"a03 by your name, date"**.  :
+	1. a fruit or a vegitable
+	2. a wine glass
+
+![banana](img/lab/banana.png)
+Assignment reference image
+
+-----------------------------
 
 
 
@@ -116,7 +305,7 @@ __________
 				<a href="week2_5.html">10: Character & Low-poly modeling</a><br/>		
 				<a href="week3_1.html">11: Global Illumination</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project III<br/>
+				Project III<br/>	
 			
 	</div>
 	<div class="section">
