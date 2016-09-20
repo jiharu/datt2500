@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Introduction to 3D Modeling</title>
+    
+<link href="css/site.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/highlight.default.css" media="screen" rel="stylesheet" type="text/css" />
+  
+<script src="js/jquery.js"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+<!--
+Write the markdown code below.
+A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
+-->
+
+<div style="display: none" id="sourcetext">
+
+# 3D modeling overview
+## Goal
+
+- Overview on what is 3D modeling data, what it is used for, and how to use it.  
+- Brief introduction of working as a 3D modeler in the industry.  
+- Brief introduction of 3D space and coordinate system. 
+- Overview on 3D modeling methods in Maya. 
+
+## 2D & 3D
+
+![Drawing Hands by M. C. Escher](img/drawing_hands.jpg)  
+*Drawing Hands*,  M.C. Escher, lithograph, 1948   
+ 
+	  
+![3DHomer](img/homer2D-3D_2.jpg)	
+ *"The Simpsons"* U.S. fair use.
+
+
+## What is digital modeling?  
+
+- Digital modeling (3D model, 3D mesh, or  3D modeling) refers to the process of creating a mathematical representation of a three-dimensional shape of an object. 
+
+## How to create 3D modeling data
+
+- Models may be created in many different ways. You can create 3D models manually, or by generating them, or by automatically scanning objects. The manual modeling process of preparing geometric data for 3D computer graphics is similar to plastic arts such as sculpting. You also can use various algorithms to generate 3D geometric data.
+
+![3Dart02](img/3dart/zbrush.jpeg)  
+ZBrush ZSketch of a fish, a sculpting skin, and a render.  
+[Zbrush Zsketch by AIE cert 2 Online, Vimeo](https://vimeo.com/45038679)
+  
+- There is [Sculptris](http://pixologic.com/sculptris/), a free digital sculpting tool from the Pixologic, you might try.
+
+## Uses of 3D modeling
+
+- You can see 3D graphics literally everywhere these days. 3D modeling is used in various industries such as film, animation, gaming, industrial design, medical illustration and animation, architecture, virtual reality and 3D printing.   
+- A wide number of 3D software are also used in constructing digital representations of mechanical models or parts before they are manufactured. CAD/CAM related software are used in such fields, and with these software, not only can you construct the parts, but also assemble them, and observe their functionality. In the field of Industrial design, products are 3D modeled before representing them to the clients and in media and event industries, 3D modelling is used in stage/set design. 
+
+## Real-time & non real-time
+	
+- Real-time: rendering for interactive media, such as games and simulations, is calculated and displayed immediately. It uses the viewer's PC processor and graphics card to produce individual frames of animation as they are displayed.   
+- Non real-time (offline rendering): animations for non-interactive media, such as feature films and video, are rendered much more slowly and presented as video files. Non-real time rendering enables the leveraging of limited processing power in order to obtain higher image quality.  
+
+![3Dart01](img/3dart/minecraft_stonehenge.jpg)  
+A screenshot image of Minecraft scene: Stonehenge in Wiltshire, recreated in Minecraft blocks by Ordnance Survey Innovation Lab.  
+[Boxmash: Great Britain recreated in Minecraft](http://www.boxmash.com/great-britain-recreated-in-minecraft/)  
+
+![3Dart01](img/3dart/mindcraft.png)  
+A render image of Minecraft scene, Image courtesy of Lee Griggs (Solid Angle SL) and Tomás Fernandez Serrano (fonominecraft.com).   
+
+- The model is exported from Minecraft using [Mineways](http://mineways.org/) and rendered with the Arnold renderer.
+
+### Related links
+
+- [3D rendering, wikipedia](http://en.wikipedia.org/wiki/3D_rendering)   
+- [4-next.com](http://4-next.com/3d4u/3D4U_what_is_diff.cfm) 
+- [cgchannel](http://www.cgchannel.com/2010/10/cg-science-for-artists-part-1-real-time-and-offline-rendering/)
+
+![3Dart03](img/3dart/nervouss.png)  
+3D printing of a generative design lamp, Image courtesy of Nervous System.  
+
+---------------------------------------------------------------------------
+
+# Working as a 3D modeler in the industry  
+Reference: [digital] Modeling by William Vaughan, 2011  
+
+##  Advice for becoming a 3D modeler
+
+- **Problem-solving** and **observational skills** are most important: to be successful in this feld, you need to become a problem solver with good observation skills and a desire to create things. You never stop learning in this feld. You face new challenges with every new project, many of which require innovative solutions that you must discover on your own. If you get to a point where you stop seeing these challenges as lessons that help build your ever-growing skill set, it’s probably a sign that you’ve lost your passion for the medium and it may be time to explore other career options.
+
+- **Software:** whether the software is free, cheap, or super expensive, artists are creating amazing pieces of art with it. Don’t get too caught up in software, because throughout your career as a digital artist you will most likely use various modeling and sculpting applications. Each comes with its own workfow, but the core fundamentals of modeling stay the same. 
+
+- **Job Market:** according to the BLS (U.S. Bureau of Labor Statistics), the job market for multimedia artists and animators was expected to grow 8% from 2010-2020. With large numbers of self-employed 3D artists and the intense competition for salaried positions, earnings vary widely and are difficult to predict. The BLS reported that the median annual salary for multimedia artists and animators was US$61,370 in May 2012. [-Educational Portal](http://education-portal.com/articles/3D_Artists_Job_Description_and_Career_Outlook_for_a_3D_Artist.html)
+
+## Understanding a modeler’s role 
+
+- It’s all about teamwork. To truly master digital modeling, you must be aware of all aspects of production and understand how they are connected. Projects that require digital modeling come in all shapes and sizes, and can require a team made up of just one artist or hundreds of artists.    
+
+	>  ![BranitFX](img/BranitFX.png)
+	Image courtesy: [digital] Modeling by William Vaughan, 2011
+	
+-----------------------------------------------------
+-----------------------------------------------------
+
+# 3D world
+## Virtual vs. real space
+![wo02](img/maya/polygon/vr.png)
+![wo01](img/maya/polygon/re.png)  
+
+## 3D coordinate system
+The 3D world in computer graphics applications is visualized using a Cartesian coordinate system.
+
+![3D01](img/maya/righthand.png),![3D02](img/maya/righthand01.png)
+
+------------
+## 3D working interface
+  
+Modeling on a conventional computer can be a challenge at first because the goal is to mimic 3D objects on a 2D screen; 3D artists need to learn how to use manipulators and different view panels to navigate the virtual space so they can focus on sculpting and building their models. 
+
+### X, Y, Z axis orthogonal view sketch
+![bam01](img/maya/nurbs/skech.png)   
+![bam02](img/maya/nurbs/sbox01.png)
+
+### Building 3D in 3D	
+- [Building VR in VR with Unreal Engine 4 - Early Preview [1:58]](https://www.youtube.com/watch?v=JKO9fEjNiio)  
+
+-------------------------------
+
+# Modeling in Maya
+## Overview of NURBS, Polygon, Subdivision modeling
+   
+Using one of several geometry types, 3D artists can build surfaces, then push and pull points to change their shape.	
+
+![geom01](img/maya/geom.png)  
+*- Art of Maya, p43.*
+
+### NURBS
+NURBS (Non-Uniform Rational B-Splines) are one geometry type you can use to create 3D curves and surfaces in Maya. 
+NURBS are useful for constructing many types of organic 3D forms because of the smooth and minimal nature of the curves they use to construct surfaces. NURBS surface types are widely used in the fields of animation, games, scientific visualization, and industrial design.
+
+### Polygon
+Polygons are straight-sided shapes (3 or more sides), defined by three-dimensional points (vertices) and the straight lines that connect them (edges). The interior region of the polygon is called the face. 
+When many faces are connected together they create a network of faces called a polygon mesh (also referred to as a polyset or a polygonal object).
+
+### Primitives in Maya
+
+![pri](img/maya/polygon/primitives.png)   
+
+### Differences between NURBS and polygon surfaces
+
+The difference between NURBS surfaces and polygon objects is similar to the difference between vector images and pixel-based images in 2D drawing programs. NURBS surfaces are like vector images in that they are surfaces interpolated from resolution-independent curves. Polygon objects are similar to pixel-based images in that they are dependent on the number of polygon faces for their resolution.	
+
+## Overview video of modeling   
+- [Pluralsight (digital-tutors) video (2:19).](http://www.digitaltutors.com/tutorial/712-CG101-Modeling)  
+
+-------------------------
+-------------------------
+
+# Lab
+- Review 
+- Lab practice A: Preparation for the project
+- Lab practice B: Build a robot using Maya primitives 
+_______________
+
+# Review
+- Survey result: 
+
+![survey](img/lab/survey2016.png)  
+
+## Assignment
+- [Lab 1](http://2016datt2500.tumblr.com)
+- [Lab 2](http://2016datt2500lab2.tumblr.com/)     
+- [Lab 3](http://2016datt2500lab3.tumblr.com/)  
+- [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
+
+--------------------
+
+# Lab practice A: preparation for the project
+## Project set-up: ***Project Window***.    
+
+![pr00](img/maya/interface/project.png)  
+
+## Preference Set-up: the number of ***undo***s
+![pr01](img/maya/interface/pref.png)
+
+## Tip
+- ***Save your scene file often! Maya do crash!*** 
+
+----------------------
+
+## Navigating display windows
+
+- View panel change (Space Bar or check the left area layout) : Single View vs. Four View
+- Perspective View + Orthographic View
+- Tumble, Track, Dolly Tool (Alt (option) + Mouse Button (left, middle, right button))    
+
+------------------------
+## Editing
+- Object mode vs editing (component) mode
+- Viewing or managing *manipulator* to transform
+____________
+## Hierarchycal relation
+### View panel
+Check out objects in the scene. Each modeling object is consisted with transform and shape nodes. You can control their hierarchical relations in these windows:  
+
+- Outliner window
+- Hypergraph window
+
+### Group vs. parent
+
+Toggle on [Outliner/Display/Shapes] to show shape node along with transform node.  
+It is important to understand the relations between a transform node and its manipulator's position as a pivot point, when you move, rotate, and scale an object. 
+
+#### Move the pivot point
+Changing the *pivot*, which is a center of manipulator (***insert*** key, or ***fn + left*** arrow key, or ***d*** key)
+  
+![hir01](img/maya/parent.png)    
+![hir02](img/maya/hie.png)    
+![hir03](img/maya/hier01.png) 
+
+____________
+# Lab practice B: your simple robot
+## What you will build:
+![sim01](img/lab/sim_rob.png) 
+Perspective view.  
+
+![sim02](img/lab/rob.png)
+Four plane view.  
+
+## How to build:
+1. Make sure that you set-up the project so that you know where your scene file will be located.   
+2. Create new scene and save it.  
+3. Go to the Front view to start. Check the grid location and size. 
+4. Create primitives: boxes, cylinders, or spheres.
+5. Move, rotate, and scale them checking side and top view. 
+6. Check and work in between perspective and orthogonal views.  
+7. To move the rims, you need to group or parent.
+8. Duplicate rims and an eye using Duplicate Special command.
+ 
+### Naming
+- Use alphabet, numbers, and under bar to make names. As a symmetric parts, it is important to distinguish it as a group name and it is the same for the object name. 
+
+### Parenting & grouping
+- Observe how rotation value applies differently when you do parenting or grouping. 
+
+### Duplicate Special
+- You can duplicate all the right parts to its counter left parts using Duplicate Special.
+
+![dup](img/lab/dup.png)
+
+-----------------------------
+# Assignment
+
+- Making: rebuild your robot using Maya primitives (prepare your sketch to refine proportion) and upload it to Tumblr. Please write the caption: **"a02 by your name, date"**    
+- Reading: ***Art of Maya*** [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf) p16~17: 3D Space, p32~33: Transformations, p42~43: Geometry.
+
+---------------------------
+
+</div>
+<div id="wrapper">
+	
+	<div class="header">
+		
+		<h1>DATT2500</h1>		
+		<a href="index.html">Class overview</a><br/>
+		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+	
+		<h3>Class weeks</h3>	
+				<a href="week01.html">1: Introduction</a><br/>
+				<a href="week02.html">2: 3D Modeling</a><br/>
+				<a href="week1_3.html">3: NURBS modeling I</a><br/>
+				<a href="week1_4.html">4: Polygon modeling I</a><br/>
+				Project I<br/> 
+				<a href="week1_5.html">5: Modeling techniques</a><br/>								
+				<a href="week2_1.html">6: Shading</a><br/>  
+				<a href="week2_2.html">7: Texturing</a><br/>
+				<a href="week2_3.html">8: Cinematography</a><br/>
+				Project II<br/> 
+				<a href="week2_4.html">9: Modeling II</a><br/>
+				<a href="week2_5.html">10: Character & Low-poly modeling</a><br/>		
+				<a href="week3_1.html">11: Global Illumination</a><br/>
+				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
+				Project III<br/>
+			
+	</div>
+	<div class="section">
+		<script type="text/javascript">
+		//var converter = new Markdown.Converter();
+		var converter = new Showdown.converter();
+		document.write(converter.makeHtml($('#sourcetext').text()));
+		</script>
+	</div>
+	
+	<div class="footer">HyunKyung (Haru) Ji, 2016</div>
+	
+</div>
+</body>
+</html>

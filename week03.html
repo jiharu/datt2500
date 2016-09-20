@@ -21,64 +21,6 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 <div style="display: none" id="sourcetext">
 
 # 3D modeling
->## Class schedule
-- A. Lecture: 9:00~10:00. 
-- B. Demonstration / discussion: 10:00 ~ 10:15
-- C. Recess: 15 mins.
-- D. Review: 10:30~10:45
-- E. Lab practice: 10:45~11:45  
-- F. Assignment
-
-------------------------------------
-
-# A. 
-
-### Virtual vs. real space
-![wo02](img/maya/polygon/vr.png)
-![wo01](img/maya/polygon/re.png)  
-
-## 3-D world
-The 3D world in computer graphics applications is visualized using a Cartesian coordinate system.
-
-![3D01](img/maya/righthand.png),![3D02](img/maya/righthand01.png)
-
-------------
-## Basic Modeling
-  
-> Modeling on a conventional computer can be a challenge at first because the goal is to mimic 3D objects on a 2D screen; 3D artists need to learn how to use manipulators and different view panels to navigate the virtual space so they can focus on sculpting and building their models. 
-
-### X, Y, Z axis orthogonal view sketch
-![bam01](img/maya/nurbs/skech.png)   
-![bam02](img/maya/nurbs/sbox01.png)
-
--------------------------------
-
-## Overview of NURBS, Polygon, Subdivision modeling
-   
-
-> Using one of several geometry types, 3D artists can build surfaces, then push and pull points to change their shape.	
-
-![geom01](img/maya/geom.png)  
-*- Art of Maya, p43.*
-
-### NURBS
-NURBS (Non-Uniform Rational B-Splines) are one geometry type you can use to create 3D curves and surfaces in Maya. 
-NURBS are useful for constructing many types of organic 3D forms because of the smooth and minimal nature of the curves they use to construct surfaces. NURBS surface types are widely used in the fields of animation, games, scientific visualization, and industrial design.
-
-### Polygon
-Polygons are straight-sided shapes (3 or more sides), defined by three-dimensional points (vertices) and the straight lines that connect them (edges). The interior region of the polygon is called the face. 
-When many faces are connected together they create a network of faces called a polygon mesh (also referred to as a polyset or a polygonal object).
-
-### Primitives in Maya
-
-![pri](img/maya/polygon/primitives.png)   
-
-### Differences between NURBS and polygon surfaces
-
-The difference between NURBS surfaces and polygon objects is similar to the difference between vector images and pixel-based images in 2D drawing programs. NURBS surfaces are like vector images in that they are surfaces interpolated from resolution-independent curves. Polygon objects are similar to pixel-based images in that they are dependent on the number of polygon faces for their resolution.
-
--------------------
-
 ## Topology 
 - A surface, a two-dimensional manifold, looks flat in a local view, but it can have a more-interesting global structure.
 
@@ -126,99 +68,26 @@ Three boolean operations let you combine objects to make shapes that would other
 ![boo01](img/maya/polygon/bl02.png)  
 
 __________
+# Inspiration
+## Game of Thrones intro
+- [Official Show Open 1:41](https://www.youtube.com/watch?v=s7L2PVdrb_8)
+- [Extended Opening 4:27](https://www.youtube.com/watch?v=i9xKpUXbxfM&feature=iv&src_vid=B3vqcbJwgCI&annotation_id=annotation_96828)  
+- [Kirk Shintani from Elastic](http://www.artofvfx.com/?p=1659)
+- [Software used to create the intro of Game of Thrones , Quora](http://www.quora.com/What-software-was-used-to-create-the-intro-for-Game-of-Thrones-TV-series)
 
-# B. Discussion	
+## 3D artists
+- [Kenneth A. Huff](http://www.kennethahuff.com/) 
+- [Meats Meier](https://vimeo.com/53762767)   
 
-_____________
+![meatsMeier](img/Incredible-3D-Art-02.jpg) 
 
-# C. Recess
+## VR
+- [Kaleidoscope](http://kaleidovr.com/) is a community for Virtual Reality Creators to share their work and build a fanbase, secure funding and distribution, and discover new projects and new collaborators.  
 
-_______________
+## Book
+- [Digital Art Masters]((http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=digital+art+masters&rh=i%3Aaps%2Ck%3Adigital+art+masters) [3dtotal](http://www.3dtotal.com/).	
 
-# D. Review
-- Survey result, Maya, and Tumblr 
-- [assignment](http://2016ant3012.tumblr.com)
-
------------------
-
-# E. Lab
-## To do list 
-- Lab practice A: Preparation for the project
-- Lab practice B: Build a robot using Maya primitives 
-
---------------------
-
-## Lab practice A: preparation for the project
-### Project set-up: ***Project Window***.    
-
-![pr00](img/maya/interface/project.png)  
-
-### Preference Set-up: the number of ***undo***s
-![pr01](img/maya/interface/pref.png)
-
-### Tip
-- ***Save your scene file often! Maya do crash!*** 
-
-----------------------
-
-### Navigating display windows
-
-- View panel change (Space Bar or check the left area layout) : Single View vs. Four View
-- Perspective View + Orthographic View
-- Tumble, Track, Dolly Tool (Alt (option) + Mouse Button (left, middle, right button))    
-
-------------------------
-### Editing
-- Object mode vs editing (component) mode
-- Viewing or managing *manipulator* to transform
-- Changing the *pivot*, which is a center of manipulator (***insert*** key, or ***fn + left*** arrow key, or ***d*** key)
-
-____________
-### Hierarchy relation
-#### View panel
-Check out objects in the scene. Each modeling object is consisted with transform and shape nodes. You can control their hierarchical relations in these windows:  
-
-- Outliner window
-- Hypergraph window
-
-#### Group vs. parent
-  
-![hir01](img/maya/parent.png)    
-![hir02](img/maya/hie.png)    
-![hir03](img/maya/hier01.png) 
-____________
-## Lab practice B: your simple robot
-### What you will build:
-![sim01](img/lab/sim_rob.png) 
-Perspective view.  
-
-![sim02](img/lab/rob.png)
-Four plane view.  
-
-### What/How to do
-1. Make sure that you set-up the project so that you know where your scene file will be located.   
-2. Create new scene and save it.  
-3. Go to the Front view to start. Check the grid location and size. 
-4. Create primitives: boxes, cylinders, and spheres.
-5. Move, rotate, and scale them checking side and top view. 
-6. Check and work in between perspective and orthogonal views.  
-7. To move the rims, you need to group or parent.
-8. Duplicate rims and an eye. You can use scale to find their symmetric position.
-
-________________________
-## Lab work to do
-1. Review on today's lecture & lab class material.
-2. Preparation for the project
-3. Build a robot using Maya primitives (Your assignment will be recreating your robot based on your sketch or proportion).
-
------------------------------
-# F. Assignment
-
-- Rebuild your robot using Maya primitives (prepare your sketch to refine proportion) and upload it to Tumblr.  
-- Review ***Art of Maya*** [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf) p16~17: 3D Space, p32~33: Transformations, p42~43: Geometry, p44~45: Modeling Techniques.
-
-
-____________________________
+-------------------------
 
 
 
@@ -234,7 +103,7 @@ ____________________________
 	
 		<h3>Class weeks</h3>	
 				<a href="week01.html">1: Introduction</a><br/>
-				<a href="week1_2.html">2: 3D Modeling</a><br/>
+				<a href="week02.html">2: 3D Modeling</a><br/>
 				<a href="week1_3.html">3: NURBS modeling I</a><br/>
 				<a href="week1_4.html">4: Polygon modeling I</a><br/>
 				Project I<br/> 
