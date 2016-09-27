@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 <meta charset='utf-8'>
@@ -40,7 +40,7 @@ Using one of several geometry types, 3D artists can build surfaces, then push an
 [Maya help: NURBS overview](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-5EC05798-3F28-4AD2-8154-36BC444A4DC9)
 
 ## NURBS
-**Non-uniform rational basis spline (NURBS)** is a mathematical model commonly used in computer graphics for generating and representing **curves** and **surfaces**. It offers great flexibility and precision for handling both analytic (surfaces defined by common mathematical formulae) and modeled shapes. NURBS are commonly used in computer-aided design (CAD), manufacturing (CAM), and engineering (CAE) and are part of numerous industry wide standards.   
+**Non-uniform rational basis spline (NURBS)** is a mathematical model commonly used in computer graphics for generating and representing **curves** and **surfaces**. It offers great flexibility and precision for handling both analytic (surfaces defined by common mathematical formulas) and modeled shapes. NURBS are commonly used in computer-aided design (CAD), manufacturing (CAM), and engineering (CAE) and are part of numerous industry wide standards.   
 [wikipedia: Non-uniform rational B-spline](https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline)
 
 ### References
@@ -62,9 +62,7 @@ NURBS are useful for constructing many types of organic 3D forms because of the 
 -----------------
 
 ## Components
-The components of the NURBS surface are very similar to those of the NURBS curve. NURBS surfaces have CVs, hulls and spans which define the shape of a four-sided surface. NURBS models, whether they are organic or industrial in nature, are generally made up of several adjoining four-sided patches. As with the NURBS curve, it is desirable to define surfaces with the fewest evenly spaced isoparms or CVs. The quality and type of curve will affect the characteristics of the surface. 
-
-## Curve
+## NURBs Curve
   
 ![nrbs04](img/maya/nurbs/curve01.png)   
  
@@ -73,23 +71,28 @@ The components of the NURBS surface are very similar to those of the NURBS curve
 
 ![nbs01](img/maya/nurbs/nurbs01.png)
 
-## Surface
+---------------------
+
+## NURBs Surface
+The components of the NURBS surface are very similar to those of the NURBS curve. NURBS surfaces have CVs, hulls and spans which define the shape of a four-sided surface. NURBS models, whether they are organic or industrial in nature, are generally made up of several adjoining four-sided patches. As with the NURBS curve, it is desirable to define surfaces with the fewest evenly spaced isoparms or CVs. The quality and type of curve will affect the characteristics of the surface. 
 
 ![nrbs05](img/maya/nurbs/surface.png)  
 ![nrbs003](img/maya/nurbs/nurbs_iso.jpg)  
 ![nrbs03](img/maya/nurbs/nurbs.png)  
 
-### Rebuild
+### Rebuild examples
 ![rebu01](img/maya/nurbs/rebuild.png)
   
+## Create surfcaces  
 ### Planar
 ![nrbs02](img/maya/nurbs/curve.png)     
 
 ### Extrude  
+- You need two curves (profile and path) perpendicularly positioned.
 ![ext01](img/maya/nurbs/extr.png)       
 
 ----------------
-## How to modify/edit
+## How to modify/edit components
 - Using F8 key, Marking menu with right mouse button, or select icon from the menu. 
 
 ### Command menu in Maya
@@ -98,21 +101,24 @@ __________
 # Inspiration
 - [Pixar Animation- Luxo Jr.](https://www.youtube.com/watch?v=D4NPQ8mfKU0)
 
-## Reference
-- [Doniel Moore blog](https://subjct1337.wordpress.com/category/unit-51-3d-computer-modelling/)
+<!--## Reference
+- [Doniel Moore blog](https://subjct1337.wordpress.com/category/unit-51-3d-computer-modelling/)-->
 
------------------
------------------
+--------------------------------------------------------------------
+
 
 # Lab
 ## To do list
 - Lab practice A: **General setting for all modeling - Tool settings (option box), Attribute Editor, history node (INPUTS node), and Help line.** 
 - Lab practice B: **Editing curves**
-- Lab practice C: Creating surfaces		
-- Lab practice D: Editing surfaces
-- Lab practice E: **Creating Apple - Revolve, Loft, and Trim**
-- Lab practice F: **Creating Wine glass**
-- Lab practice G: Creating your 3D name - Bevel
+
+- Lab practice C: **Creating Apple - Revolve, Loft, and Trim**
+- Lab practice D: **Creating Wine glass**
+- Lab practice E: Creating your 3D name - Bevel  
+- Lab practice F: Boolean practice
+
+- Lab practice G: Creating surfaces		
+- Lab practice H: Editing surfaces
 
 ------------------
 
@@ -136,7 +142,7 @@ __________
 ![tool02](img/lab/history.png) 
 
 ### The cursor for the icon & Help line
-- Get a description of/instructions for the action under the cursor.
+- Get a description of/instructions for the action under the cursor. (Turn on/off at the Preference/help)
 - To help you understand the operation of the tools, view the Help Line as you scroll through the menus.
 	
 ![help](img/maya/nurbs/help.png) 
@@ -151,7 +157,7 @@ __________
 ![curve](img/lab/curves.png) 
 
 ### Detaching & attaching curves
-- Splits a curve into two new curves.
+- Splits a curve into two new curves. You need to choose **an edit point** from the marking menu.
 (Curves / Detach)
 
 ![curve01](img/maya/nurbs/curve/detach.png)
@@ -166,6 +172,7 @@ __________
 (Curves / Cut)
 
 ### Insert knot
+- Choose **curve points** from the marking menu, then you will see the yellow dots to insert. 
 
 ### Rebuild
 - Performs various operations to modify the selected curve.
@@ -173,8 +180,47 @@ __________
 
 ### Reverse Direction
 
+---------------------
+## Lab practice C: Creating Apple - Revolve, Loft, and Trim
+
+![ap01](img/maya/nurbs/apple.png)   
+![ap02](img/lab/apple.png)   
+
+---------------------
+
+## Lab practice D: Creating Wine glass - Revolve
+Technical rigor and aesthetic concern: ***design*** and ***proportion***.
+**Proportion:** the ratio of one quantity to another, especially the ratio of a part compared to a whole. In a mathematical context, a proportion is the statement of equality between two ratios.
+[proportion: architecture](http://en.wikipedia.org/wiki/Proportion_(architecture)),
+[proportion: body](http://en.wikipedia.org/wiki/Body_proportions)
+
+  
+![w02](img/maya/nurbs/wine.jpg)    
+![w03](img/maya/nurbs/Tywine.png) 
+
+![w01](img/maya/nurbs/wine.png)   
+
+--------------------------------------
+## Lab practice E: Creating your 3D name - Bevel
+(Create / Text )
+
+![bb01](img/maya/nurbs/bb.png) 
+![bb02](img/maya/nurbs/bb01.png)
+![bb03](img/maya/nurbs/bb02.png)
+![bb04](img/maya/nurbs/bb03.png) 
+
+-------------------------------------
+
+## Lab practice F: Boolean practice
+
+- NURBs: Surfaces/Edit NURBS/Booleans
+	1. Create more than 2 surfaces.
+	2. Select Boolean operation.
+	3. Choose model 1 and press Enter key.
+	4. Choose model 2 and press Enter key. 
+	
 __________________
-## Lab practice C: Creating surfaces	
+## Lab practice G: Creating surfaces	
 ### Revolve
 
 ### Loft
@@ -192,7 +238,7 @@ __________________
 - Creates beveled transition surfaces from a profile curve. (Surfaces / Bevel)
 
 __________________
-## Lab practice D: Editing surfaces
+## Lab practice H: Editing surfaces
 ### Edit surface components
 - To modify, use F8 key, Marking menu with right mouse button, or select icon from the menu. 
 
@@ -218,42 +264,18 @@ __________________
 ### Reverse Direction
 __________________________
 
-## Tutorial / Inspiration
-- NURBS modeling tutorials: [car rim](http://www.cgarena.com/freestuff/tutorials/maya/modeling-rim/modeling-rim.php)     
-
----------------------
-## Lab practice E: Creating Apple - Revolve, Loft, and Trim
-
-![ap01](img/maya/nurbs/apple.png)   
-![ap02](img/lab/apple.png)   
-
---------------------------------------
-## Lab practice G: Creating your 3D name - Bevel
-(Create / Text )
-
-![bb01](img/maya/nurbs/bb.png) 
-![bb02](img/maya/nurbs/bb01.png)
-![bb03](img/maya/nurbs/bb02.png)
-![bb04](img/maya/nurbs/bb03.png) 
-
--------------------------------------
-
-## Lab practice H: Boolean practice
-
-- NURBs: Surfaces/Edit NURBS/Booleans
-	1. Create more than 2 surfaces.
-	2. Select Boolean operation.
-	3. Choose model 1 and press Enter key.
-	4. Choose model 2 and press Enter key. 
+## Advanced tutorial example
+- NURBS modeling tutorials: [car rim](http://www.cgarena.com/freestuff/tutorials/maya/modeling-rim/modeling-rim.php)     	
 
 -----------------------------
 -----------------------------
 
 # Assignment
 
-- Please upload your screenshot images of your NURBS models to our class web portfolio Tumblr along with the caption - **"a03 by your name, date"**.  :
-	1. a fruit or a vegitable
-	2. a wine glass
+- By Sunday Oct 2nd midnight, please upload your three screenshot images of your NURBS models to our class web portfolio Tumblr along with the caption - **"a03 by your name, date"**.  :
+	1. an apple.
+	2. a banana or bananas.
+	3. a wine glass.
 
 ![banana](img/lab/banana.png)
 Assignment reference image
@@ -277,7 +299,7 @@ Assignment reference image
 				<a href="week02.html">2: 3D Modeling</a><br/>
 				<a href="week03.html">3: NURBS modeling I</a><br/>
 				<a href="week1_4.html">4: Polygon modeling I</a><br/>
-				Project I<br/> 
+				Project I (By Oct 16th)<br/> 
 				<a href="week1_5.html">5: Modeling techniques</a><br/>								
 				<a href="week2_1.html">6: Shading</a><br/>  
 				<a href="week2_2.html">7: Texturing</a><br/>
