@@ -27,91 +27,95 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 - Being able to create polygon geometry and to modify its properties.
 
 ------------
-# Polygon modeling
 
 ![mm01](img/maya/polygon/mm.png)  
 
 Polygons are straight-sided shapes (3 or more sides), defined by three-dimensional points (vertices) and the straight lines that connect them (edges). The interior region of the polygon is called the face. 
 When many faces are connected together they create a network of faces called a **polygon mesh** (also referred to as a polyset or a polygonal object).
 
-## Primitives in Maya
-
-![pri](img/maya/polygon/primitives.png)  
-
----------------------- 
-
-### Differences between NURBS and polygon surfaces
+## Differences between NURBS and polygon surfaces
 
 The difference between NURBS surfaces and polygon objects is similar to the difference between vector images and pixel-based images in 2D drawing programs. NURBS surfaces are like vector images in that they are surfaces interpolated from resolution-independent curves. Polygon objects are similar to pixel-based images in that they are dependent on the number of polygon faces for their resolution.	
 
 
 -------------
-## Fundamental
-### Polygon component
+# Fundamentals
+## Object vs. component mode
+1. Object mode (transformation + shape + Input node)
+2. Component mode (you can edit parts of an object)
+
+## Polygon components
 **Vertices, edges, and faces** are the basic components of polygons. 
 When you model with polygons you usually use three-sided polygons called triangles or four-sided polygons called quadrilaterals (quads). Maya also supports the creation of polygons with more than four sides (n-gons) but they are not as commonly used for modeling.
   
 ![poly01](img/maya/polygon/poly.png)   
 ![poly02](img/maya/polygon/edge.png)   
  
-### Normal
+## Normal
+Normals are imaginary lines perpendicular to each point on a curve or surface (NURBs), or to the surface of a polygon (Polygon)
 
+In Maya, normals are used to determine the orientation of a polygon face (face normals), or how the edges of faces will visually appear in relation to each other when shaded (vertex normals).
+
+- Face normal
+
+![nol01](img/maya/polygon/fn.png)  
 ![nol01](img/maya/polygon/nor01.png) 
 
 - Vertex normal
 
 ![nol01](img/maya/polygon/vn.png)  
-You can modify the shading of individual polygons by manually editing the vertex normals associated with the polygon mesh.
-
-- Face normal
-  
-![nol01](img/maya/polygon/fn.png)      
+You can modify the shading of individual polygons by manually editing the vertex normals associated with the polygon mesh. Since they are always perpendicular to the curve or surface, the way normal lines point toward or away from each other can reveal subtle curvature.
+    
 
 ### Shading
+In the real world, two main factors determine the appearance of a surface: what an object is made of, and light.  
+In Maya, the appearance of a surface is defined by how it’s shaded. Surface shading is a combination of the basic material of an object and any textures that are applied to it.
 
 ![shd01](img/maya/polygon/sha.png) 
 
-### Smooth method
-
-![nol01](img/maya/polygon/smthmethod.png)      
-
 ### Texturing
+The below image shows how to do UV mapping and the use of place2DTexture node for the 2D texture placement.  
+
+- [Maya help: 2D placement](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-94070C7E-C550-42FD-AFC9-FBE82B173B1D)  
 
 ![tex01](img/maya/polygon/texturing.png) 
 
+## Smoothing
+
+- [Maya help: smoothing polygons](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-8A5D0FF0-9BA1-435F-A4CA-53183311B819)       
+
+![nol01](img/maya/polygon/smthmethod.png)  
+
 ___________________________________
-### Creating polygons: using primitives or creating from scratch.
-	- Using primitives (Create / Polygon Primitives)
-	- Creating Polygon from scratch (Mesh Tools / Create Polygon Tool)    
+## Creating polygons: using primitives or creating from scratch.
+- Using primitives (Create / Polygon Primitives)
+- Creating Polygon from scratch (Mesh Tools / Create Polygon Tool)    
 
 ![pri](img/maya/polygon/primitives.png)   
-Maya primitives
+Primitives in Maya
 
-### Two modes:
-1. Object mode (transformation + shape + Input node)
-2. Component mode (you can edit parts of an object)
-
-### Editing at component mode	
-	- Transform vertices, edges, and faces
-	- Split faces using snap (Mesh Tools / Multi-Cut) 	
-	- Combine or separate meshes
-	- Merge vertices, edges, and faces
-	- Delete vertices, edges, and faces	
-	- Append the deleted faces (Mesh Tools / Append to Polygon)
-	- Extrude faces or edges (Edit Mesh / Extrude) 
+## Editing in component mode	
+- Transform vertices, edges, and faces
+- Split faces using snap (Mesh Tools / Multi-Cut) 	
+- Combine or separate meshes
+- Merge vertices, edges, and faces
+- Delete vertices, edges, and faces	
+- Append the deleted faces (Mesh Tools / Append to Polygon)
+- Extrude faces or edges (Edit Mesh / Extrude) 
 
 ----------------
-### Invalid polygon geometry
-Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). While Maya does not let you create these types of geometry, it may be possible to import these types from other software applications.
+# Invalid polygon geometry
+Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). 
+
+## Solution
+- Converting polygon faces to triangles is a quick way to ensure non-planar faces render properly.    
+- Or converting polygon faces to quads is a good way to clean up polygons or reduce the number of faces. 
 
 ![poly03](img/maya/polygon/mn.png)  
 
-- Converting polygon faces to triangles is a quick way to ensure non-planar faces render properly.    
-- Converting polygon faces to quads is a good way to clean up polygons or reduce the number of faces. 
+## Two-manifold vs. non-manifold 
 
-### Two-manifold vs. Non-manifold 
-
-- Polygonal geometry can have different configurations or ***topology*** types in Maya. Understanding the characteristics of these topologies can be helpful when you need to understand why a modeling operation failed to execute as expected.
+- Polygonal geometry can have different configurations or topology types in Maya. Understanding the characteristics of these topologies can be helpful when you need to understand why a modeling operation failed to execute as expected.
 
 - **Two-manifold topology polygons** have a configuration such that the polygon mesh can be split along its various edges and subsequently unfolded so that the mesh lays flat without overlapping pieces.
 
@@ -121,16 +125,16 @@ Some types of polygon geometry will not work in Maya. Invalid geometry includes 
 
 The following operations in Maya can produce non-manifold geometry:
 
-- Select Faces or Edges and select **Edit Mesh > Extrude.**     
-- **Normals > Reverse (without extracting geometry).**  
-- **Edit Mesh > Merge Components.**  
-- **Delete Face.**  
-- **Edit Mesh > Merge Components to Center**  
+- Select Faces or Edges and select Edit Mesh > **Extrude.**     
+- **Normals > Reverse** (without extracting geometry). 
+- Edit Mesh > **Merge**  Components. 
+- **Delete** Face.  
+- Edit Mesh > Merge Components to Center 
 
-You can convert non-manifold topology polygons into two-manifold topology (including the less obvious case of adjacent faces with opposite normals) using **Mesh > Cleanup.**
+You can convert non-manifold topology polygons into two-manifold topology (including the less obvious case of adjacent faces with opposite normals) using the **Mesh > Cleanup** tool in Maya.
 
 __________
-### Modeling Toolkit 
+## Modeling Toolkit 
 
 Modeling Toolkit used to be a plug-in called NEX, that has been integrated within Maya since 2014. It integrates component-level selection and editing tools together (such as selecting vertices, edges, faces, etc., and extruding them, for example) for a more streamlined modeling workflow. 
 
@@ -140,7 +144,7 @@ The location of Shortcut in the Maya GUI
 ![mt02](img/maya/polygon/modelingToolkit.png)
 
 __________
-# B.
+
 ## Inspiration
 - Low poly art: 
 [Timothy J. Reynolds](http://www.turnislefthome.com/33005/324719/work/low-poly-isometrics),
@@ -159,21 +163,21 @@ __________
 - Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)
 (Polygon modeling. p.48~49.) 	
 
-_____________
-
-# C. Recess
-
 _______________
 
-# D. Review
-- [assignment](http://2016ant3012.tumblr.com)
+# Review
+## Assignment
+- [Lab 1](http://2016datt2500.tumblr.com)
+- [Lab 2](http://2016datt2500lab2.tumblr.com/)     
+- [Lab 3](http://2016datt2500lab3.tumblr.com/)  
+- [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
 ## What is NURBS modeling?  
 - [digital-tutors video (1:43).](https://www.youtube.com/watch?v=m9U_XmnHQMU)
 
 -----------------
 
-# E. Lab
+# Lab
 ## To do list
 - Lab practice A: **exercising basic polygon editing**   
 - Lab practice B: **your toy car**  
@@ -198,6 +202,7 @@ _______________
 ![poly01](img/lab/poly_car.png) 
 
 -------------------------------
+
 ## Lab practice C: beautiful tall building 
 Reference: Absolute World [wikipedia](https://en.wikipedia.org/wiki/Absolute_World), [designApplause](http://designapplause.com/news/people/mad-architects-studio-gang-win-chicagos-george-lucas-museum/42701/)  
 
@@ -206,12 +211,14 @@ Reference: Absolute World [wikipedia](https://en.wikipedia.org/wiki/Absolute_Wor
 ![poly022](img/lab/poly_transf.png) 
 
 -------------------------------
+
 ## Lab practice D: more buildings 
 
 ![poly031](img/lab/poly_re01.jpg)  ![poly032](img/lab/poly_re02.jpg)   
 ![poly03](img/lab/poly_house01.png) 
   
 -------------------------------
+
 ## Lab practice E: Vector rendering 
 ### Rendering
  
@@ -220,27 +227,23 @@ The renderer is where all of your scene data and settings are handed off to the 
 ![vec01](img/lab/vec01.png)   
 ![vec02](img/lab/vec02.png) 
 ________________________
-## Lab work to do
-- Review & practice based on today's lecture & lab class material. 
-- Prepare your assignments.  
-- Let's start working on your project 1: still life modeling. 
 
-## Boolean practice
+## Lab practice F: Boolean practice
 	
-- Polygons: Polygons/Mesh/Booleans
+- Polygons
 	1. Create more than 2 Polygon objects.
 	2. Choose model 1 and model 2.
-	4. Click Boolean operation. 
-
-
-
+	3. Click the Boolean operation from the Modeling menu set -> Mesh / Booleans / select among 'Union, Difference, and Intersection'. 
+	
 -----------------------------
-# F. Assignment
+# Assignment
 
-- Please upload screenshot images of your polygon models to our class web portfolio Tumblr:
-	1. a fun toy  
-	2. a beautiful condo
-	    
+- By Sunday Oct 9th midnight, please upload screenshot images of your polygon models to our class web portfolio Tumblr (caption: **"a04 by your name, date"**):
+	1. a fun toy with your own design. 
+	2. a beautiful condo with your own design. 
+	3. a house or other building with your own design.
+	
+- Let's start working on your project 1: [still life modeling](project.html). 	    
 ____________________________
 
 
@@ -253,22 +256,22 @@ ____________________________
 		<h1>DATT2500</h1>		
 		<a href="index.html">Class overview</a><br/>
 		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
-		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
 	
 		<h3>Class weeks</h3>	
 				<a href="week01.html">1: Introduction</a><br/>
 				<a href="week02.html">2: 3D Modeling</a><br/>
 				<a href="week03.html">3: NURBS modeling I</a><br/>
 				<a href="week1_4.html">4: Polygon modeling I</a><br/>
-				Project I (By Oct 16th)<br/> 
-				<a href="week1_5.html">5: Modeling techniques</a><br/>								
+				<a href="week1_5.html">5: Cinematography</a><br/>								
+				<a href="project.html">Project I (By Oct 16th)</a><br/> 
 				<a href="week2_1.html">6: Shading</a><br/>  
 				<a href="week2_2.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Cinematography</a><br/>
+				<a href="week2_3.html">8: Global Illumination</a><br/>
 				Project II<br/> 
-				<a href="week2_4.html">9: Modeling II</a><br/>
-				<a href="week2_5.html">10: Character & Low-poly modeling</a><br/>		
-				<a href="week3_1.html">11: Global Illumination</a><br/>
+				<a href="week2_4.html">9: Modeling techniques I</a><br/>
+				<a href="week2_5.html">10: Modeling techniques II</a><br/>		
+				<a href="week3_1.html">11: Character & Low-poly modeling</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
 				Project III<br/>			
 	</div>

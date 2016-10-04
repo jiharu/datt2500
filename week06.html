@@ -20,165 +20,266 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Modeling techniques
->## Class schedule
-- A. Lecture: 9:00~10:00. 
-- B. Demonstration / discussion: 10:00 ~ 10:15
-- C. Recess: 15 mins.
-- D. Review: 10:30~10:45
-- E. Lab practice: 10:45~11:45  
-- F. Assignment
+# Maya Shading
+## Goal
 
-------------------------------------
+- Understanding what are shading, texturing, and materials.
+- Differentiate between different shader types.
+- Applying materials with proper textures on different objects.
+- Create and edit shader networks in the Hypershade window.
 
-# A. 3D techniques
-Reference: [digital] Modeling by William Vaughan, 2011
+------------
+### Indirect (global) vs. direct illumination	
+![gl01](img/maya/shading/gl.png)
 
-### No set way
+Indirect light is all the inter-reflected light in a scene. Global illumination is an approximation of real-world indirect light transmission.
 
-> An interesting fact in the digital modeling world is that no two artists use the same techniques when creating a digital model, even when the two modelers are working from the same reference material, producing the same final mesh. Consider this example: When I had classes of thirty students working on the same robot model, I never saw any two working with the same method. This just goes to show that there is no set way to work, and that artists are free to work with whatever method(s) they feel most comfortable with.
+Direct (local) illumination is only the light provided directly from a light source (such as a spot light). Direct light is emitted from a light source and travels in a straight path to the illuminated point on a surface.
 
-![robots](img/meth/robots.png)
+![gl02](img/maya/shading/illum.png)
 
-### More methods
+Ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects. The technique is capable of producing a very high degree of visual realism, usually higher than that of typical scanline rendering methods, but at a greater computational cost. [-wikipedia](http://en.wikipedia.org/wiki/Ray_tracing_(graphics))
 
-> Don’t limit yourself to just a few modeling methods. Every professional digital modeler I know gravitates to a particular method of modeling for the majority of the meshes each is tasked with, but each modeler is quick to use other methods when needed. The more techniques you become proficient in, the more efficient you will become.
+----------------------------
+## Shading
+**Shading** is the proper term for applying a renderable color, surface bumps, transparency, reflection, shine, or similar attributes to an object in Maya. It’s closely related to, but distinct from, **texturing**, which is what you do when you apply a map or other node to an attribute of a shader to create some sort of surface detail. Nevertheless, because textures are often applied to shaders, the entire process of shading is sometimes informally referred to as texturing. Applying textures to shaders is also called texture mapping or simply mapping. You map a texture to the color node of a shader that is assigned or applied to a Maya object.
 
-## 3D modeling methods
-### Build Out
+In short, a shader is the code that determines the render properties of a surface, and a texture is any image that is applied to a node in a material. A material is all of the connected nodes that make up the final rendered look. 
 
-####- Point by Point
-![point](img/meth/point.png)
+In the real world, objects are seen in specific ways based on the following:
 
-####- Edge Extend
-![edge](img/meth/poy.png)
+- The materials they are made of.    
+- Their surface textures.    
+- How they are lit and reflect light.    
+- The environment surrounding them.
 
-### Primitive Modeling
-![prim](img/meth/prim.png)
-![prim01](img/meth/primbox.png)
+![shd](img/maya/shading/texturing/shade.png)
 
-### Box Modeling
-![box](img/meth/box.png)
-![box01](img/meth/boxchar.png)
+In Maya, you provide your surfaces and objects with these characteristics by assigning shading materials to them.
 
-### Patch Modeling
-  
-![curve](img/meth/curve.png)
->Using curves, you create a wire cage to define the surface of an object.   
+Shading materials provide instructions to the renderer so it can simulate how the surfaces in your scene react to light and appear in the final image. Shading involves such attributes as color, transparency, shininess, and many others to create a realistic look.
 
-![nurbs](img/meth/nurbs.png)
+Editing the material attributes associated with shading materials affects how they appear in the rendered image. In this way, Maya provides the option of allowing you to create images as they would appear in the real world or in your imagination.
 
-### Digtial Sculpting
-![scup](img/meth/zbrush.png)    
->No consideration to the layout of polygons is needed when digital sculpting, leaving the artist’s focus on the shapes, not the underlying geometry.  
-  
-![normal](img/meth/normal.png)    
->The high-poly meshes are used as source material to enhance low-poly models used in real-time games with the use of normal maps.
+## Shader types
+![mat02](img/maya/shading/material.png)
 
-________________
+![mat02_01](img/maya/shading/metal.png)
+![mat02_02](img/maya/shading/specDif.png)
 
-### More on [normal maps](http://en.wikipedia.org/wiki/Normal_mapping).
+![light06](img/maya/shading/diffuseplus.png)
+![light07](img/maya/shading/refractionplus.png)
 
-![nor01](img/800px-Normal_map_example_with_scene_and_result.png)
-![nor02](img/800px-Normal_map_example.png)
+## Shading materials in maya
+![mat02_03](img/maya/shading/shading_type.png)
 
-_________________
+### Hypershade Editor
 
-### 3D Scanning
-####- Contact scanners
-![cscan](img/meth/scan.png)
-####- Noncontact scanners
-![ncscan](img/meth/scan01.png)
-![tomo](img/meth/tomo.png)
+![mat01](img/maya/shading/hypershade.png)
 
-### Modeling with Texture and Animation Tools
-####- Texture Displacement
-![disp](img/meth/disp.png)
-![hair](img/meth/hair.png)
+--------------------------
+## Interactive Photorealistic Render (IPR)
+![check](img/maya/shading/texturing/cheker.png)
 
-####- Bones, Lattice, and Deformers
-![bone](img/meth/bone.png)
+Using **IPR (Interactive Photorealistic Render)**: As you work with shading, you’ll find many attributes that have no effect in the scene view, because the scene view is only a rough approximation of how the scene will render.
 
-####- Dynamics
-![dynamic](img/meth/mic.png)
+The IPR renderer is ideal for testing shading. It shows the results of all changes you make to shading and shows them immediately. However, some attribute changes such as reflectivity and reflections are not displayed.	 
 
-All copyrights of images are in [digital] Modeling by William Vaughan, 2011
+![pr](img/maya/shading/texturing/ipr.png)
+
+------------------------------
+## Related video
+- [Maya 2016 Tutorials 066 Understanding the basic shader types](https://www.youtube.com/watch?v=sFtV8XvFzWE)  
+- [Maya 2016: Look Development Enhancements, New Look & Feel](https://www.youtube.com/watch?v=VRVXXw5NZC0)  
+
+### Helpful blog article
+- [Pedro Toledo's blog: Brief Considerations About Materials](http://www.manufato.com/?p=902)
+
+________________________
+## Shader Attributes
+**Color**: is the color of the object, such as red or blue. This can be a flat color or a texture map.
+
+**Ambience**: is the amount of ambient color that will affect an object’s surface. Ambience in the surface property is a simulation of even flat lighting coming from every direction onto the surface (this is not from an actual light source). 
+
+![shda01](img/maya/shading/amb.png)
+Image from Introducing Autodesk Maya 2015: Autodesk Official Press
+
+**Diffuse**: This value governs how much light is reflected from the surface in all directions. When light strikes a surface, light disperses across the surface and helps illuminate it. The higher this value, the brighter its object is when lit. The lower the Diffuse value, the more light is “absorbed” into the surface, yielding a darker result.
+
+![shdd01](img/maya/shading/diff.png)
+Image from Introducing Autodesk Maya 2015: Autodesk Official Press
+
+**Transparency**: is how transparent or see-through the object will be. This attribute is used to create effects such as glass.
+
+**Reflectivity**: is how reflective the object will be. The reflections can come from raytracing or from a reflection map.
+
+**Refraction**: is the change in light direction caused by a change in speed that occurs as light passes through a solid, transparent object. 
+
+**Translucency**: is the amount of light that can pass through an opaque object such as paper or canvas.
+
+**Incandescence**: is the quality of self-illumination—for example, a computer monitor that is emitting light or a lamp shade with the light on.
+
+**Specular highlights**: are bright spots that appear on an object’s surface when light shines on that object.
+
+**Glow**: is a standard attribute that most 3D applications can simulate to aid in the effect of self-illumination. 
+
+![shda02](img/maya/shading/texturing/glow.png)
+
+**Bump**: simulates a texture along the surface of an object by adding shadow and highlight effects along the surface. Bump maps are grayscale images in which a mid-gray color represents no change in the surface, black represents inward changes to the surface, and white represents a push outward in the surface. The bump map manipulates the surface normals to change the shading properties and make the surface looked textured. 
+
+![shda03](img/maya/shading/texturing/bump.png)
+
+_________________________________
+## Textures
+Maya material attribute editor and how to link textures
+![mat03](img/maya/shading/shader.png)
+
+## Texture Map: procedural vs. bitmap
+These two types of texture files, procedural and bitmap, are plugged into the shader properties as maps.
+
+### Procedural Maps 
+Procedural maps are mathematical algorithms that create various patterns such as cellular, ramp (also known as gradient), grid, wave, fractal, and checker.
+
+![tex01](img/maya/shading/texturing/proced.png)
+
+#### Advantages of Procedural Maps:
+- **Resolution-independent**: Because these texture patterns are created by math, you can zoom in as close as you want without losing any detail in the pattern. This is helpful when you don’t know how close you need to get to the object.     
+- **Seamless**: Procedural textures are seamless, so no matter how much you scale them, you will never see a seam or repeating pattern.    
+<!--- **Projectable**: Because they are mathematically generated without seams, most 3D applications will allow you to project procedural maps as a movie projector would, toward the object in a seamless manner. This projection technique allows you the freedom to not use UV maps, which in some situations can be useful.-->
+
+### Bitmap File Textures
+Bitmap file textures are the standard picture format that you would use in an image-manipulation program such as Adobe Photoshop. These are widely used because you have a lot of control of these textures and can even use real photographs as the starting place to achieve realism.
+
+### Drawback to bitmap images:
+- Resolution-dependent, which means that after you zoom into them beyond 100 percent resolution, they will pixelate and distort. This is not a big problem as long as you plan ahead and make the texture resolution large enough for your purposes.
+
+#### Standard types of texture maps
+**Color maps** indicate the color information only for the object you are trying to create. 
+
+A checker map applied to a sphere through the use of UVs. 
+
+![tex02](img/maya/shading/texturing/color.png)
+
+**Bump maps** are grayscale images that affect the surface of the object by adding shadow and highlight to mimic a textured surface. Bump maps do not actually change the shape of an object. 
+
+![tex03](img/maya/shading/texturing/bum_map.png)
+
+**Specular maps** affect the way the specular highlights fall along the surface.
+
+![tex04](img/maya/shading/texturing/spec.png)
+
+**Transparency maps** allow for varying degrees of transparency across a surface.
+
+![tex05](img/maya/shading/texturing/trans.png)
+
+**Reflection maps** either can create an environment texture to apply to the object to make it look like it is surrounded by that environment or can affect how the real reflections of the object will behave. 
+
+**Displacement maps** are images that displace the actual geometry to create a new shape.
+
+![tex06](img/maya/shading/texturing/disp.png)
+
+**Normal maps**, like bump maps, make a surface look textured. But unlike the bump map, which is a grayscale image, a normal map is a red, green, and blue image. Normal maps are used today in video games to create textured surfaces in a real-time rendering engine. 
 
 __________
-# B.
-- Discussion & inspiration
-	
-_____________
+## Inspiration
 
-# C. Recess
+- [The loner](https://vimeo.com/32364450) : This little gem of a short is the product of Korean creators Sticky Monster Lab aka FLA. The film debuted at Seoul's first record and CD fair late last year, using the soundtrack of feel-good indie rock band The Freaks. But the film itself far from feel-good, instead delivering a dark take on friendship. From [creativebloq](http://www.creativebloq.com/3d-tips/10-best-short-films-in-3d-1233292)	
+
+## Reference
+
+[Maya 2016 online Help](http://help.autodesk.com/view/MAYAUL/2016/ENU//)    
+
+- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)  
+	- Materials and Textures. p.63~67.  
+- Book: Introducing Autodesk Maya 2015: Autodesk Official Press	
 
 _______________
 
-# D. Review
-- [assignment](http://2016ant3012.tumblr.com)
+# Review
+## Assignment
+- [Lab 1](http://2016datt2500.tumblr.com)
+- [Lab 2](http://2016datt2500lab2.tumblr.com/)     
+- [Lab 3](http://2016datt2500lab3.tumblr.com/)  
+- [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
 -----------------
 
-# E. 
-## Smoothing Polygon surfaces
-- [Autodesk: Smoothing polygons](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-8A5D0FF0-9BA1-435F-A4CA-53183311B819-htm.html) 
-	- Smooth a mesh by adding new polygons
-	- Smooth mesh preview overview
-	- Subdiv proxy overview
-	- Smooth a mesh by averaging the distance between vertices
-	- Subdivision surface
- 
-- Other than the ways from the above list, to see a smooth version of a model, you can change its normal direction (Modeling // Mesh Display / Soften Edge) too.
+# Lab
+## To do list
+- Lab practice A: Creating eye  
+- Lab practice B: Apple shading   
+- Lab practice C: Shading practices  
 
-## Subdivision surface
+-------------------------------
+## Practice goal
 
-A subdivision surface lets you subdivide specific regions of a mesh, giving you the ability to finely tune or smooth certain areas without changing the entire mesh.
+-	Choose and assign a proper shading material with specific color and surface attributes.    
+-	Assign a texture map (a bitmap or a procedural) to a surface.   
+-	Control the placement of a 2D/3D texture using a 2D/3D manipulator.      
+-	Use the Hypershade editor to view and work with shading materials.     
 
-Subdivision surfaces help you keep a lower polygon count because they only insert control points where you need them (instead of uniformly across the entire mesh). However, subdivision surfaces have the slowest performance of the three smoothing methods. 
+___________________________
+## Lab practice A: Creating eye 
+### Reference
+![ana](img/maya/shading/texturing/iris.jpg)
 
-Note: Subdivision surfaces are largely unsupported in pipelines outside of Maya, so you need to convert them to polygons or NURBS before exporting to these pipelines. You can convert using either Modify > Convert Subdiv to Polygons or Modify > Convert Subdiv to NURBS.
-For more information on subdivision surfaces, see the [Subdivision Surfaces documentation archive](http://download.autodesk.com/us/support/files/subds.pdf).
+Image from [Only Eyes Knew](http://www.onlyeyesknew.com/eye-anatomy/).    
 
-### OpenSubdiv 
-OpenSubdiv is an open-source subdivision method developed by Pixar that lets you work with a high-fidelity representation of your model with great accuracy and speed. As a professional standard in the animation industry, OpenSubdiv is implemented in a variety of software packages, improving interoperability by producing the same results when models are transferred between applications. In Maya, OpenSubdiv is the default subdivision method when you preview a smoothed mesh, smooth a mesh using Mesh > Smooth, or create a subdiv proxy.
+### A. Create eye shading using ramp + fractal textures:       
+[tutorial](http://www.spafi.org/index.php?option=com_content&task=view&id=449&Itemid=29F): An Eye Texture written by Danny McNezmo
 
-## Maya subdivision tutorial   
-- [Maya Subdivision Surfaces](https://www.youtube.com/watch?v=LpyJv8hhW_o&index=1&list=PL4fkBUcbgjGXSR7PUnjBuOSO3sDcLRF2F)  
-- [Intro to Maya and 3D Modeling - Lecture B: 5/13 - Subdivision and the Rule of 3](https://www.youtube.com/watch?v=70e-3bidL-w)
+![eye01](img/maya/shading/texturing/eye_color.png)
 
+![eye02](img/maya/shading/texturing/eye_color01.png)
 
--------------------------------------
+1. Create a nurbs sphere and **rotate it in Z direction about 90 degrees**.     
+2. Open the Hypershade and create a new blinn material and assign it to the sphere.    
+3. **Press 6 to see textures in your work view**. Select the sphere and in the attribute editor click on the checker icon next to the color and in 2d textures choose the Ramp.      
+4. In the Ramp Attributes **set the Type on U Ramp and Interpolation on Bump**. Change the colors of the ramp to black and white. Make sure your ramp contains **four colors**.     
+5. Select the circle icon on the ramp which represents the second color. **Click on the checker icon next to the Selected Color** and from the 2d Textures nodes choose **the Fractal**.    
+6. Now make a test rendering. You can play a bit more with the setup of **the Fractal Attributes** and **the Color Balance**.
+The color of an eye pupilla can be changed in the Fractal tab of the attribute editor. Go into the Color Balance and pick the new color of the Color Gain attribute.
 
-# F. Assignment
+_________________________________
 
-- Please upload screenshot image of your subdivison model to our class web portfolio Tumblr:
-	1. Your choice of organic modeling using subdivision method.
+## Lab practice B: Apple shading
+Applying a bitmap texture to more than two attributes (e.g. color / bump (normal))
+![ap01](img/maya/nurbs/apple.png)  
+![ap02](img/maya/nurbs/applern.png)  
+![ap03](img/maya/nurbs/applesh.png)  
+![ap04](img/maya/nurbs/applebuild.png) 
 
-Reference image:
+_____________________________
 
-![subd](img/lab/subd.png)  
+## Lab practice C: Shading practices 
+Explore attributes, practice different materials, and finally create the specific material which you are intended to.
 
-------------------------------------------
-------------------------------------------
+![pr01](img/maya/shading/texturing/initial.png) 
+Initial set up: pedestal, spheres, and lighting (one directional and one ambient)    
+![pr02](img/maya/shading/texturing/initial01.png) 
+You can duplicate or save shaders separately from the Hypershade.  
+![pr03](img/maya/shading/texturing/initial02.png)  
 
-# Project 1 - still life modeling.
-## Due date: July 3rd midnight.
+___________________________________
 
-- Please collect your final work and related files into one folder:
+More textures:
 
-	1. The name of folder: ```your school id_your name``` (e.g., 123456_your name)
-	  
-	2. Include in the folder: 
-		1. Your final render image: 720~1k pixels size, saved as JPG or PNG. 
-		2. Your Maya file (.mb or ma file) 
-		3. One page documentation PDF file, showing your reference image and a description of your choice and focus.   
-	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space](https://drive.google.com/open?id=0B7x8GrEkHm-LdG9mczJGRTZEaWc).
-	
-	4. Consider the technical and aesthetic challenges. 
-	
-	5. Here are some example rendering results from previous classes: [link](example.html)
+![tx01](img/maya/shading/texturing/ColorChart.jpg)
+![tx02](img/maya/shading/texturing/MARBLE_9.JPG)
+![tx03](img/maya/shading/texturing/WOOD_1.JPG)
+![tx04](img/maya/shading/texturing/CLOUD_1.jpg)
+
+________________________
+## Lab work to do
+- Review & practice based on today's lecture & lab class material. 
+- Prepare your assignments.  
+- Let's keep working on your project 1: still life modeling. 
 
 ____________________________
+## Assignment
+- Please complete your shading practices and upload screenshots to the class Tumblr with simple descriptions of your shading.
+
+____________________________________
 
 
 
@@ -190,7 +291,7 @@ ____________________________
 		<h1>DATT2500</h1>		
 		<a href="index.html">Class overview</a><br/>
 		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
-		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
 	
 		<h3>Class weeks</h3>	
 				<a href="week01.html">1: Introduction</a><br/>
@@ -198,17 +299,16 @@ ____________________________
 				<a href="week03.html">3: NURBS modeling I</a><br/>
 				<a href="week1_4.html">4: Polygon modeling I</a><br/>
 				Project I (By Oct 16th)<br/> 
-				<a href="week1_5.html">5: Modeling techniques</a><br/>								
+				<a href="week1_5.html">5: Cinematography</a><br/>								
 				<a href="week2_1.html">6: Shading</a><br/>  
 				<a href="week2_2.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Cinematography</a><br/>
+				<a href="week2_3.html">8: Global Illumination</a><br/>
 				Project II<br/> 
-				<a href="week2_4.html">9: Modeling II</a><br/>
-				<a href="week2_5.html">10: Character & Low-poly modeling</a><br/>		
-				<a href="week3_1.html">11: Global Illumination</a><br/>
+				<a href="week2_4.html">9: Modeling techniques I</a><br/>
+				<a href="week2_5.html">10: Modeling techniques II</a><br/>		
+				<a href="week3_1.html">11: Character & Low-poly modeling</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project III<br/>
-			
+				Project III<br/>			
 	</div>
 	<div class="section">
 		<script type="text/javascript">

@@ -20,253 +20,204 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Polygon modeling
->## Class schedule
-- A. Lecture: 9:00~10:00. 
-- B. Demonstration / discussion: 10:00 ~ 10:15
-- C. Recess: 15 mins.
-- D. Review: 10:30~10:45
-- E. Lab practice: 10:45~11:45  
-- F. Assignment
+# 3D modeling fundamental
+## Topology 
+- A surface, a two-dimensional manifold, looks flat in a local view, but it can have a more-interesting global structure.
+
+- Topological objects are categorized by their genus (number of holes).
+
+	![topo01](img/maya/polygon01/topo01.jpg)   
+	
+### Definition
+
+- **Topology is the mathematical study of *shapes* and *spaces*.** It is a major area of mathematics concerned with the most basic properties of space, such as *connectedness*, *continuity* and *boundary*. It is the study of properties that are preserved under continuous deformations including stretching and bending, but not tearing or gluing. Topology developed as a field of study out of geometry and set theory, through analysis of such concepts as space, dimension, and transformation. 
+
+	e.g. a Möbius strip is a kind of object studied in topology which has only one surface and one edge.  
+	
+	![mobius](img/mobius_escher.gif)
+	- The gif clip is from [Mobius from mathcurve.com](http://www.mathcurve.com/surfaces/mobius/mobius.shtml)
+	
+- The definition of topology leads to the following mathematical joke (Renteln and Dundes 2005)	
+	
+	***"What is a topologist?""***  
+	***"Someone who cannot distinguish between a doughnut and a coffee cup."*** [Wolfram mathworld](http://mathworld.wolfram.com/Topology.html)<!-- [위상이란 무엇인가?](http://mathnmath.tistory.com/39)   -->
+
+	 ![torus](img/Mug_and_Torus_morph.gif)    
+	- This gif clip is from [wikipedia](http://en.wikipedia.org/wiki/Topology)
+
+- [Mathworld](http://mathworld.wolfram.com/classroom/TopologicalSpace.html): (1) The mathematical study of object's properties that are preserved through **deformations**, **twistings**, and **stretchings** of objects. Tearing, however, is not allowed. (2) A set along with a collection of subsets that satisfy several defining properties. 
+
+### More examples
+
+There are many surfaces with a variety of looks that are topologically the same.
+  
+![topo02](img/maya/polygon01/topo.jpg)   
+- The image is from [Math Hangout](http://mathhangout.weebly.com/stuff.html)
+
+
+- Check out more about topology from [Annenberg Learner website](http://www.learner.org/courses/mathilluminated/units/4/textbook/03.php)  
+
+--------------------------------------------
+## Booleans 
+Three boolean operations let you combine objects to make shapes that would otherwise be difficult to model using other techniques. You can add, subtract, or intersect objects to create a new, complex shape. [Examples](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-7DADD144-6C29-4AE3-B877-A9947B2F26E0)
+
+### The example of Boolean process
+![boo01](img/maya/polygon/bl01.png) 
+
+### Different kinds of boolean operation 
+![boo01](img/maya/polygon/bl02.png)  
+
+__________
+# Inspiration
+## Game of Thrones intro
+- [Official Show Open 1:41](https://www.youtube.com/watch?v=s7L2PVdrb_8)
+- [Extended Opening 4:27](https://www.youtube.com/watch?v=i9xKpUXbxfM&feature=iv&src_vid=B3vqcbJwgCI&annotation_id=annotation_96828)  
+- [Kirk Shintani from Elastic](http://www.artofvfx.com/?p=1659)
+- [Software used to create the intro of Game of Thrones , Quora](http://www.quora.com/What-software-was-used-to-create-the-intro-for-Game-of-Thrones-TV-series)
+
+## 3D artists
+- [Kenneth A. Huff](http://www.kennethahuff.com/) 
+- [Meats Meier](https://vimeo.com/53762767)   
+
+![meatsMeier](img/Incredible-3D-Art-02.jpg) 
+
+## VR
+- [Kaleidoscope](http://kaleidovr.com/) is a community for Virtual Reality Creators to share their work and build a fanbase, secure funding and distribution, and discover new projects and new collaborators.  
+
+## Book
+- [Digital Art Masters]((http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=digital+art+masters&rh=i%3Aaps%2Ck%3Adigital+art+masters) [3dtotal](http://www.3dtotal.com/).	
 
 ------------------------------------
+# A. 3D techniques
+Reference: [digital] Modeling by William Vaughan, 2011
 
-# A.
-## Goal
+## No set way
 
-- Understanding Polygon modeling.
-- Being able to create polygon geometry and to modify its properties.
+> An interesting fact in the digital modeling world is that no two artists use the same techniques when creating a digital model, even when the two modelers are working from the same reference material, producing the same final mesh. Consider this example: When I had classes of thirty students working on the same robot model, I never saw any two working with the same method. This just goes to show that there is no set way to work, and that artists are free to work with whatever method(s) they feel most comfortable with.
 
-------------
-# Polygon modeling
+![robots](img/meth/robots.png)
 
-![mm01](img/maya/polygon/mm.png)  
+## More methods
 
-Polygons are straight-sided shapes (3 or more sides), defined by three-dimensional points (vertices) and the straight lines that connect them (edges). The interior region of the polygon is called the face. 
-When many faces are connected together they create a network of faces called a **polygon mesh** (also referred to as a polyset or a polygonal object).
+> Don’t limit yourself to just a few modeling methods. Every professional digital modeler I know gravitates to a particular method of modeling for the majority of the meshes each is tasked with, but each modeler is quick to use other methods when needed. The more techniques you become proficient in, the more efficient you will become.
 
--------------
-## Fundamental
-### Polygon component
-**Vertices, edges, and faces** are the basic components of polygons. 
-When you model with polygons you usually use three-sided polygons called triangles or four-sided polygons called quadrilaterals (quads). Maya also supports the creation of polygons with more than four sides (n-gons) but they are not as commonly used for modeling.
+# 3D modeling methods
+## Build Out
+
+### Point by Point
+![point](img/meth/point.png)
+
+### Edge Extend
+![edge](img/meth/poy.png)
+
+## Primitive Modeling
+![prim](img/meth/prim.png)
+![prim01](img/meth/primbox.png)
+
+## Box Modeling
+![box](img/meth/box.png)
+![box01](img/meth/boxchar.png)
+
+## Patch Modeling
   
-![poly01](img/maya/polygon/poly.png)   
-![poly02](img/maya/polygon/edge.png)   
- 
-### Normal
+![curve](img/meth/curve.png)
+>Using curves, you create a wire cage to define the surface of an object.   
 
-![nol01](img/maya/polygon/nor01.png) 
+![nurbs](img/meth/nurbs.png)
 
-- Vertex normal
-
-![nol01](img/maya/polygon/vn.png)  
-You can modify the shading of individual polygons by manually editing the vertex normals associated with the polygon mesh.
-
-- Face normal
+## Digtial Sculpting
+![scup](img/meth/zbrush.png)    
+>No consideration to the layout of polygons is needed when digital sculpting, leaving the artist’s focus on the shapes, not the underlying geometry.  
   
-![nol01](img/maya/polygon/fn.png)      
+![normal](img/meth/normal.png)    
+>The high-poly meshes are used as source material to enhance low-poly models used in real-time games with the use of normal maps.
 
-### Shading
+________________
 
-![shd01](img/maya/polygon/sha.png) 
+## More on [normal maps](http://en.wikipedia.org/wiki/Normal_mapping).
 
-### Smooth method
+![nor01](img/800px-Normal_map_example_with_scene_and_result.png)
+![nor02](img/800px-Normal_map_example.png)
 
-![nol01](img/maya/polygon/smthmethod.png)      
+_________________
 
-### Texturing
+## 3D Scanning
+### Contact scanners
+![cscan](img/meth/scan.png)
+### Noncontact scanners
+![ncscan](img/meth/scan01.png)
+![tomo](img/meth/tomo.png)
 
-![tex01](img/maya/polygon/texturing.png) 
+## Modeling with Texture and Animation Tools
+### Texture Displacement
+![disp](img/meth/disp.png)
+![hair](img/meth/hair.png)
 
-___________________________________
-### Creating polygons: using primitives or creating from scratch.
-	- Using primitives (Create / Polygon Primitives)
-	- Creating Polygon from scratch (Mesh Tools / Create Polygon Tool)    
+### Bones, Lattice, and Deformers
+![bone](img/meth/bone.png)
 
-![pri](img/maya/polygon/primitives.png)   
-Maya primitives
+### Dynamics
+![dynamic](img/meth/mic.png)
 
-### Two modes:
-1. Object mode (transformation + shape + Input node)
-2. Component mode (you can edit parts of an object)
+All copyrights of images are in [digital] Modeling by William Vaughan, 2011
 
-### Editing at component mode	
-	- Transform vertices, edges, and faces
-	- Split faces using snap (Mesh Tools / Multi-Cut) 	
-	- Combine or separate meshes
-	- Merge vertices, edges, and faces
-	- Delete vertices, edges, and faces	
-	- Append the deleted faces (Mesh Tools / Append to Polygon)
-	- Extrude faces or edges (Edit Mesh / Extrude) 
+------------------------------
 
-----------------
-### Invalid polygon geometry
-Some types of polygon geometry will not work in Maya. Invalid geometry includes vertices that are not associated with a polygon edge and polygon edges that are not part of a face (dangling edges). While Maya does not let you create these types of geometry, it may be possible to import these types from other software applications.
-
-![poly03](img/maya/polygon/mn.png)  
-
-- Converting polygon faces to triangles is a quick way to ensure non-planar faces render properly.    
-- Converting polygon faces to quads is a good way to clean up polygons or reduce the number of faces. 
-
-### Two-manifold vs. Non-manifold 
-
-- Polygonal geometry can have different configurations or ***topology*** types in Maya. Understanding the characteristics of these topologies can be helpful when you need to understand why a modeling operation failed to execute as expected.
-
-- **Two-manifold topology polygons** have a configuration such that the polygon mesh can be split along its various edges and subsequently unfolded so that the mesh lays flat without overlapping pieces.
-
-- **Non-manifold topology polygons** have a configuration that cannot be unfolded into a continuous flat piece. Some tools and actions in Maya cannot work properly with non-manifold geometry. For example, the legacy ***Boolean*** algorithm and the ***Reduce*** feature do not work with non-manifold polygon topology. The image below shows three examples of non-manifold topology polygons.
-
-![poly04](img/maya/polygon/manyf.png) 
-
-The following operations in Maya can produce non-manifold geometry:
-
-- Select Faces or Edges and select **Edit Mesh > Extrude.**     
-- **Normals > Reverse (without extracting geometry).**  
-- **Edit Mesh > Merge Components.**  
-- **Delete Face.**  
-- **Edit Mesh > Merge Components to Center**  
-
-You can convert non-manifold topology polygons into two-manifold topology (including the less obvious case of adjacent faces with opposite normals) using **Mesh > Cleanup.**
-
-__________
-### Modeling Toolkit 
-
-Modeling Toolkit used to be a plug-in called NEX, that has been integrated within Maya since 2014. It integrates component-level selection and editing tools together (such as selecting vertices, edges, faces, etc., and extruding them, for example) for a more streamlined modeling workflow. 
-
-![mt01](img/maya/polygon/modelingToolkiticon.png)    
-The location of Shortcut in the Maya GUI
-
-![mt02](img/maya/polygon/modelingToolkit.png)
-
-__________
-# B.
-## Inspiration
-- Low poly art: 
-[Timothy J. Reynolds](http://www.turnislefthome.com/33005/324719/work/low-poly-isometrics),
-[AWWWARDS](http://www.awwwards.com/low-poly-illustration-what-s-the-secret.html)   
-
-- Apple iPhone 3d diorama animation video [Youtube](https://www.youtube.com/watch?v=Em2WhCa8cgE)
-
-- Paper City [Vimeo](https://vimeo.com/67658001)
-
-- Modeling based on the still-life masterpiece painting by Pieter Claesz [link](http://commons.wikimedia.org/wiki/File:Pieter_Claesz_001.jpg): HOMAGE TO MASTER CLAESZ By artist KORNÉL RAVADITS. 
-
-## Reference
-
-[Maya 2016 online Help](http://help.autodesk.com/view/MAYAUL/2016/ENU//)    
-
-- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)
-(Polygon modeling. p.48~49.) 	
-
-_____________
-
-# C. Recess
-
-_______________
-
-# D. Review
-- [assignment](http://2016ant3012.tumblr.com)
-
-## What is NURBS modeling?  
-- [digital-tutors video (1:43).](https://www.youtube.com/watch?v=m9U_XmnHQMU)
+## Review
+### Assignment
+- [Lab 1](http://2016datt2500.tumblr.com)
+- [Lab 2](http://2016datt2500lab2.tumblr.com/)     
+- [Lab 3](http://2016datt2500lab3.tumblr.com/)  
+- [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
 -----------------
 
-# E. Lab
-## To do list
-- Lab practice A: exercising basic polygon editing   
-- Lab practice B: your toy car  
-- Lab practice C: beautiful condo 
-- Lab practice D: **more buildings**  
-- Lab practice E: **vector rendering**  
-- Lab practice F: **Low poly in Maya**  
-
--------------------------------
-## Lab practice A: exercising basic polygon editing  
-- Transform vertices, edges, and faces
-- Split faces using snap (Mesh Tools / Multi-Cut) 	
-- Merge vertices, edges, and faces
-- Combine or separate meshes  
-- Delete vertices, edges, and faces	
-- Append the deleted faces (Mesh Tools / Append to Polygon)
-- Extrude faces or edges (Edit Mesh / Extrude) 
-
--------------------------------
-## Lab practice B: your toy car 
-
-![poly01](img/lab/poly_car.png) 
-
--------------------------------
-## Lab practice C: beautiful tall building 
-Reference: Absolute World [wikipedia](https://en.wikipedia.org/wiki/Absolute_World), [designApplause](http://designapplause.com/news/people/mad-architects-studio-gang-win-chicagos-george-lucas-museum/42701/)  
-
-![poly02](img/lab/poly_condo01.png)  
-![poly021](img/lab/poly_condo02.png) 
-![poly022](img/lab/poly_transf.png) 
-
--------------------------------
-## Lab practice D: more buildings 
-
-![poly031](img/lab/poly_re01.jpg)  ![poly032](img/lab/poly_re02.jpg)   
-![poly03](img/lab/poly_house01.png) 
-  
--------------------------------
-## Lab practice E: Vector rendering 
-### Rendering
+# Lab 
+## Smoothing Polygon surfaces
+- [Autodesk: Smoothing polygons](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-8A5D0FF0-9BA1-435F-A4CA-53183311B819-htm.html) 
+	- Smooth a mesh by adding new polygons
+	- Smooth mesh preview overview
+	- Subdiv proxy overview
+	- Smooth a mesh by averaging the distance between vertices
+	- Subdivision surface
  
-The renderer is where all of your scene data and settings are handed off to the software and render calculations are performed that result in final bitmap images.
+- Other than the ways from the above list, to see a smooth version of a model, you can change its normal direction (Modeling // Mesh Display / Soften Edge) too.
 
-![vec01](img/lab/vec01.png)   
-![vec02](img/lab/vec02.png) 
+## Subdivision surface
 
-__________________
-## Lab practice F: Low poly in Maya
+A subdivision surface lets you subdivide specific regions of a mesh, giving you the ability to finely tune or smooth certain areas without changing the entire mesh.
 
-> basically this is what you need to do. [Reference link](http://simplymaya.com/forum/showthread.php?t=39592)
+Subdivision surfaces help you keep a lower polygon count because they only insert control points where you need them (instead of uniformly across the entire mesh). However, subdivision surfaces have the slowest performance of the three smoothing methods. 
 
-1. Select all the vertices on your mesh (or the ones you want that applied)
-2. Go to Edit Mesh > Transform Component > option box
-3. Select the random factor (you can change that later)
-4. Move the vertices to the form you want
-5. Select the Geo then go to Mesh > Triangulate
-6. Select the Mesh again then got to Mesh > Reduce (adjust options for different results)
-7. Change the vertex normal: Mesh display > Harden Edge	
-________________________
-## Lab work to do
-- Review & practice based on today's lecture & lab class material. 
-- Prepare your assignments.  
-- Let's work on your project 1: still life modeling. 
+Note: Subdivision surfaces are largely unsupported in pipelines outside of Maya, so you need to convert them to polygons or NURBS before exporting to these pipelines. You can convert using either Modify > Convert Subdiv to Polygons or Modify > Convert Subdiv to NURBS.
+For more information on subdivision surfaces, see the [Subdivision Surfaces documentation archive](http://download.autodesk.com/us/support/files/subds.pdf).
 
-<!--
------------------------------
-# F. Assignment
+### OpenSubdiv 
+OpenSubdiv is an open-source subdivision method developed by Pixar that lets you work with a high-fidelity representation of your model with great accuracy and speed. As a professional standard in the animation industry, OpenSubdiv is implemented in a variety of software packages, improving interoperability by producing the same results when models are transferred between applications. In Maya, OpenSubdiv is the default subdivision method when you preview a smoothed mesh, smooth a mesh using Mesh > Smooth, or create a subdiv proxy.
 
-- Please upload screenshot images of your polygon models to our class web portfolio Tumblr:
-	1. Your building I (vector rendering) 	-->
+## Maya subdivision tutorial   
+- [Maya Subdivision Surfaces](https://www.youtube.com/watch?v=LpyJv8hhW_o&index=1&list=PL4fkBUcbgjGXSR7PUnjBuOSO3sDcLRF2F)  
+- [Intro to Maya and 3D Modeling - Lecture B: 5/13 - Subdivision and the Rule of 3](https://www.youtube.com/watch?v=70e-3bidL-w)
+
+--------------------------
+
+## Lab practice A
+- Organic modeling using subdivision method.
+
+Reference image:
+
+![subd](img/lab/subd.png)  
 
 ------------------------------------------
-------------------------------------------
 
-# Project 1 - still life modeling.
-## Due date: July 3rd midnight.
+## Lab practice B
+- Bloolean practices 
 
-- Please collect your final work and related files into one folder:
+## Individual feedback on project 1
+Your due date is Oct 16th. 
+[Project 1 link](project.html)
 
-	1. The name of folder: ```your school id_your name``` (e.g., 123456_your name)
-	  
-	2. Include in the folder: 
-		1. Your final render image: 720~1k pixels size, saved as JPG or PNG. 
-		2. Your Maya file (.mb or ma file) 
-		3. One page documentation PDF file, showing your reference image and a description of your choice and focus.   
-	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space](https://drive.google.com/open?id=0B7x8GrEkHm-LdG9mczJGRTZEaWc).
-	
-	4. Consider the technical and aesthetic challenges. 
-	
-	5. Here are some example rendering results from previous classes: [link](example.html)
-
-____________________________
-
+___________________________________________
 
 
 </div>
@@ -277,24 +228,25 @@ ____________________________
 		<h1>DATT2500</h1>		
 		<a href="index.html">Class overview</a><br/>
 		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
-		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
 	
 		<h3>Class weeks</h3>	
 				<a href="week01.html">1: Introduction</a><br/>
 				<a href="week02.html">2: 3D Modeling</a><br/>
 				<a href="week03.html">3: NURBS modeling I</a><br/>
 				<a href="week1_4.html">4: Polygon modeling I</a><br/>
-				Project I (By Oct 16th)<br/> 
-				<a href="week1_5.html">5: Modeling techniques</a><br/>								
+				<a href="week1_5.html">5: Cinematography</a><br/>								
+				<a href="project.html">Project I (By Oct 16th)</a><br/> 
 				<a href="week2_1.html">6: Shading</a><br/>  
 				<a href="week2_2.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Cinematography</a><br/>
+				<a href="week2_3.html">8: Global Illumination</a><br/>
 				Project II<br/> 
-				<a href="week2_4.html">9: Modeling II</a><br/>
-				<a href="week2_5.html">10: Character & Low-poly modeling</a><br/>		
-				<a href="week3_1.html">11: Global Illumination</a><br/>
+				<a href="week2_4.html">9: Modeling techniques I</a><br/>
+				<a href="week2_5.html">10: Modeling techniques II</a><br/>		
+				<a href="week3_1.html">11: Character & Low-poly modeling</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project III<br/>			
+				Project III<br/>	
+			
 	</div>
 	<div class="section">
 		<script type="text/javascript">
