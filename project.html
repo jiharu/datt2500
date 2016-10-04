@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Introduction to 3D Modeling</title>
+    
+<link href="css/site.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/highlight.default.css" media="screen" rel="stylesheet" type="text/css" />
+  
+<script src="js/jquery.js"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+<!--
+Write the markdown code below.
+A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
+-->
+
+<div style="display: none" id="sourcetext">
+
+------------------------------------------
+
+# Project 1 - still life modeling.
+## Due date: Oct 16th midnight.
+
+- Please collect your final work and related files into one folder:
+
+	1. The name of folder and files: ```your last name_your first name + numbering``` 
+	  
+	2. Include in the folder: 
+		1. Your final render image: 1k pixels size (the longer is 1024 px), saved as JPG or PNG. 
+		2. Your Maya file (.mb or ma file) 
+		3. One page documentation PDF file, showing your reference image and a description of your choice and focus.   
+	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space](https://drive.google.com/drive/folders/0B7x8GrEkHm-LTDQzXy0zZC1VSm8?usp=sharing).
+	
+	4. Consider the technical and aesthetic challenges. 
+	
+	5. Here are some example rendering results from previous classes:   
+		1. [link to Sogang student portfolio](example.html)  
+		2. [link to York student portfolio](portfolio.html)
+
+----------------------------------------
+
+
+</div>
+<div id="wrapper">
+	
+	<div class="header">
+		
+		<h1>DATT2500</h1>		
+		<a href="index.html">Class overview</a><br/>
+		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+	
+		<h3>Class weeks</h3>	
+				<a href="week01.html">1: Introduction</a><br/>
+				<a href="week02.html">2: 3D Modeling</a><br/>
+				<a href="week03.html">3: NURBS modeling I</a><br/>
+				<a href="week04.html">4: Polygon modeling I</a><br/>
+				<a href="week1_5.html">5: Cinematography</a><br/>								
+				<a href="project.html">Project I (By Oct 16th)</a><br/> 
+				<a href="week2_1.html">6: Shading</a><br/>  
+				<a href="week2_2.html">7: Texturing</a><br/>
+				<a href="week2_3.html">8: Global Illumination</a><br/>
+				Project II<br/> 
+				<a href="week2_4.html">9: Modeling techniques I</a><br/>
+				<a href="week2_5.html">10: Modeling techniques II</a><br/>		
+				<a href="week3_1.html">11: Character & Low-poly modeling</a><br/>
+				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
+				Project III<br/>	
+			
+	</div>
+	<div class="section">
+		<script type="text/javascript">
+		//var converter = new Markdown.Converter();
+		var converter = new Showdown.converter();
+		document.write(converter.makeHtml($('#sourcetext').text()));
+		</script>
+	</div>
+	
+	<div class="footer">HyunKyung (Haru) Ji, 2016</div>
+	
+</div>
+</body>
+</html>
