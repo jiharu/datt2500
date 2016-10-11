@@ -39,7 +39,7 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 - [Rembrandt](http://en.wikipedia.org/wiki/Rembrandt)
 - [Caravaggio](http://en.wikipedia.org/wiki/Caravaggio)
 - [flickriver:3pointlighting](http://www.flickriver.com/photos/tags/3pointlighting/interesting/)  
-- [MISE-EN-SCENE from College Film & Media Studies Blog](http://collegefilmandmediastudies.com/mise-en-scene-2/) 
+- [MISE-EN-SCENE from College of Film & Media Studies Blog](http://collegefilmandmediastudies.com/mise-en-scene-2/) 
 - [Cinematographer Matthew Scott blog](http://mattscottvisuals.com/lighting/)
 
 **Key light**
@@ -109,9 +109,9 @@ ________________________________
 - Define from light sources.
 ![shadow01](img/maya/shading/shadow.png)
 
-## Creating Soft Shadow
+## Creating Soft Shadows
 ![shadow](img/maya/shading/softshadow.png)    
-Example of depth map soft shadow: increase the filter size.
+Example of a depth map soft shadow: increase the filter size.
 Or you can turn on raytrace shadows (it is more computationally expensive). 
 
 _______________________________
@@ -132,7 +132,7 @@ Although the technical aspects of using the cameras are not difficult to learn, 
 	
 _______________________________________
 	
-## Reder Settings
+## Render Settings
 - **Render view** window (Windows / Rendering Editors / Render View)
 
 ![rv01](img/maya/rendering/renderview.png)
@@ -143,7 +143,7 @@ _______________________________________
 	- Common: file name, image format, choose camera, choose Image Size..		
 	![sp01](img/maya/shading/render_common.png)
 		
-	- Specific: Maya software rendering - quality, anti-aliasing, raytracing, motion blur..    
+	- Specific: Maya software rendering - quality, anti-aliasing, raytracing, motion blur...    
 	![sp02](img/maya/shading/render_maya.png)
 	
 __________
@@ -174,7 +174,7 @@ _______________
 # Lab
 ## To do list
 - Lab practice A: Scene preparation  
-- Lab practice B: practicing lighting & cameras
+- Lab practice B: Practicing lighting & cameras
 - Project 1  
 
 -------------------------------
@@ -187,26 +187,26 @@ _______________
 ## Lab practice A: Scene preparation
 1. create a pedestal (a box or a cylinder). 
 2. create a suface back-wall (Create Curve & Loft). 
-3. **import the object** (you can download them from /GettingStarted2015LessonData/ or here ([low resolution toad](obj/toad_low.obj) and [high resolution toad](obj/toad.obj)) ). ***obj file is good to use when you export and import your polygon object in Maya.***  
-4. layout them as your studio environment as you like. 
+3. **import an object** (you can download them from [GettingStarted2015LessonData](https://knowledge.autodesk.com/support/maya/getting-started/caas/CloudHelp/cloudhelp/ENU/123112/files/maya-advance-techniques-html.html) or here ([low resolution toad](obj/toad_low.obj) and [high resolution toad](obj/toad.obj)) ). ***obj file is good to use when you export and import your polygon object in Maya.***  
+4. lay them out in your studio environment as you like. 
 
 _______________________
 
 >-	tip: 
 	1. using grid snap (key x)
 	2. modify center pivot (using grid snap and key d)
-	3. using Modify / Freeze Transformations to create new local center (check out what happens to the transformation info) 
+	3. using Modify / Freeze Transformations to create new local center (see what happens to the transformation info) 
 	
 >- Obj file
 
->	1. Open 'Toad_hi_res.mb' file from GettingStarted2015LessonData / UVmapping folder
+>	1. Open 'Toad_hi_res.mb' file from [GettingStarted2015LessonData / UVmapping](https://knowledge.autodesk.com/support/maya/getting-started/caas/CloudHelp/cloudhelp/ENU/123112/files/maya-advance-techniques-html.html) folder
 >	2. **Export** (File / Export Selection..) as [obj file](http://en.wikipedia.org/wiki/Wavefront_OBJ) (if you can't find obj file format, you can load objExport.bundle from Windows / Settings / Preferences / Plug-In Manager)
 >	3. Save the obj file in the Data folder in your working Maya project folder.
 
 _____________________________
 		
-## Lab practice B: practicing lighting & cameras
-### Creating lights and render
+## Lab practice B: Practicing lighting & cameras
+### Creating lights and rendering
 1. Applying a key light and make a shadow and render to verify the result.
 	- Once you make any light, the default Maya light will be turned off.   
 	- You can start with spot light.  
@@ -223,7 +223,7 @@ _____________________________
 4. Experimentation to create your own style to fulfill your aesthetics and goal/intention.
 
 ### Lighting practice tip
-#### Check a light by a light (using light Attribute Editor):
+#### Lighting by light attributes (using light Attribute Editor):
 - You can turn on or off *Illuminates by default*.
 - You can change the light Color to distinguish between different lights.
 - Position the key light using **Look Through Selected** from a view panel menu (Panels / Look Through Selected).
@@ -246,11 +246,11 @@ _____________________________
 ### Creating your custom camera and render from it
 1. Create a camera with an aim (Create/Cameras/Camera and Aim). 
 2. To display objects, you can switch the camera from: (View panels: Panels / Perspective / or Panels / Orthographic /)  
-3. Adjust the position of camera (View panels: Panels / Look through Selected)
-4. Move camera and its aim separately. You can turn on snapping.
-5. Change camera properties: (View panels: View / Camera Attribute Editor... or using the outliner window)	
+3. Adjust the position of the camera (View panels: Panels / Look through Selected)
+4. Move the camera and its aim separately. You can turn on snapping.
+5. Change the camera's attributes: (View panels: View / Camera Attribute Editor... or using the outliner window)	
 	- Angle of View, Near and Far clip, Film Gate..  
-6. From the Render View window, you can switch a camera from a camera (Render View: Render / Render / your custom camera)
+6. From the Render View window, you can switch cameras (Render View: Render / Render / your custom camera)
 7. Render to check. 
 
 
@@ -258,47 +258,47 @@ _____________________________
 
 #### Scene preparation
  
-1. Create three plane and five balls on the Cylinder (Create/Polygon Primitives & Edit/Duplicate Special) and align them.
-2. Create a camera with a aim (Create/Cameras/Camera and Aim) and check it at the Outliner (two plane mode -> at the left panel or panels/Layouts/Two Panes Side by Side).
+1. Create three planes and five balls on a Cylinder (Create/Polygon Primitives & Edit/Duplicate Special) and align them.
+2. Create a camera with an aim (Create/Cameras/Camera and Aim) and check it via the Outliner (two plane mode -> at the left panel or panels/Layouts/Two Panes Side by Side).
 3. Choose the camera and transform Snapping the Aim to the main focus point of the object). 
-4. Adjust the position of camera (panels/Look through Selected)
+4. Adjust the position of the camera (panels/Look through Selected)
 - Choosing Camera properties: (select Camera -> Attribute Editor)	
 	- Angle of View, Near and Far clip, Film Gate 	
 	    	
 	![sp03](img/maya/shading/camera.png)
 	
 5. Measure the distance between main object to the camera (Create/Measure Tools/Distance Tool)
-6. Use the distance for the Focus Distance in the Attribute Editor of the camera
-	- Check Depth of Field (select Camera -> Attribute Editor), change the Focus Distance and F Stop
+6. Use this distance for the Focus Distance in the Attribute Editor of the camera
+	- Check the Depth of Field (select Camera -> Attribute Editor), change the Focus Distance and F Stop
 
 	![sp04](img/maya/shading/dof.png)
 
-7. Render the scene. Do the basic render settings.
+7. Render the scene. Do basic render settings:
 	- Choosing Rendering properties: (Window/Rendering Editors/Render Settings)
-	- Work on Common settings
+	- Choose Common settings
 		- File name, Image format, Choose camera, Choose Image Size
 		![sp01](img/maya/shading/render_common.png)
 		
-	- Work on Specific settings -> Maya Software
+	- Choose Specific settings -> Maya Software
 		- Quality, Anti-aliasing, Raytracing, Motion Blur
 		![sp02](img/maya/shading/render_maya.png)
 		
-#### Use depth of field and motion blur
+#### Using depth of field and motion blur
 
 ![dof01](img/maya/shading/dof_render.png)
 ________________________
 ## Lab work to do
 - Review & practice based on today's lecture & lab class material. 
-	- Practice your lighting set-up to control the overall contrast, visible details, and dramatic mood to your scene.
+	- Practice your lighting set-up to control the overall contrast, visible details, and dramatic mood of your scene.
 	- Apply soft shadows.
-	- Create better quality rendering applying the cinematography technique.
+	- Create better quality rendering by applying cinematography techniques.
 ____________________________
 
 ## Assignment
-- By Sunday Oct 16th midnight, please upload final rendering images of your lighting practice results to our class web portfolio Tumblr (caption: **"a05 by your name, date"**):
-	- One to two lighting tests using a studio set up focused on the toad model. What kind of mood or emotion did you try to bring in? 
+- By Sunday Oct 16th at midnight, please upload final rendering images of your lighting practice results to our class web portfolio Tumblr (caption: **"a05 by your name, date"**):
+	- Perform one to two lighting tests using a studio set up focused on the toad model. What kind of mood or emotion did you try to bring in? 
 
-## Remind
+## Reminder
 - [Project 1: still life modeling.](project.html)    
 	Due date is Oct 16th.
 
