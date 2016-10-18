@@ -38,13 +38,11 @@ Direct (local) illumination is the light provided only directly from a light sou
 
 ![gl02](img/maya/shading/illum.png)
 
-Ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects. The technique is capable of producing a very high degree of visual realism, usually higher than that of typical scanline rendering methods, but at a greater computational cost. [-wikipedia](http://en.wikipedia.org/wiki/Ray_tracing_(graphics))
+Ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects. The technique is capable of producing a very high degree of visual realism, but at a greater computational cost. [-wikipedia](http://en.wikipedia.org/wiki/Ray_tracing_(graphics))
 
 ----------------------------
 ## Shading
 **Shading** is the proper term for applying a renderable color, surface bumps, transparency, reflection, shine, or similar attributes to an object in Maya. It’s closely related to, but distinct from, **texturing**, which is what you do when you apply a map or other node to an attribute of a shader to create some sort of surface detail. Nevertheless, because textures are often applied to shaders, the entire process of shading is sometimes informally referred to as texturing. Applying textures to shaders is also called texture mapping or simply mapping. You map a texture to the color node of a shader that is assigned or applied to a Maya object.
-
-In short, a shader is the code that determines the render properties of a surface, and a texture is any image that is applied to a node in a material. A material is all of the connected nodes that make up the final rendered look. 
 
 In the real world, objects are seen in specific ways based on the following:
 
@@ -58,8 +56,6 @@ In the real world, objects are seen in specific ways based on the following:
 In Maya, you provide your surfaces and objects with these characteristics by assigning shading materials to them.
 
 Shading materials provide instructions to the renderer so it can simulate how the surfaces in your scene react to light and appear in the final image. Shading involves such attributes as color, transparency, shininess, and many others to create a realistic look.
-
-Editing the material attributes associated with shading materials affects how they appear in the rendered image. In this way, Maya provides the option of allowing you to create images as they would appear in the real world or in your imagination.
 
 ## Shader types
 ![mat02](img/maya/shading/material.png)
@@ -84,8 +80,6 @@ Editing the material attributes associated with shading materials affects how th
 Using **IPR (Interactive Photorealistic Render)**: As you work with shading, you’ll find many attributes that have no effect in the scene view, because the scene view is only a rough approximation of how the scene will render.
 
 The IPR renderer is ideal for testing shading. It shows the results of all changes you make to shading and shows them immediately. However, some attribute changes such as reflectivity and reflections are not displayed.	 
-
-***- In the student Maya version, the IPR is not stable.-*** 
 
 ![pr](img/maya/shading/texturing/ipr.png)
 
