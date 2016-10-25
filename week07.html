@@ -21,28 +21,41 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 <div style="display: none" id="sourcetext">
 
 # Texturing
-## Goal
-- Understand the processes of texturing and know how to apply them in Maya.
-___________________
-# Maya texturing
-Although the Hypershade window provides numerous ways to prepare materials, several important techniques outside the window are important to check out. Preparing proper UVs for any model is a critical step in the texturing process. Using the 3D Paint tool is an efficient way to prepare custom bitmaps. Maya's support of the Photoshop PSD format allows the use of layers. At the same time, the proper use of bump and displacement maps can add realism to a render. 
+Although the Hypershade window provides numerous ways to prepare materials, several important techniques outside this window are important to know. Preparing proper **UVs** for any model is a critical step in the texturing process. Using the **3D Paint tool** is an efficient way to prepare custom bitmaps. Maya's support for the **Photoshop PSD format** allows the use of layers. At the same time, the proper use of bump and displacement maps can add realism to a render. 
 
-## UVs
-UVs are 2D representations of a 3D object. There is a problem with wrapping a 2D image (a texture) around a 3D object, and UV mapping helps with this problem: UVs are directly related to vertices on a polygon and NURBS, but the UVs cannot be manipulated in 3D space; they are tied to a 2D coordinate plane and edited in a **UV editor**.
+## Goal
+- Understand the processes of UV texturing and the 3D paint tool with Photoshop and know how to apply them in Maya.
+___________________
+
+
+## UV mapping
+>UV stands for the horizontal (U) and vertical (V) coordinates of the 2D coordinate map space that is applied to a 3D object.
+
+UVs are 2D representations of a 3D object. There can be a problem with wrapping a 2D image (a texture) around a 3D object. UV mapping helps with this problem: UVs are directly related to vertices on a polygon and NURBS, but the UVs cannot be manipulated in 3D space; they are tied to a 2D coordinate plane and edited in a **UV editor**.
 
 > UVs are like a “where” — they are a coordinate system across the surface of polygons (think latitude and longitude across a globe). 
 > Understanding what UVs are and being able to manipulate them is incredibly powerful and allows any image to define the surface of a 3D form. ***Unfortunately, this power to manipulate UV is not a trivial task and can be very counterintuitive.*** 
 
->UV stands for the horizontal (U) and vertical (V) coordinates of the 2D coordinate map space that is applied to a 3D object.
+![tex_01](img/maya/UVMapping.png)  
+
+The application of a texture in the UV space related to its effect in 3D. CC BY-SA 3.0 [wikipedia](https://en.wikipedia.org/wiki/UV_mapping)
+
+![tex_02](img/maya/Cube_Representative_UV_Unwrapping.png)
+
+A representation of the UV mapping of a cube. The flattened cube net may then be textured to texture the cube. CC BY-SA 3.0 [wikipedia](https://en.wikipedia.org/wiki/UV_mapping)
+
+## Video
+- [The Basics Of UV Mapping by The Guerrilla CG Project](https://vimeo.com/5017993)  
+- [“On the Run” Creative Process - Part One by the Rusted Pixel](https://vimeo.com/120644464)  
 
 ## UV Texture editor
 3D software uses u- and v-coordinates to determine how textures should be applied to 3D objects. **UV mapping** refers to the process of determining these coordinates for polygon objects. **UV layout** is a term that refers to the 2D configuration of the UVs on a surface. In the **UV Texture Editor**, u-coordinates are plotted along the horizontal axis, and v-coordinates are plotted along the vertical axis. **UV maps** act as a guide for the placement of images. 
 
-NURBS surfaces have implicit UVs; this means that the coordinates are built into the parameterization of the surface. **UV texture coordinates do not have to be created for NURBS surfaces; only polygon and subdivision surfaces require mapped UVs.**
+**NURBS surfaces have implicit UVs; this means that the coordinates are built into the parameterization of the surface. UV texture coordinates do not have to be created for NURBS surfaces; only polygon and subdivision surfaces require mapped UVs.**
 
 ________________________
 
-## Create UVs (Modeling // UV /)
+## Create UVs for polygon surfaces (Modeling // UV /)
 #### Using different mapping methods and check the UV Texture Editor.
 
 ![uv01](img/maya/shading/texturing/uv.png)
@@ -61,9 +74,17 @@ ________________________
 ### The bumps and folds of a sculpture are roughed in with the 3D Paint tool
 ![3dp](img/maya/shading/texturing/3dpaint.png)
 
+-------------------------------
+
+## Bump, displacement, and normal map
+- [Bump And Displacement Map: Overview, up to 1:36](https://www.youtube.com/watch?v=1mdR2imNeZI) 
+- [To adjust the displacement value](http://animation-ua.com/en/school-animation/studying-3d-animation/165-control-displacement-maps-in-maya-displacement-mapping)  
+- [CG101: What is a Normal Map?](https://www.youtube.com/watch?v=yHzIx41eiD4)  
+
+
+<!--
 
 -------------------------
-
 
 #### A human head model with a uniform UV map and a nonuniform UV map.
 
@@ -111,24 +132,25 @@ Performs various operations on the selection to identify and remove extraneous a
 ![sc03](img/maya/shading/texturing/cleang.png)
 
 ![sc04](img/maya/shading/texturing/nonmani.png)
-**Non-Manifold geometry** 
+**Non-Manifold geometry** -->
 	
 __________
 ## Inspiration
 The Blue Umbrella: a 2013 Pixar computer-animated short film that is directed by Saschka Unseld of Pixar's technical department. The short featured new techniques in photorealistic lighting, shading, and compositing.    
-- [The Blue Umbrella, Youtube](https://www.youtube.com/watch?v=Ws54EoxJQU8)   
-- [The very first Blue Umbrella Layout Reel, Vimeo](https://vimeo.com/81467189)  
+- [The Blue Umbrella, Youtube](https://www.youtube.com/watch?v=h267hvb5xyQ)   
+- [saschka, Dreamer & director of pixar's the blue umbrella, Vimeo channel](https://vimeo.com/user3018211)  
 - Portraits Of The 21st Century: The Most Photorealistic 3D Renderings Of Human Beings [link](http://www.cgtrader.com/blog/portraits-of-the-21st-century-the-most-photorealistic-3d-renderings-of-human-beings)  
-- Making of the Horse [link](http://www.cgsociety.org/index.php/CGSFeatures/CGSFeatureSpecial/the_making_of_horse)  
-
+- [Texture showreel: Claudio Gasparollo](https://vimeo.com/claudiogasparollo)  
+- [R&D Showreel: Jose Arcadio Buendia](https://vimeo.com/17501406)  
+- [Texture/LookDev/Generalist Artist, Valentina Rosselli](https://vimeo.com/117526785)  
+- [Dan Roarty - Show reel](http://www.danroarty.com/show-reel)  
 
 ## Reference
 
 [Maya 2016 online Help](http://help.autodesk.com/view/MAYAUL/2016/ENU//)    
 
-- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)   
-
-- [UV MAPPING MADE EASY by James Taylor, 15:20](https://www.youtube.com/watch?v=HLhazEa8wmw)  
+- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)    
+- [Maya 2016 UV Editing Improvements, 35:35](http://www.cgmeetup.net/home/maya-2016-uv-editing-improvements/) 
 
 _______________
 
@@ -139,46 +161,101 @@ _______________
 - [Lab 3](http://2016datt2500lab3.tumblr.com/)  
 - [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
-## Advanced tutorial
-- [UV Mapping with the UV Editor in Maya 2016, 10:23](https://www.youtube.com/watch?v=Brh1JRL9OoY)  
-- [Maya 2016 UV Editing Improvements, 35:35](http://www.cgmeetup.net/home/maya-2016-uv-editing-improvements/) 
+## Screenshots from the last lab work
+### Simple shading network
+- ![shading](img/maya/shading/texturing/shadingnet.png) 
+Make three place2dTexture into one, then you can control its place properties by one node.
+
+### Eye shading using a ramp texture
+- ![shading01](img/maya/shading/texturing/eye01.png) 
+Create two geometries made one as transparent but allow a specular property. 
+- ![shading02](img/maya/shading/texturing/eye02.png)   
+Link two fractals from two iris colors and add a bit of noise. 
 
 -----------------
 
 # Lab
 ## To do list
-- Lab practice A: Texturing a dice 
-- Lab practice B: Using PSD network 
-- Lab practice C: 3D painting texture  
-- Lab practice D: Creating UVs  
+- Lab practice A: Texturing a box; dice, cardboard box 
+- Lab practice B: 3D painting texture and using PSD network 
+- Lab practice C: Creating UVs 
+- Lab practice D: Eye texturing  
 - Demonstration E: Alternate UV texturing   
 
+- Download textures from [here](obj/textures.zip)
 ___________________________
 ## Practice A: Texturing a dice
 ### Goal
-- You can apply texture.
-- You can manipulate UV texture coordinate in the UV texture editor.
-- You can alter the texture using Photoshop.
+- To manipulate UV texture coordinate in the UV texture editor to apply texture properly.
+- To edit a texture in Photoshop.
 
-![dice](img/maya/shading/texturing/dice.jpg), ![uv](img/maya/shading/texturing/uveditor.png)
+![dice](img/maya/shading/texturing/dice.jpg) 
 
-You can save UV texture (UV Texture Editor // Polygons / UV Snapshot... ) to draw then apply the texture back to the dice. 
-
-![dice01](img/maya/shading/texturing/dice_snap.png)
-
-## Practice B: Using PSD network
-	1. Save UV texture (UV Editor // Polygons / UV Snapshot... )     
-	2. Create PSD Nexwork... (UV Editor // Image / Create PSD Network...) and Update PSD Network...	
+- How to:
+	- Create a box and apply a material.  
+	- From the color in the attribute editor of the material, open it and click the file node. And from the file node, you can link to the chosen texture.
+	- Push the hotkey '6' from the keyboard to see the texture in the work space. 
+	- Open the UV editor from under Window menu.
+	- You can navigate this window in the same way as the workspace, and choose UVs or Shells, and  transform them. (With the right button of your mouse, you can choose its components)  
 	
-## Practice C: 3D painting texture 
-**Goal:** creating 3d painted textures.  
+	![dice](img/maya/shading/dice.png)
+	
+	- You can change the view layout and call up a camera or an editor (See the image above).
+
+	![uv](img/maya/shading/texturing/uveditor.png)
+	
+	- Now, let's select shells of the UVs and apply Polygons / Cut UV Edges.
+	- You can move the individual shell. Choose one and locate it on top of the texture properly. 
+	- Select one edge, then you will see it will select two UV edges. Apply Polygons / Move and Sew UV Edges. Repeat.  
+	- You can choose UVs and align them using align tool from the shelf menu. Lastly move them to complete the UV mapping.
+	
+	![dice01](img/maya/shading/dice01.png)	
+	
+	- You can save a UV texture (UV Texture Editor // Polygons / UV Snapshot... ). 
+Then you can open the texture in Photoshop. 
+
+	![dice01](img/maya/shading/texturing/dice_snap.png)
+
+-------------------------
+	
+![box](img/maya/shading/texturing/box.png)	
+
+- **You can change the dice texture to boxes or change the proportion of the geometry and make it as a cereal box. Or you can make a paint can. Please practice accordingly. You can find more textures in the texture folder you downloaded from the course website or you can find and alter, or make new ones."**	
+	
+## Tutorial
+- [Coke can texturing](http://www.3dm3.com/tutorials/can/)
+- [UVing and Texturing for the very first time in Maya 2016](https://www.youtube.com/watch?v=yOVwT-KfsYs)  
+- [Box UV Mapping with the UV Editor in Maya 2016, 10:23](https://www.youtube.com/watch?v=Brh1JRL9OoY)  
+
+- [Maya tutorial : Bump Map vs Displacement Map](https://www.youtube.com/watch?v=xpEUdGoyTGI)  
+
+## Reference
+- [Som Downs blog](http://somdowns.blogspot.ca/)
+- [Homrighausen: Game Art Thread blog](http://polycount.com/discussion/116222/homrighausen-game-art-thread)  
+
+## Advanced tutorial
+- [Maya 2016 tutorial : How to UV Map ( more ) complex objects](https://www.youtube.com/watch?v=IrxPfMquK_U) 
+- [UV MAPPING for a human body by James Taylor, 15:20](https://www.youtube.com/watch?v=HLhazEa8wmw) 
+
+-----------------------------------------------------
+	
+## Practice B: 3D painting texture 
+**Goal:** creating 3D painted textures.  
 **Command location:** Rendering // Texturing / 3D Paint Tool   
 
 - Let's create 'color' and 'bump' textures using a brush and/or paint effect. 
 
-![3dpaint01](img/lab/3dpaint.png)
+![3dpaint02](img/maya/shading/texturing/3dpaint00.png)
+![3dpaint02](img/maya/shading/texturing/3dpaint01.png)
+![3dpaint03](img/maya/shading/texturing/3dpaint02.png)
 
-## Practice D: Creating UVs
+### Using PSD network
+1. Save UV texture (UV Editor // Polygons / UV Snapshot... )     
+2. Create PSD Nexwork... (UV Editor // Image / Create PSD Network...) and Update PSD Network...	
+
+--------------------------------
+
+## Practice C: Creating UVs
 - Planar UV mapping
 - Cylindrical UV mapping
 - Spherical UV mapping
@@ -192,8 +269,43 @@ You can save UV texture (UV Texture Editor // Polygons / UV Snapshot... ) to dra
 - [UV Editor overview](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-73BF7546-3BF2-44F3-9192-15A024CEC173)
 
 --------------------------
+## Lab practice D: Eye texturing 
+### Using textures and a projection utility
 
-## Demonstration E: Alternate UV texturing   
+![eye01](img/maya/shading/texturing/eye.jpg)
+
+
+- How to:	
+ 	![eye00](img/maya/shading/texturing/stensil00.png)
+	- Create a NURBS sphere add isoparms (using Insert isoparms) to the iris area. 
+	- Duplicate it and make a second one a little bit bigger. Put it into a layer.  
+	- Shape the first one using Hulls to make the inner curve tino a iris. 
+	- For a pupil, choose the pupil size isoparm and detach it. 
+	- Delete the detached patch and create another sphere and make it small to fit to the pupil area and assign surface shader. 
+	 	 
+ 	![eye02](img/maya/shading/texturing/stensil01.png)
+ 	- Assign a material from the color attribute, call the texture window and assign a projection utility.  
+ 	
+ 	![eye03](img/maya/shading/texturing/stensil02.png)
+ 	 - From the projection node, call the texture image from the image node and then do Interactive Placement + Fit to BBox.
+ 	- You will see the projection placement node from the work space which you can control.
+ 	
+ 	 ![eye04](img/maya/shading/texturing/stensil03.png)
+ 	 - Now you can change the material attributes to make right  for you. 
+
+![eye01_01](img/maya/shading/texturing/eye.png)
+
+- Slight differences in the textures can change the result a lot. Therefore, please go ahead to work on textures in Photoshop.
+
+## Reference
+- [High-Quality Capture of Eyes](https://www.youtube.com/watch?v=v3X5OmHXa4c)  
+- [Realistic poligon eye modeling](http://www.3dtotal.com/tutorial/948-realistic-eye-modeling-for-3d-characters-maya-by-krishnamurti-martins-costa-pupil-iris-texture)
+- [Procedural Eye](http://toddpilger.blogspot.ca/2012/10/procedural-eye.html)  
+- [Pinterest: realistic eye](https://www.pinterest.com/pin/472244710905510215/)  
+
+--------------------------
+
+## Practice E: Alternate UV texturing   
 
 ### Blender UV texturing
 Related tutorial: 
@@ -203,20 +315,24 @@ Related tutorial:
 - Download and install.
 - to use Maya navigation interface:  
 	- In the Blender interface, open File/User interface
-	- Go to Input and select preset to 'Maya' and hotkey to 'Maya' and save user settings.
+	- Go to Input and set the preset to 'Maya', and the hotkey option to 'Maya', and save user settings.
 - Import .obj modeling data.
-- Choose the object and go to the edit mode (tab key). With edge mode, select the edge where to become UV seams later. (Shift + Alt + edge to choose continous edges)  
+- Choose the object and go to the edit mode (tab key). With edge mode, select the edge which will become UV seams later. (Shift + Alt + edge to choose continous edges)  
 - Ctrl + E to open the window and choose 'Mark Seam'
 - With face mode, select all faces and push U key to open UV texture window and 'Unwrap'. 
 - You can check the result to open the UV Editing window. 
-- If you like the result, export the obj to import in Maya. Now your object will have good UV textures.
+- If you like the result, export the obj for import into Maya. Now your object will have good UV textures.
 
 ![blender](img/lab/uv.png)  
  
 - An UV unwrap example screenshot using the monkey primitive mesh.
 
-### Using UV texture plug-in for maya
-- Researching online and you will find some good and free plug-ins. Note that there are usually more options for the Windows operating system.
+- You can download the obj data [here](obj/monkey.obj) from the right button of a mouse do as Save Link As.   
+
+### Bonus Tools
+- Bonus Tools 2016 is a free collection of useful Maya scripts and plug-ins. After installing Bonus Tools, an additional pull-down menu will be added to the end of the main Maya menu. This new menu provides easy access to a variety of tools and utilities for daily use. The BonusTools menu sets have been reorganized to match that of the Maya 2016 UI overhaul.
+
+You can download it from Help / Maya Resources and Tools / Download Bonus Tools
 
 ________________________
 ## Lab work to do
@@ -226,10 +342,8 @@ ________________________
 ____________________________
 
 ## Assignment
-- Please upload screenshots of your practices to the class Tumblr.
-	- One free theme screenshot related today's practices such as the 3D paint texturing or the dice UV texturing.  
-	- A UV texturing image of the monkey face object. You can download the obj data [here](obj/monkey.obj).  
- 
+- By Sunday Oct 30 midnight, please complete your shading practices from today and upload screenshots to the class Tumblr with simple descriptions: **"a07 by your name, date"**.	
+	- Three images: one dice or box UV texturing result, one 3D paint texturing image, and one eye texturing image.  
 
 -------------------
 
@@ -242,22 +356,22 @@ ____________________________
 		<h1>DATT2500</h1>		
 		<a href="index.html">Class overview</a><br/>
 		<a href="DATT2500_ji_2016.pdf">Syllabus</a><br/><br/>
-		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a><br/><br/>
+		Tumblr class portfolio:<br/> <a href=http://2016datt2500.tumblr.com/>Lab 01</a>(<a href=https://docs.google.com/spreadsheets/d/1z6CeT82q8vgBCrVt2KSWO8oU_w_dDQyHvqyfLvPLc00/edit?usp=sharing/>grade</a>)/ <a href=http://2016datt2500lab2.tumblr.com/>Lab 02</a>(<a href=https://docs.google.com/spreadsheets/d/1KBkPkjxFWKcrbKMnwxFb9eBLEEu868rhVNXf3448DDU/edit#gid=0>grade</a>)/ <a href=http://2016datt2500lab3.tumblr.com/>Lab 03</a>(<a href=https://docs.google.com/spreadsheets/d/1KBkPkjxFWKcrbKMnwxFb9eBLEEu868rhVNXf3448DDU/edit#gid=905174335>grade</a>)/ <a href=http://2016datt2500lab4.tumblr.com/>Lab 04</a>(<a href=https://docs.google.com/spreadsheets/d/1KBkPkjxFWKcrbKMnwxFb9eBLEEu868rhVNXf3448DDU/edit#gid=977503735>grade</a>) <br/><br/>
 	
 		<h3>Class weeks</h3>	
 				<a href="week01.html">1: Introduction</a><br/>
 				<a href="week02.html">2: 3D Modeling</a><br/>
-				<a href="week03.html">3: NURBS modeling I</a><br/>
-				<a href="week04.html">4: Polygon modeling I</a><br/>
+				<a href="week03.html">3: NURBS modeling</a><br/>
+				<a href="week04.html">4: Polygon modeling</a><br/>
 				<a href="week05.html">5: Cinematography</a><br/>
 				<a href="project.html">Project I (By Oct 16th)</a><br/> 								
 				<a href="week06.html">6: Shading</a><br/>  
-				<a href="week2_2.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Global Illumination</a><br/>
+				<a href="week07.html">7: Texturing</a><br/>
+				<a href="week2_3.html">8: Modeling Techniques</a><br/>
 				Project II<br/> 
-				<a href="week2_4.html">9: Modeling techniques I</a><br/>
-				<a href="week2_5.html">10: Modeling techniques II</a><br/>		
-				<a href="week3_1.html">11: Character & Low-poly modeling</a><br/>
+				<a href="week2_4.html">9: Character M & T</a><br/>
+				<a href="week2_5.html">10: Organic M & T</a><br/>		
+				<a href="week3_1.html">11: Global Illumination</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
 				Project III<br/>		
 	</div>
