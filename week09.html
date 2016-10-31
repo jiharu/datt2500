@@ -20,351 +20,188 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Global Illumination 
+# Character modeling & texturing
 ## Goal
-- Understanding concepts, differences, and uses of Global Illumination (GI), Final Gather (FG), and Caustics, for proper application.
+- Understand the 3D production pipeline.
+- Understand the differences between organic and hard modeling.  
+- Build your character with 3D modeling in Maya.
+___________________
+# Production pipeline
+Reference: [digital] Modeling Chapter 1 Introduction.
+## Stages of production
 
-_________________________________
-## Indirect (Global) illumination
+- 3 Stages: no matter the size of the team or project, you will need a strong production pipeline.   
+	
+>  ![3 Stages](img/pipeline.png)    
 
-In reality, when a ray of light hits an opaque surface, it is **either absorbed or reflected (or a little of both) by the surface**. If the light ray is reflected, it reenters the environment and continues to bounce off reflected surfaces until it is absorbed by another surface. Bounced light rays are **indirect illumination**.
-
-Perhaps **80 percent of the illumination** in an environment is contributed by indirect (global) illumination, and simulating its effect is critical to creating realistic rendering.
-
-![glw02](img/maya/rendering/gl/gi_methods_00.jpg)   
-Image from [aversis.be/tutorials/vray/](http://www.aversis.be/tutorials/vray/vray-20-gi-methods.htm)
-
-### Ambient occlusion
-As light rays bounce around in an environment, fewer light rays reach the parts that are hidden in corners, cracks, and crevices. The lack of light in these areas creates a type of shadowing known as **ambient occlusion**. 
-
-### Comparison between direct (local) and indirect (global) illumination
-
-![glw01](img/maya/rendering/gl/Local_illumination.JPG)     
-
-- Rendering with local illumination (with Raytracing). Areas that lie outside of the ceiling lamp's direct light lack definition. For example, the lamp's housing appears completely uniform. Without the ambient light added into the render, it would appear uniformly black.    
-
-![glw00](img/maya/rendering/gl/Global_illumination.JPG)    
-
-- Rendering with global illumination. Light is reflected by surfaces, and colored light transfers from one surface to another. Notice how color from the red wall and green wall (not visible) reflects onto other surfaces in the scene. Also notable is the caustic projected onto the red wall from light passing through the glass sphere.       
-
-The above examples are described in more detail here: [Global Illumination from wikipedia](http://en.wikipedia.org/wiki/Global_illumination)
-
-### Color bleed
-Color bleeding is a global illumination effect where reflected light projects some of the object’s diffusely (as opposed to specularly or glossily) reflected color onto a nearby surface.   
-
-For example, a bright red apple on a pure white table cloth ‘spills’ red onto the table cloth.
-
-[Maya help: color bleed](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-A9C09CAF-2594-472B-A01A-B06458915C73)
-
-![gl06](img/maya/rendering/gl/colorbleed.png) 
-
-______________________________
-### Mental Ray 
-
-To use Global Illumination in Maya, you must use the Mental Ray renderer.  **Mental Ray for Maya** offers all the features traditionally expected of **photorealistic rendering** and includes functionality not found in most rendering software. Mental Ray for Maya allows interactive and batch Mental Ray rendering from within the Maya user interface. 
-   
-After you load the Mental Ray plug-in (and select Mental Ray as the renderer), the Render menu lists available menu items for Mental Ray for Maya. As well, the Attribute Editor contains a Mental Ray section in which you can edit attributes that are used exclusively when rendering with Mental Ray for Maya.
-
-For simulating indirect lighting and ambient occlusion shadowing, there are **Global Illumination, Final Gathering**, and **Ambient Occlusion shaders.** You can use them separately or together. 
-
-___________________________________
-
-## Global illumination, caustics, and final gather in Maya
-This explanation is drawn from [the Maya help documentation](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-6FBC6DDF-D727-4A4C-ABD7-3A94E4D70461)
+- __Pre-production:__ the pre-production stage is the process of preparing all the elements involved in a production and is the foundation of the project—the blueprint of the entire animation. The story and visual look of a project is developed at this stage, as well as the overall planning of the production.   
  
-Global illumination is commonly used to describe all forms of indirect light. It is often assumed to encompass all of global illumination, caustics and final gather. However, the definition of global illumination is different in Mental Ray for Maya. **In Mental Ray for Maya, global illumination, caustics and final gather are three separate techniques.** Global illumination simulates diffuse light bouncing multiple times over an area until it is completely absorbed.
+- __Production:__ the production phase of the project is where final elements of the animation are initially created based on the work developed by the pre-production crew. It is the production crew’s job to stay true to the blueprint in place and to maintain the director’s vision. It’s also where the digital modeler comes into play in most production pipelines.
 
-Global illumination, caustics, and final gather all contribute to indirect illumination. When global illumination or caustics are incorporated in your scene, the Mental Ray for Maya renderer uses **photons** to simulate light inter-reflection and caustic effects. When final gather is incorporated in your scene, however, Mental Ray for Maya does not use photons but instead **samples** the semi-hemispherical area above every point in the scene to calculate the direct and indirect illumination. Since photons are not used for final gather, final gather requires the least rendering time out of the three options.
+- __Post-production:__ the post-production is the part of the process that may take the longest due to the refinement of all of the aspects of the final product. Although this is the last step in the production of an animation, it is key to a project’s success. Images get enhanced by compositing, the sound track and dialogue get tighter, and the edit gets tweaked for the most effective presentation of story and pacing. This is the point of the project that can make or break it and should not be taken lightly. It is what the production team loses the most sleep over.  
+	
+## Video 
+- [Digital-Tutors video link: 3D production pipeline](https://www.youtube.com/watch?v=UlQVPbC5iJ0)
+_____________________
+## Pre-production
+- Story
+       
+- Visual design   
 
-## Caustics
-Global illumination simulates light reflected from diffuse surfaces. Caustics simulate light reflected from glossy and reflective surfaces as well as light that passes through refractive transparent materials. Caustics are calculated completely independently from global illumination; however, the workflow is very similar.
+![vis](img/pipe/vis.png)
+      
+- Storyboard     
 
-![gl06](img/maya/rendering/gl/cst.png) 
+![storyb](img/pipe/story.png)  
+![storyb01](img/pipe/storyboard.png)   
 
-### Using global illumination with caustics
+- Animatics
 
-Global illumination is not used for the focusing of light (that is, reflection and refraction). It is generally used with diffuse materials or for simple transparency. If you need to add refractions, then incorporate caustics in your scene.
+-------------            
+## Production
+- Modeling     
 
-## Final Gather 
-You can find more details from the [Autodesk Knowledge Network.](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-6A540E28-CBE6-405D-8627-0E2E8E2F2F61-htm.html)
+![model](img/pipe/character.png)
+![model01](img/pipe/character_concept.png)
+![model02](img/pipe/rig_cha.png)    
+    
+- Scene setup     
 
-Final Gather employs a specialized variation of raytracing in which each camera eye ray intersection creates sets of Final Gather rays. The Final Gather rays are sent out in a random direction within a hemisphere. The end result is a render that is able to include bounced light and **color bleed**.
+![com](img/pipe/greenscreen.png)
+![com01](img/pipe/set.png)
+![com02](img/pipe/composite.png)   
+     
+- Texturing     
 
-![gl05](img/maya/rendering/gl/fg01.png) 
+![uv](img/pipe/uv.png)  
+     
+- Rigging     
 
-### Using global illumination with final gather
+![rig](img/pipe/rig_char01.png)      
+![rig01](img/pipe/rig_face.png)    
+     
+- Animation        
+- Effects     
 
-Use final gather to add fine details to your scene. When global illumination is used, photons usually miss cracks and crevices in objects and therefore these areas may appear artificially dark. Final gather adds details by adding light to the scene; brightening and softening it and making the final render more realistic.
-If details are washed out by global illumination because your scene is too bright, use ambient occlusion to add detail to your scene by subtracting light.
+![vfx](img/pipe/vfx.png)  
+        
+- Lighting       
 
-_____________________________
+![light](img/pipe/light.png) 
+  
+- Rendering
 
->## Final Gather vs. Global Illumination
->This explanation is drawn from [blog.digitaltutors](http://blog.digitaltutors.com/indirect-illumination-final-gather-vs-global-illumination/)
->
-Global Illumination (GI) and Final Gather (FG) are the key algorithms to simulating realistic indirect illumination. Without these two techniques the lighting in CG environments looks unrealistic and extremely flat. 
->
-Despite the fact that both methods are there to achieve relatively the same goal, there are actually differences between the two and may be times when you would want to use one over the other. 
->
->### The Benefits of GI
->
-Global illumination can work in different ways depending on your rendering engine. In Mental Ray it works by **the use of photons cast out into the scene**. 
->
-Global illumination gives you a lot of control over your scene and creates results very close to what you would see in the real world. It’s great to use when you have physical lights in your scene like a light bulb, torch, etc. It’s vital for architectural lighting because it produces very natural results and GI allows the light to inter-reflect between different surfaces.
->
->### The Benefits of FG
->
-Final gather works a little differently than Global Illumination in that it uses **rays to sample the scene instead of photons**. It casts these rays out based on the camera view rather than from the light sources. You can think of it as the faked method for simulating indirect illumination. However, faked doesn’t always mean bad.
->
-**Final gather is extremely fast** to set up, and while it doesn’t give you the control of casting the rays from a particular light source, it makes up for it **with ease of use**. 
->
-If you’re using an **image-based light setup** for your scene then Final Gather is a must because without Final Gather the image-based light won’t be calculated in the scene.
->
-Another benefit to using FG is that you actually don’t even need a light source in your scene. **Final Gather will simulate indirect illumination based on the colors and materials in the scene**.
->
->### The Downsides to GI
->
-The biggest downside to GI is **simply render time**. 
->
-GI also requires more **fine tuning and tweaking** to get the results you want. You may notice if you begin to emit photons from a light source in your scene it probably doesn’t produce the results you want, and the rendered scene will likely be dark and splotchy. These splotches are actually the photons that are cast out into the scene. To reduce the splotches you need to increase the amount of photons, which means increasing the render time as well.
->
-![glsp](img/maya/rendering/gl_splotch.png)  
-Dark and splotchy render image.
->
->### The Downsides to FG
->
-In Final Gather, by default, the rays only bounce once in the scene, whereas with GI the photons bounce multiple times giving you more realistic results. You can increase the number of bounces in the FG settings, but increasing this number means increasing the render time significantly.
+![light01](img/pipe/light01.png)
 
-_________________________
-### Maya help documents (Autodesk knowledge center)
+------------
+## Post-production
+- Compositing
+- Final Delivery
 
-- [Render with Global Illumination](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-143A087B-FB09-4554-B53F-2A5C476D4406)
+------------
 
-- [Render with Final Gather](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-683F30E9-B158-4AEE-8D1D-87369D6F1186-htm.html)
+# Character modeling
+## Cinematic vs game model
+Models built for interactive 3D are primarily polygonal models that use controlled polygon counts to suit gaming engines. Some next-generation game engines already have support for Bezier geometry, and NURBS and Subdivision surfaces may soon follow. 
 
-- [Final Gather](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-6A540E28-CBE6-405D-8627-0E2E8E2F2F61-htm.html)
+![lod](img/lab/lod.png)  
+Cinematic model and game model. Image from the book Rigging for Games by Eyal Assaf.
 
-- [Photon tracing, Conditions for photon storage](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-2A05BF61-2A60-4CE8-8F54-43E362C06982)
+-----------------------------
+## Good character design
+Reference: Creative character design by Bryan Tillman, 2011, Focal Press  
 
-- [Mental Ray 2016 Render Settings: Legacy Mental Ray tabs](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-67B3D408-76A5-43FA-BC4B-1E1F2243C1F6)
-__________________________
-## Rendering
-Rendering is the final stage in the 3D computer graphics production process.
-Though the wider context of rendering begins with shading and texturing objects and lighting your scene, the rendering process ends when surfaces, materials, lights, and motion are processed into a final image or image sequence.
+- Archetypes: a hero, a beauty, a bad guy.., or part of yourself   
+	- Character bio: name, age, height, weight, build, nationality..   
+- Story and target audience: *the character is always in service to the story*   
+- Shapes: they can tell a story about the character visually.  
+- Reference    
+- Aesthetics & Details  
+- Originality  
 
-As you build your scenes (shade and texture objects, light scenes, position cameras, and so on), you’ll want to visualize your scene many times before you produce the final rendered image or image sequence. This process may involve (depending on your particular project) creating and setting up additional cameras.
+__________________
+## Character design templete
+Reference: Creative character design by Bryan Tillman, 2011, Focal Press 
 
-The key to rendering is finding a balance between the visual complexity required and the rendering speed that determines how many frames can be rendered in a given period of time.
-
-________________________
-
-## Cornell Box
-
-**The Cornell box** is a test aimed at determining the accuracy of rendering software by comparing the rendered scene with an actual photograph of the same scene, and has become a commonly used 3D test model. [-wikipedia](http://en.wikipedia.org/wiki/Cornell_Box)
-
-![cl01](img/maya/shading/cornell.png) 
-
-[Link: Cornell box in many different variations.](http://graphics.ucsd.edu/~henrik/images/cbox.html)
-
-### Different Cornell box render images:
-![goal](img/maya/shading/raytr.png)
-
-______________________________
-
-## Creating Photons
-
-To use Global Illumination or Caustics, you must employ **virtual [photons](http://en.wikipedia.org/wiki/Photon)**. In Maya, **spot, point, area,** and **directional** lights generate photons when the **light's *Emit Photons* attribute** is selected.
-
-When a scene is rendered, photons are traced from each photon-emitting light to surfaces in the scene. If a photon “hits” a surface, that photon is absorbed, reflected, and/or transmitted (refracted) based on the qualities of the material assigned to the surface. If a photon is reflected or transmitted, it survives with only a portion of its original energy. 
-
-> The amount of energy is determined by the attributes that establish the surface's **diffuse color, reflection coefficient**, and **various specular highlight qualities.**
-
-__________________________________________
-### In the light attribute editor
-
-![gl02](img/maya/rendering/gl/lid.png) 
-
-#### Light's Global Illum Photons attribute
-You can lower or raise the default value of 10,000 to decrease or increase quality. 
-
-#### Light's Caustic And Global Illumination subsection  
-**Photon Color** represents the red, green, and blue components of a photon's energy. 
-The RGB values of its color swatch are multiplied by the Photon Intensity attribute to produce Energy R, Energy G, and Energy B attributes.
-
-**Photon Intensity** is a scaling factor used to determine the intensity of photons produced by a light. A value of 0 will turn off photon tracing for the light.
-
-**Exponent** simulates light falloff over distance. The default value of 2 replicates natural, quadratic decay. A value of 1 effectively prevents falloff from occurring. Values higher than 2 create a more rapid falloff by artificially decreasing photon energy with distance.
-
-__________________________________________
-### In the Render setting window
-
-#### Max Trace Depth
-If a photon survives a hit and is reflected or transmitted, it continues through the scene until it hits another surface. Once again, the photon is absorbed, reflected, or transmitted. This process continues until the surviving photons are stopped by the **Max Trace Depth attribute**, which defines the number of hits permitted per photon. (Max Trace Depth is located in the **Render Settings window // Mental Ray / Quality /Trace Depth**)
-
-![gl01](img/maya/rendering/gl/rtd.png) 
-
-**Reflection** defines the maximum number of times a photon will reflect in a scene. This attribute is overridden by the Max Trace Depth attribute. The first surface encountered is not included in the count. 	
-
-#### Photon map
-The photons that are absorbed by a surface (and are thereby culled in a process known as *Russian Roulette*), have their position, incident direction, and energy stored in a special photon map.
-
-To save a photon map, type a name for the map in the **Photon Map File** field (found in the Photon Map section on the Indirect Lighting tab of the Render Settings window) and create a render (do not add a file extension to the name). When you want to reuse the same map, deselect Rebuild Photon Map. The map is stored in the renderData\mentalray\photonMap directory with the .pmap extension. When you want to overwrite the map, simply select Rebuild Photon Map. Reusing a photon map can speed up rendering.
-
-The map Visualizer allows you to see how the photons are cast in the scene.
-
-![gl01_01](img/maya/rendering/gl/phm.png)   
-The above image shows Maya 2014. In Maya 2016, you can find the same attribute at the **Quality/Legacy Options/Photon Map.**   
-(If the **Legacy Options** attribute tab is not visible, check the **'show advanced settings'** options box at the top of Quality tab to show it.) 
-
-#### The Global Illumination attributes in the Render Settings window. 
-
-![gl_w01](img/maya/rendering/gl/renderset.png)   
-Maya 2016. 
-
-**Radius** controls the maximum distance from a surface point that the renderer will seek out photon hits to determine the color of the point in question. If photons hits are within the search region, their energies are averaged. The search regions render as colored discs when the Radius is inappropriately small for a scene or there are an insufficient number of photons present. The default value of 0 allows Maya to automatically pick a Radius based on the scene size.
-
-**Accuracy** sets the maximum number of neighboring photon hits included in the color estimate of a single rendered point. The search for neighboring photon hits is limited to the region established by the Radius attribute. In general, the higher the Accuracy value, the smoother the result. However, Accuracy affects only photon hits that are in close proximity. That is, if the photon count is low or the Radius value is small so that the photon hits are not discovered in the search region, the Accuracy attribute will have no effect on the render.
-
-**Scale** serves as a multiplier for the Photon Intensity attribute of all lights in the scene. If the slider is set to 50 percent gray, all the photons in the scene will be at half intensity.
-
-**Merge Distance** specifies a distance in world space within which overlapping photons are merged. The option is used to reduce the size of photon maps and decrease render times. You should raise this setting by very small increments, as it can also introduce blotchiness in the render. 
+1. Gender
+2. Race
+3. Eye color
+4. Hair color
+5. Glasses or contact lenses
+6. Nationality
+7. Skin color
+8. Shape of face
+9. Distinguishing features
+10. Clothes: what/how does he/she wear?
+11. Mannerisms
+12. Habits
+13. Health
+14. Hobbies
 	
 __________
+## Inspiration
+- [Oktapodi](https://en.wikipedia.org/wiki/Oktapodi) is a 2007 French computer-animated short film, directed by Julien Bocabeille, François-Xavier Chanioux, Olivier Delabarre, Thierry Marchand, Quentin Marmier, and Emud Mokhberi. Music was composed by Kenny Wood.
+	- [youtube link](https://www.youtube.com/watch?v=badHUNl2HXU)  
+	- [Webpage / Gallery](http://www.oktapodi.com/gallery/) 
+	
+- Hyper realistic 3D modelling: [TERUYUKI AND YUKA](http://www.telyuka.com/)	
+
 ## Reference
 
 [Maya 2016 online Help](http://help.autodesk.com/view/MAYAUL/2016/ENU//)    
 
 - Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)  
 
-_______________
+## Advanced tutorial
+- [Maya: Professor - Poly Model Timelapse by Andrew Silke (36:01)](https://www.youtube.com/watch?v=5u1MnuCp6fM)
+- [Maya: Cartoon Head Topology by Andrew Silke (5:12)](https://www.youtube.com/watch?v=trZ2zxpM150)
+- [Maya: Cartoon Head Topology - Hack 'n' Slash (10:01)](https://www.youtube.com/watch?v=c2ybQtNlduE)
+- [How to Model Lips & Mouth (9:37)](https://www.youtube.com/watch?v=CiBGrpAI1gk)
+- [Speed Modeling Anna (Frozen) - In Maya (15:39)](https://www.youtube.com/watch?v=NBrBQbwiDn4)
+- [Maya Character Modeling Tutorial - Cartoon Mouse (# 1~4)](https://www.youtube.com/watch?v=2dLMctUGKXw)
+- [Modeling a Cartoon Cat in Maya - Part 1](https://www.youtube.com/watch?v=8Weir5-38tA)  
+- [Polygon & Subdivision Surface Modeling in Maya: The Mouse Embryo](http://www.molecularmovies.com/img/pdf_tutorials/MouseEmbryoModeling.pdf) 
 
-# Review
-## Assignment
+_____________
+
+## Review
+### Assignment
 - [Lab 1](http://2016datt2500.tumblr.com)
 - [Lab 2](http://2016datt2500lab2.tumblr.com/)     
 - [Lab 3](http://2016datt2500lab3.tumblr.com/)  
 - [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
------------------
+----------------------------
 
 # Lab
 ## To do list
-- Lab practice A: Global Illumination
-- Lab practice B: Final Gathering
-- Lab practice C: Glass and mirror balls in the Cornell box   
-- Lab practice D: Global Illumination and Final Gathering    
+- Lab practice: Importing blueprints to Maya  
+- Lab practice A: Hard modeling - building a lego character.
+_________________________
+## Lab practice A: Hard modeling
+![lab01](img/maya/character/legoman.jpg)    
+![lab02](img/maya/character/lego_maya.png) 
+![lab03](img/maya/character/legoman_front.png) 
+![lab03_01](img/maya/character/legoman_front01.png) 
+![lab04](img/maya/character/legoman_side.png)  
+![lab04_01](img/maya/character/legoman_side01.png)
+![lab05](img/maya/character/spiderman_front.jpg)  
+![lab06](img/maya/character/spiderman_back.jpg) 
+![lab07](img/maya/character/spiderman_side.jpg) 
 
------------------------
-## Practice A: Global Illumination
+- [Lego Man 3D Minifig Reference
+by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
+- [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
+- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)
 
-![gl00](img/maya/rendering/gl/gl.png)
+## Lego related reference
+- [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
+- [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
+- [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
+- [Lego Minifig 3D Model](https://www.creativecrash.com/3d-model/lego-minifig-3d-model)  
 
-[mb file](gl_cornell01.mb)
+_____________________________
 
-1. Make sure at least one light source in your scene emits photons.
-
-2. You can turn on Global Illumination from the **Render Settings/Mental ray/Quality tab. You can either choose **Advanced Light Sampling / Indirect Diffuse (Gl) Mode** or **Legacy Options/Global Illumination.** 
-
->If the default settings are not sufficient to achieve the look you want (or to reduce render speed), tweak the global illumination settings until you achieve the look you want. 
-
-- Please check **how to create photons** from the lecture notes.
-   
-_______________________
-## Practice B: Final Gather
-1. Turn off Maya default lights from the Render Setting/Common/Render Option. If you have any light sources in the scene, turn off their *Illuminates by Default* attribute. 
-
-2. You can turn on Final Gather from the **Render Settings/Mental ray/Quality tab**. You can either choose **Advanced Light Sampling / Indirect Diffuse (Gl) Mode** or **Legacy Options/Final Gathering.** 
-
->Change any of the following optional settings, which can have an effect:
->
-- The camera background color: You can change background color or attach a environment texture to the image plane. You can also turn on the **Physical Sun and Sky** to simulate sun and shadow without adding any light in the scene. (from **Render Settings/Mental ray/Scene/Cameras/Environment)
-- The object material’s colored Incandescence or Ambient color attributes.
-- Irradiance contributions from shaders.
-- Irradiance color mapping contributions from shaders.
-- The number and location of lights in the scene.
-
-![fg](img/maya/rendering/gl/fg.jpg)
-
-Render image with no actual light but with turning on the 'Physical Sun and Sky' attribute from the Mental Ray render setting. 
-
-___________________________
-## Practice C: Glass and mirror balls in the Cornell box 
-
-![cr01](img/maya/shading/goal.png)
-
-## Glass & mirror ball
-
-![escher](img/maya/shading/escher_ball.jpg)     
-Three spheres II, M.C.Escher, lithograph, 1946. 
-
-[link 1](http://www.butchgraphics.com/3d/3Spheres.html),    
-[link 2](http://blenderartists.org/forum/showthread.php?216683-Modern-take-on-an-Escher-classic),  
-[link 3](http://www.hdrlabs.com/cgi-bin/forum/YaBB.pl?num=1264525246).  
-  
-### Material: Glass
-
-![glass01](img/maya/shading/teapotGlass.png)
-
-### Creating a Cornell box
-1. Make a box for a room and a camera
-2. Apply materials to the faces of the box respectively (especially at the side walls, apply strong contrasted color such as red/blue, red/green, orange/green or such.  
-3. Create basic objects (including two spheres)
-
-### Creating glass & mirror material
-
-1. **Research references** such as photographs of physical glass.	
-	[Example of a glass material reference](http://www.thisiscolossal.com/2012/08/a-glass-sphere-solar-energy-generator-capable-of-converting-sun-and-moonlight-into-usable-power/)
-	
-2. In the **Hypershade editor**:     
-assign **Blinn** shader. Then open & change its attributes as follows:
-	- Color: black
-	- Transparency: Value 0.9
-	- Specular: Eccentricity 0.05, Specular Roll off 1.5, Color white, Reflectivity 0.2
-	- Raytracing: check Refractions, Refractive Index 1.33, Refraction Limit more than 2
-	
-	![glass02](img/maya/shading/glass.png)
-
-* **Refractive Index:** in optics, the refractive index or index of refraction of a substance (optical medium) is a dimensionless number that describes how light, or any other radiation, propagates through that medium. For example, the refractive index of water is 1.33, meaning that light travels 1.33 times slower in water than it does in vacuum. [Wikipedia](http://en.wikipedia.org/wiki/Refractive_index)
-
-3. Render Settings: turn on the Raytracing attribute
-
-### Review: Camera Settings / Camera Attribute Editor / Render setting
-Make a close-up camera
-
-![cr](img/maya/shading/camera_render.png)
-
-Lighting & Soft Shadow
-
-![shadow](img/maya/shading/softshadow.png)	
-
------------------------
-## Practice D: Global Illumination, Final Gathering, and Caustics
-
-### Prepare the scene in the correct project directory.
-- Let's use the Cornell box and its area light setup.
-
-### Render Settings window
-- Choose Mental Ray renderer.
-- In the **Global Illumination** section, select the Global Illumination check box. 
-- In the **Final Gathering** section, temporarily deselect Final Gathering: temporarily disabling Final Gathering will speed up the render as you adjust the various Global Illumination settings.
-
-### the Attribute Editor tab for the area light
-- In the **Caustic And Global Illumination** section, select **Emit Photons**. Render a test. Each dot represents a photon hit. 
-
-- The dot indicates the area of influence the photon has when combining the photon's indirect illumination information with the direct illumination calculation. 
-
-- The dots are colored, indicating that their energy has been influenced by a surface they have bounced off. For example, the red dots indicate a bounce off a nearby red wall. Hence, a major advantage of Global Illumination is the ability to produce **color bleed**. Although Final Gathering is also used to produce bleed, it is generally more subtle.
-
-- Adjust the **Radius** attribute, found in the Global Illumination section of the Render Settings window. By default, Radius is set to 0, which means that Maya automatically selects a Radius value based on the scene size. 
-
-- It's important to adjust **the total number of photons** in the scene at the same time. To do so, adjust the Global Illum Photons value in the Caustic And Global Illumination section of the light's Attribute Editor tab. When raising the Global Illum Photons value, do so incrementally. The more photons that are being traced, the longer the render will take.
-
-- Reactivate **Final Gathering** by selecting the Final Gathering check box. Final Gathering provides additional smoothing to the Global Illumination indirect illumination and helps hide unblended photon hits.
-
-![gl04](img/maya/rendering/gl/fg.png) 
-
-- If you have a refractive object, try to make a Caustic effect.
-________________________
 ## Lab work to do
 - Review & practice based on today's lecture & lab class material.  
 - Let's prepare project 2: free theme modeling & rendering. 
@@ -372,46 +209,9 @@ ________________________
 ____________________________
 
 ## Assignment
-- Please upload rendering images of your practices to the class Tumblr.
-	- A Cornell box without GL.  
-	- A Cornell box with GL photons.
+- Please upload screenshot of your organic modeling to the class Tumblr.
 
 -------------------
-
-# Project 2 - free theme modeling & rendering.
-## Due date: July 11th Monday 1pm.
-
-- Please collect your final work and related files into one folder:
-
-	1. The name of folder: ```your school id_your name``` (e.g., 123456_your name)
-	  
-	2. Include in the folder: 
-		1. Your final render image: 720~1k pixels size, saved as JPG or PNG. 
-		2. Your Maya file (.mb or ma file) 
-		3. One page documentation PDF file, showing a - a description of your choice and focus, b - a process of making and problem solving, and c - your discoveries and achievement.    
-	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space](https://drive.google.com/folderview?id=0B7x8GrEkHm-LT1Bnd3lTYUQ0T3M&usp=sharing).
-	
-	4. Consider the technical and aesthetic challenges plus the level of completion. 
-	
-----------------------
-## General guide for the final project
-
-- Cleaning the file: proper naming, and delete the history once it is ready.
-
-- Modeling details: Work on good proportion. Adding bevels to smooth edges. Apply smoothing if it is a curved surface. If it is NURBS surface, rebuild it by increasing number of spans, or if it is polygon, either do smooth or smooth proxy, or by manually adding more divisions or edges.
-
-- Cinematography: redefine your camera set-up (file gate) and match it to the render setting (resolution gate). Check that your lighting shows good balance and overall contrast, helps viewers to focus on the main objects, and reveals important details in your scene. Finally try to create good soft shadows.
-
-- Shading & rendering: define and reveal proper material characteristics and when you do render, properly apply ray tracing, direct or indirect illumination if it fits, and most of all don't forget to apply anti-aliasing. Try to use photoshop in order to utilize multiple render passes too.
-
-Overall, work on it until you are pleased with your final render result. 
-
-____________________________
-## Final critique dates
-- July 12th Tuesday 10am.    
-- July 14th Thursday 10am. 
-
-__________________________________
 
 
 </div>
@@ -433,13 +233,12 @@ __________________________________
 				<a href="project.html">Project I (By Oct 16th)</a><br/> 								
 				<a href="week06.html">6: Shading</a><br/>  
 				<a href="week07.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Modeling Techniques</a><br/>
-				Project II<br/> 
+				<a href="week08.html">8: Modeling Techniques</a><br/>
 				<a href="week2_4.html">9: Character M & T</a><br/>
 				<a href="week2_5.html">10: Organic M & T</a><br/>		
 				<a href="week3_1.html">11: Global Illumination</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project III<br/>		
+				Project II + Project III<br/>	
 	</div>
 	<div class="section">
 		<script type="text/javascript">

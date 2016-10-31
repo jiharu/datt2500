@@ -20,218 +20,331 @@ A guide to markdown syntax is at http://daringfireball.net/projects/markdown/
 
 <div style="display: none" id="sourcetext">
 
-# Texturing
-## Goal
-- Understand the processes of texturing and know how to apply them in Maya.
-___________________
-# Maya texturing
-Although the Hypershade window provides numerous ways to prepare materials, several important techniques outside the window are important to check out. Preparing proper UVs for any model is a critical step in the texturing process. Using the 3D Paint tool is an efficient way to prepare custom bitmaps. Maya's support of the Photoshop PSD format allows the use of layers. At the same time, the proper use of bump and displacement maps can add realism to a render. 
+# 3D modeling Techniques
+Reference: [digital] Modeling by William Vaughan, 2011
 
-## UVs
-UVs are 2D representations of a 3D object. There is a problem with wrapping a 2D image (a texture) around a 3D object, and UV mapping helps with this problem: UVs are directly related to vertices on a polygon and NURBS, but the UVs cannot be manipulated in 3D space; they are tied to a 2D coordinate plane and edited in a **UV editor**.
-
-> UVs are like a “where” — they are a coordinate system across the surface of polygons (think latitude and longitude across a globe). 
-> Understanding what UVs are and being able to manipulate them is incredibly powerful and allows any image to define the surface of a 3D form. ***Unfortunately, this power to manipulate UV is not a trivial task and can be very counterintuitive.*** 
-
->UV stands for the horizontal (U) and vertical (V) coordinates of the 2D coordinate map space that is applied to a 3D object.
-
-## UV Texture editor
-3D software uses u- and v-coordinates to determine how textures should be applied to 3D objects. **UV mapping** refers to the process of determining these coordinates for polygon objects. **UV layout** is a term that refers to the 2D configuration of the UVs on a surface. In the **UV Texture Editor**, u-coordinates are plotted along the horizontal axis, and v-coordinates are plotted along the vertical axis. **UV maps** act as a guide for the placement of images. 
-
-NURBS surfaces have implicit UVs; this means that the coordinates are built into the parameterization of the surface. **UV texture coordinates do not have to be created for NURBS surfaces; only polygon and subdivision surfaces require mapped UVs.**
-
-________________________
-
-## Create UVs (Modeling // UV /)
-#### Using different mapping methods and check the UV Texture Editor.
-
-![uv01](img/maya/shading/texturing/uv.png)
-
-#### Example of a 3D human model with the UV map.
-
-![uv01](img/maya/shading/texturing/uv01.png)
-
-(a) Planar, (b) cylindrical, (c) spherical, and (d) automatic mapping of a human model.
-
-![uv02](img/maya/shading/texturing/uv02.png)
-
-### Examples of UV texture mapping
-![3dp01](img/maya/shading/texturing/texs.png)
-
-### The bumps and folds of a sculpture are roughed in with the 3D Paint tool
-![3dp](img/maya/shading/texturing/3dpaint.png)
+William Vaughan is an award-winning artist, writer, director, and is currently the Academic Director at the Digital Animation and Visual Effects School at Universal Studios in Florida. Youtube channel: [link](https://www.youtube.com/user/TofuTheVeganZombie/about)  
 
 
--------------------------
+## No set way
+
+> An interesting fact in the digital modeling world is that no two artists use the same techniques when creating a digital model, even when the two modelers are working from the same reference material, producing the same final mesh. Consider this example: When I had classes of thirty students working on the same robot model, I never saw any two working with the same method. This just goes to show that there is no set way to work, and that artists are free to work with whatever method(s) they feel most comfortable with.
+
+## More methods
+
+> Don’t limit yourself to just a few modeling methods. Every professional digital modeler I know gravitates to a particular method of modeling for the majority of the meshes each is tasked with, but each modeler is quick to use other methods when needed. The more techniques you become proficient in, the more efficient you will become.
+
+# 3D modeling methods
+## Build out
+
+### Point by point
+![point](img/meth/point.png)
+
+### Edge extend
+![edge](img/meth/poy.png)
+
+## Primitive modeling
+![prim](img/meth/prim.png)
+![prim01](img/meth/primbox.png)
+
+## Box modeling
+![box](img/meth/box.png)
+![box01](img/meth/boxchar.png)
+
+## Patch modeling
+  
+![curve](img/meth/curve.png)
+>Using curves, you can create a wire cage to define the surface of an object.   
+
+![nurbs](img/meth/nurbs.png)
+
+## Digtial sculpting
+![scup](img/meth/zbrush.png)    
+>No consideration to the layout of polygons is needed when digital sculpting, leaving the artist’s focus on the shapes, not the underlying geometry.  
+  
+![normal](img/meth/normal.png)    
+>The high-poly meshes are used as source material to enhance low-poly models used in real-time games with the use of normal maps.
+
+### Video
+- [CG101: What is a Normal Map?](https://www.youtube.com/watch?v=yHzIx41eiD4)  
+
+### Reference
+- [Som Downs blog](http://somdowns.blogspot.ca/)
+- [Homrighausen: Game Art Thread blog](http://polycount.com/discussion/116222/homrighausen-game-art-thread)  
+________________
+
+## More on [normal maps](http://en.wikipedia.org/wiki/Normal_mapping).
+
+![nor01](img/800px-Normal_map_example_with_scene_and_result.png)
+![nor02](img/800px-Normal_map_example.png)
+
+_________________
+
+## 3D Scanning
+### Contact scanners
+![cscan](img/meth/scan.png)
+### Non-contact scanners
+![ncscan](img/meth/scan01.png)
+![tomo](img/meth/tomo.png)
+![depthkit](img/depthkit.png)
+[DepthKit](http://www.depthkit.tv/): Depth Enabled Filmmaking Tool using a Kinect V2 and a high end SLR camera.
+
+## Modeling with texture and animation tools
+### Texture Displacement
+![disp](img/meth/disp.png)
+![hair](img/meth/hair.png)
+
+### Bones, lattice, and deformers
+![bone](img/meth/bone.png)
+
+### Dynamics
+![dynamic](img/meth/mic.png)
+
+All copyright of images are in [digital] Modeling by William Vaughan, 2011
 
 
-#### A human head model with a uniform UV map and a nonuniform UV map.
+------------------------------
+<!--# 3D modeling fundamental
+## Topology 
+- A surface, a two-dimensional manifold, looks flat in a local view, but it can have a more-interesting global structure.
 
-![uv03](img/maya/shading/texturing/uv03.png)
+- Topological objects are categorized by their genus (number of holes).
 
-_______
-## Maya standard shaders and Mental Ray materials
-The most often used standard shaders are Blinn, Lambert, Phong, Phong E, and Anisotropic. You can use any of these shaders when rendering with Maya and mental ray.
-
-![mm01](img/maya/shading/texturing/my.png)
-
-The below shaders will work only when rendering with mental ray.
-
-![mm02](img/maya/shading/texturing/mr.png) 
-
----------------------------------
-
-## Layered texture vs. Layered shader
-There are two ways to layer textures in Maya: using the Layered Shader with the texture compositing flag (see Layered shaders), or with the Layered Texture Node. Though the workflow for using the Layered Texture node is similar to the Layered Shader, using the Layered Texture node is recommended because you can set many blend modes.
-
-## Double-sided shaded surfaces
-Double-sided shading lets you shade a surface with one material on one side and a different material on the other side. This is the only way you can apply more than one material to a NURBS surface. You use both the Condition and Sampler info utility to create this effect. 
-
-- [Use a layered texture](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-45A50E53-E47A-44EB-8A66-9856A4AFDA17)  
-- [Layered texture](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-770E22B9-E32A-4E14-A4DC-23656D885AEE)  
-- [Display layered textures in the hardware renderer with multiple UV sets](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-05C5824B-59AF-44E7-A164-091A3B15DA26)  
-- [Create double-sided shaded surfaces](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-E4CA98D6-ACF8-4B97-BE9D-4E69A2275A37)
-
-![sc01](img/maya/shading/texturing/double.png)
-
-## Background surface
-**Shadow catching:** You can render out shadows separately from everything else. This is important in many cases, for example, if you want to blur shadows. In a composition you can soften, blur, brighten or change the color of shadows to match whatever it is they are composited against.
-
-[Use Background](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-64EE93F1-E7D6-40B9-BDB4-2EECFCB7AD37)
-
-___________________________________	
-
-## Cleanup option
-Performs various operations on the selection to identify and remove extraneous and invalid polygon geometry.
-
-- [Clean up, simplify, or validate meshes](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-0E2A7B88-E5B4-4B2A-96D0-C1BCBF6D3C27)  
-- [Cleanup Options](http://help.autodesk.com/view/MAYAUL/2016/ENU//?guid=GUID-AB60C982-C96E-4947-8CF3-5152406B6A40)
-
-![sc02](img/maya/shading/texturing/clean.png)
-![sc03](img/maya/shading/texturing/cleang.png)
-
-![sc04](img/maya/shading/texturing/nonmani.png)
-**Non-Manifold geometry** 
+	![topo01](img/maya/polygon01/topo01.jpg)   
 	
+### Definition
+
+- **Topology is the mathematical study of *shapes* and *spaces*.** It is a major area of mathematics concerned with the most basic properties of space, such as *connectedness*, *continuity* and *boundary*. It is the study of properties that are preserved under continuous deformations including stretching and bending, but not tearing or gluing. Topology developed as a field of study out of geometry and set theory, through analysis of such concepts as space, dimension, and transformation. 
+
+	e.g. a Möbius strip is a kind of object studied in topology which has only one surface and one edge.  
+	
+	![mobius](img/mobius_escher.gif)
+	- The gif clip is from [Mobius from mathcurve.com](http://www.mathcurve.com/surfaces/mobius/mobius.shtml)
+	
+- The definition of topology leads to the following mathematical joke (Renteln and Dundes 2005)	
+	
+	***"What is a topologist?""***  
+	***"Someone who cannot distinguish between a doughnut and a coffee cup."*** [Wolfram mathworld](http://mathworld.wolfram.com/Topology.html) [위상이란 무엇인가?](http://mathnmath.tistory.com/39)   
+
+	 ![torus](img/Mug_and_Torus_morph.gif)    
+	- This gif clip is from [wikipedia](http://en.wikipedia.org/wiki/Topology)
+
+- [Mathworld](http://mathworld.wolfram.com/classroom/TopologicalSpace.html): (1) The mathematical study of object's properties that are preserved through **deformations**, **twistings**, and **stretchings** of objects. Tearing, however, is not allowed. (2) A set along with a collection of subsets that satisfy several defining properties. 
+
+### More examples
+
+There are many surfaces with a variety of looks that are topologically the same.
+  
+![topo02](img/maya/polygon01/topo.jpg)   
+- The image is from [Math Hangout](http://mathhangout.weebly.com/stuff.html)
+
+
+- Check out more about topology from [Annenberg Learner website](http://www.learner.org/courses/mathilluminated/units/4/textbook/03.php)  
+
+--------------------------------------------
+## Booleans 
+Three boolean operations let you combine objects to make shapes that would otherwise be difficult to model using other techniques. You can add, subtract, or intersect objects to create a new, complex shape. [Examples](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-7DADD144-6C29-4AE3-B877-A9947B2F26E0)
+
+### The example of Boolean process
+![boo01](img/maya/polygon/bl01.png) 
+
+### Different kinds of boolean operation 
+![boo01](img/maya/polygon/bl02.png)  -->
+
+# Smoothing Polygon surfaces
+- [Autodesk: Smoothing polygons](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-8A5D0FF0-9BA1-435F-A4CA-53183311B819-htm.html) 
+	- Smooth a mesh by adding new polygons
+	- Smooth mesh preview overview
+	- Subdiv proxy overview
+	- Smooth a mesh by averaging the distance between vertices
+	- Subdivision surface
+ 
+- Other than the ways in the above list, to see a smooth version of a model, you can change its normal direction (Modeling // Mesh Display / Soften Edge) too.
+
+## Subdivision surface
+
+A subdivision surface lets you subdivide specific regions of a mesh, giving you the ability to finely tune or smooth certain areas without changing the entire mesh.
+
+Subdivision surfaces help you keep a lower polygon count because they only insert control points where you need them (instead of uniformly across the entire mesh). However, subdivision surfaces have the slowest performance of the three smoothing methods. 
+
+Note: Subdivision surfaces are largely unsupported in pipelines outside of Maya, so you need to convert them to polygons or NURBS before exporting to these pipelines. You can convert using either Modify > Convert Subdiv to Polygons or Modify > Convert Subdiv to NURBS.
+For more information on subdivision surfaces, see the [Subdivision Surfaces documentation archive](http://download.autodesk.com/us/support/files/subds.pdf).
+
+### OpenSubdiv 
+OpenSubdiv is an open-source subdivision method developed by Pixar that lets you work with a high-fidelity representation of your model with great accuracy and speed. As a professional standard in the animation industry, OpenSubdiv is implemented in a variety of software packages, improving interoperability by producing the same results when models are transferred between applications. In Maya, OpenSubdiv is the default subdivision method when you preview a smoothed mesh, smooth a mesh using Mesh > Smooth, or create a subdiv proxy.
+
+## Maya subdivision tutorial   
+- [Maya Subdivision Surfaces](https://www.youtube.com/watch?v=LpyJv8hhW_o&index=1&list=PL4fkBUcbgjGXSR7PUnjBuOSO3sDcLRF2F)  
+- [Intro to Maya and 3D Modeling - Lecture B: 5/13 - Subdivision and the Rule of 3](https://www.youtube.com/watch?v=70e-3bidL-w)
+
+------------------
+# More on NURBs modeling
+
+![aom_nurbs](img/lab/aom_nurbs.png)  
+
+Art of Maya. P 47.
+
 __________
-## Inspiration
-The Blue Umbrella: a 2013 Pixar computer-animated short film that is directed by Saschka Unseld of Pixar's technical department. The short featured new techniques in photorealistic lighting, shading, and compositing.    
-- [The Blue Umbrella, Youtube](https://www.youtube.com/watch?v=Ws54EoxJQU8)   
-- [The very first Blue Umbrella Layout Reel, Vimeo](https://vimeo.com/81467189)  
-- Portraits Of The 21st Century: The Most Photorealistic 3D Renderings Of Human Beings [link](http://www.cgtrader.com/blog/portraits-of-the-21st-century-the-most-photorealistic-3d-renderings-of-human-beings)  
-- Making of the Horse [link](http://www.cgsociety.org/index.php/CGSFeatures/CGSFeatureSpecial/the_making_of_horse)  
+# Inspiration
+## Game of Thrones intro
+- [Official Show Open 1:41](https://www.youtube.com/watch?v=s7L2PVdrb_8)
+- [Extended Opening 4:27](https://www.youtube.com/watch?v=i9xKpUXbxfM&feature=iv&src_vid=B3vqcbJwgCI&annotation_id=annotation_96828)  
+- [Kirk Shintani from Elastic](http://www.artofvfx.com/?p=1659)
+- [Software used to create the intro of Game of Thrones , Quora](http://www.quora.com/What-software-was-used-to-create-the-intro-for-Game-of-Thrones-TV-series)
 
+## 3D artists
+- [Kenneth A. Huff](http://www.kennethahuff.com/) 
+- [Meats Meier](https://vimeo.com/53762767)   
 
-## Reference
+![meatsMeier](img/Incredible-3D-Art-02.jpg) 
 
-[Maya 2016 online Help](http://help.autodesk.com/view/MAYAUL/2016/ENU//)    
+## VR
+- [Kaleidoscope](http://kaleidovr.com/) is a community for Virtual Reality Creators to share their work and build a fanbase, secure funding and distribution, and discover new projects and new collaborators.  
 
-- Art of Maya [pdf link](http://web.cse.ohio-state.edu/~parent/classes/682/MAYA/art_of_maya.pdf)   
+## Book
+- [Digital Art Masters]((http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=digital+art+masters&rh=i%3Aaps%2Ck%3Adigital+art+masters) [3dtotal](http://www.3dtotal.com/).	
 
-- [UV MAPPING MADE EASY by James Taylor, 15:20](https://www.youtube.com/watch?v=HLhazEa8wmw)  
+------------------------------------
 
-_______________
-
-# Review
-## Assignment
+## Review
+### Assignment
 - [Lab 1](http://2016datt2500.tumblr.com)
 - [Lab 2](http://2016datt2500lab2.tumblr.com/)     
 - [Lab 3](http://2016datt2500lab3.tumblr.com/)  
 - [Lab 4]((http://2016datt2500lab4.tumblr.com/) 
 
-## Advanced tutorial
-- [UV Mapping with the UV Editor in Maya 2016, 10:23](https://www.youtube.com/watch?v=Brh1JRL9OoY)  
-- [Maya 2016 UV Editing Improvements, 35:35](http://www.cgmeetup.net/home/maya-2016-uv-editing-improvements/) 
-
 -----------------
 
-# Lab
-## To do list
-- Lab practice A: Texturing a dice 
-- Lab practice B: Using PSD network 
-- Lab practice C: 3D painting texture  
-- Lab practice D: Creating UVs  
-- Demonstration E: Alternate UV texturing   
+# Lab 
+## Lab practice A: Polygon to subdivision
+- Organic modeling using the subdivision method.
 
-___________________________
-## Practice A: Texturing a dice
-### Goal
-- You can apply texture.
-- You can manipulate UV texture coordinate in the UV texture editor.
-- You can alter the texture using Photoshop.
+Reference image:
 
-![dice](img/maya/shading/texturing/dice.jpg), ![uv](img/maya/shading/texturing/uveditor.png)
+![subd](img/lab/subd.png)  
+![subd02](img/lab/starfish01.png) 
+![subd01](img/lab/starfish.png) 
 
-You can save UV texture (UV Texture Editor // Polygons / UV Snapshot... ) to draw then apply the texture back to the dice. 
-
-![dice01](img/maya/shading/texturing/dice_snap.png)
-
-## Practice B: Using PSD network
-	1. Save UV texture (UV Editor // Polygons / UV Snapshot... )     
-	2. Create PSD Nexwork... (UV Editor // Image / Create PSD Network...) and Update PSD Network...	
+## How to do:
 	
-## Practice C: 3D painting texture 
-**Goal:** creating 3d painted textures.  
-**Command location:** Rendering // Texturing / 3D Paint Tool   
+- Create a starfish geometry:
+	
+	- Start from Create / Polygon primitives / Prism : From the polyPrism node, change Numbers of Sides to 5.
+	- Apply Edit Mesh / Extrude : You can turn off Keep Faces Together and change its attributes to make a star. 
+	- Using the shortcut 1, 2, 3 to check [smooth mesh preview overview](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-4863E5AE-0EA0-4596-B1AE-10C19603838E-htm.html): you can edit the shape.  
+	
+- UV layout
+	
+	- Let's work on the **UV layout in the UV texture**.
+	
+- Finalize the geometry
+	
+	- You can apply Edit Mesh / Transform to add a bit of irregularity to the the shape.
+	- If you like the shape, you can **Mesh / Smooth** the star.
 
-- Let's create 'color' and 'bump' textures using a brush and/or paint effect. 
+- Shading
+	
+	- You can work on shading. [starfish texture](obj/starfish_tex.zip)  
 
-![3dpaint01](img/lab/3dpaint.png)
+------------------------------------------
 
-## Practice D: Creating UVs
-- Planar UV mapping
-- Cylindrical UV mapping
-- Spherical UV mapping
-- Camera UV mapping
-- Automatic UV mapping 
+## Lab practice B: Retro spaceship
+### Reference
+- [Retro Spaceship from shutterstock](https://www.shutterstock.com/search/retro+spaceship) 
+
+![nurbs](img/lab/spaceship.png)  
+
+## How to do:
+- Spaceship body
+	- Create a NURBs sphere and transform/edit it (choose vertices and Hull) to make a shape.
+	- Duplicate the body and add it in the layer in the layer editor and make the layer invisible -> preserve the body geometry to use it later.
+	
+- Window: Project Curve on Surface
+	- Create a curve and transform it to a proper position and size. Select it and the spaceship body to apply Surface / Project Curve on Surface 	
+	
+	![sapceship_04](img/lab/spaceship_project.png) 
+	
+- Window: Trim	
+	- Choose the spaceship body and apply Surface / Trim. You need to choose what to leave and press enter.
+
+	![sapceship_03](img/lab/spaceship_trim.png) 
+	
+- Window rim: duplicate the trim edge
+
+	- From the mouse left button menu on the body, choose the trim edge and select the window edge and apply Curve / Duplicate Surface Curves. 	
+	
+	![sapceship_02](img/lab/spaceship_edge.png) 
+	
+- Window rim geometry: Extrude
+	- Create a NURBs circle as a profile curve, and use the duplicated Curve as a profile, locate properly and apply Surface / Extrude. Check the option settings as below:
+	
+	![sapceship_01](img/lab/spaceship_extrude.png) 
+	
+	- You can edit the profile circle shape to make it look better. Now move the geometry to the window position. Duplicate it and scale z -1 and move it to the the opposite side to complete the window rim geometry.
+	
+- Three wings: similar steps to making the window rim 
+	- Create a circle and make a shape of the window intersection and apply Project Curve on Surface to the spaceship body.
+	
+	![sapceship_wing01](img/lab/spaceship_wing01.png) 
+	
+	- Duplicate Surface Curves and move its pivot to the top end. Duplicate it to around 5 curves.
+	
+	![sapceship_wing02](img/lab/spaceship_wing02.png) 
+	
+	- Transform them to the desired shape and select them all and apply Surface / Loft. 
+	
+	![sapceship_wing03](img/lab/spaceship_wing03.png) 
+	
+	- You can still edit the shape after Loft.
+	
+	![sapceship_wing04](img/lab/spaceship_wing04.png) 
+	
+- Duplicate wings
+	- Choose the completed wing geometry, and check 1. it's manipulator is at the center of the grid and 2. delete the history by Edit / Delete History, and use Duplicate Special to duplicate them and make three wings.
+	
+	![sapceship_wing05](img/lab/spaceship_wing05.png) 
+	 
+- Further exploration	 
+	- Other then Project Curve on Surface, you can use **intersect** between two geometries (here the sphere and the spaceship) to create a curve on a suface, leaving the geometry. Later you can use Trim to cut it out.
+
+	![sapceship_wing08](img/lab/spaceship_intersect.png)
+	![sapceship_wing10](img/lab/spaceship_trim01.png)  
+	
+	- You can use rebuild to increase the span numbers to make it more smooth geometrically.
+	
+	![sapceship_wing09](img/lab/spaceship_rebuild.png)
+	
+	- You can delete unused curves on a surface: select Isoparms from mouse left button and apply the delete key.
+	
+	![sapceship_wing06](img/lab/spaceship_delete.png) 
+	
+	- Now you can explore shading attributes to create the visual look you want. Here I used a ramp texture for a color attribute. And I attach a checker texture to the middle color of the ramp texture.
+	
+	![sapceship_wing07](img/lab/spaceship_texture.png) 
  
-![3dpaint01](img/lab/uvproj.png)
-- [Maya help: projection](http://help.autodesk.com/view/MAYAUL/2016/ENU//index.html?guid=GUID-B7E73748-5F8E-4E66-BE88-DF3C2A3DF438)  
-- [UV mapping tips](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-1CEF8A5B-1051-40F1-ACFE-F29AD066F56F)  
-- [Layout UV shells](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-21CFF911-9C21-4019-B676-766ACA3BC889)  
-- [UV Editor overview](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-73BF7546-3BF2-44F3-9192-15A024CEC173)
 
---------------------------
+## Tutorial
+- [Collection Of Maya 3D Tutorials](https://www.smashingmagazine.com/2009/08/the-ultimate-collection-of-maya-3d-tutorials/)  
+- [Maya 2016 Beginners tutorial Pt - 8 NURBS Modeling Techniques](https://www.youtube.com/watch?v=Mzd7rqpmE-k)  
+- [Maya: How to trim NURBS surfaces | lynda.com tutorial by Lynda.com](https://www.youtube.com/watch?v=X2blYvA4NBY)  
 
-## Demonstration E: Alternate UV texturing   
+___________________________________________
 
-### Blender UV texturing
-Related tutorial: 
-- [Modeling, UVmapping And Texturing A Low Poly T-Rex In Blender](http://cgi.tutsplus.com/tutorials/modeling-uvmapping-and-texturing-a-low-poly-t-rex-in-blender-part-2--cg-12861)  
-
-1. Using Blender version 2.68
-- Download and install.
-- to use Maya navigation interface:  
-	- In the Blender interface, open File/User interface
-	- Go to Input and select preset to 'Maya' and hotkey to 'Maya' and save user settings.
-- Import .obj modeling data.
-- Choose the object and go to the edit mode (tab key). With edge mode, select the edge where to become UV seams later. (Shift + Alt + edge to choose continous edges)  
-- Ctrl + E to open the window and choose 'Mark Seam'
-- With face mode, select all faces and push U key to open UV texture window and 'Unwrap'. 
-- You can check the result to open the UV Editing window. 
-- If you like the result, export the obj to import in Maya. Now your object will have good UV textures.
-
-![blender](img/lab/uv.png)  
- 
-- An UV unwrap example screenshot using the monkey primitive mesh.
-
-### Using UV texture plug-in for maya
-- Researching online and you will find some good and free plug-ins. Note that there are usually more options for the Windows operating system.
-
-________________________
 ## Lab work to do
 - Review & practice based on today's lecture & lab class material.  
-- You can start to work on project 2: shading on the project 1.
+- Working on project 2: shading on the project 1 and project 3. 
 
 ____________________________
 
 ## Assignment
-- Please upload screenshots of your practices to the class Tumblr.
-	- One free theme screenshot related today's practices such as the 3D paint texturing or the dice UV texturing.  
-	- A UV texturing image of the monkey face object. You can download the obj data [here](obj/monkey.obj).  
- 
+- By Sunday Nov 6th midnight, please complete your customized starfish and retro spaceship and upload **rendering images** to the class Tumblr with simple descriptions: **"a08 by your name, date"**.	
+- Prepare your texture for your lego texturing next week: [texture templete reference](http://nexusadventures.wikia.com/wiki/User_blog:Ferfature/Custom_Minifig_Textures)  
+- Please review and play with shading and texturing.
+
 
 -------------------
+
+
 
 
 </div>
@@ -253,13 +366,13 @@ ____________________________
 				<a href="project.html">Project I (By Oct 16th)</a><br/> 								
 				<a href="week06.html">6: Shading</a><br/>  
 				<a href="week07.html">7: Texturing</a><br/>
-				<a href="week2_3.html">8: Modeling Techniques</a><br/>
-				Project II<br/> 
+				<a href="week08.html">8: Modeling Techniques</a><br/>
 				<a href="week2_4.html">9: Character M & T</a><br/>
 				<a href="week2_5.html">10: Organic M & T</a><br/>		
 				<a href="week3_1.html">11: Global Illumination</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project III<br/>		
+				Project II + Project III<br/>	
+			
 	</div>
 	<div class="section">
 		<script type="text/javascript">
