@@ -112,7 +112,7 @@ Cinematic model and game model. Image from the book Rigging for Games by Eyal As
 Reference: Creative character design by Bryan Tillman, 2011, Focal Press  
 
 - Archetypes: a hero, a beauty, a bad guy.., or part of yourself   
-	- Character bio: name, age, height, weight, build, nationality..   
+	- Character bio: name, age, height, weight, build, nationality...   
 - Story and target audience: *the character is always in service to the story*   
 - Shapes: they can tell a story about the character visually.  
 - Reference    
@@ -175,26 +175,255 @@ _____________
 
 # Lab
 ## To do list
-- Lab practice: Importing blueprints to Maya  
-- Lab practice A: Hard modeling - building a lego character.
+- Lab practice: Chracter modeling & texturing - a Lego character.
+
 _________________________
 ## Lab practice A: Hard modeling
 ![lab01](img/maya/character/legoman.jpg)    
-![lab02](img/maya/character/lego_maya.png) 
-![lab03](img/maya/character/legoman_front.png) 
+![lab03](img/maya/character/legoman_front.png) ![lab04](img/maya/character/legoman_side.png)  
 ![lab03_01](img/maya/character/legoman_front01.png) 
-![lab04](img/maya/character/legoman_side.png)  
 ![lab04_01](img/maya/character/legoman_side01.png)
 ![lab05](img/maya/character/spiderman_front.jpg)  
 ![lab06](img/maya/character/spiderman_back.jpg) 
 ![lab07](img/maya/character/spiderman_side.jpg) 
 
+## What to do:
+- Preparation
+- Low polygon modeling
+- UV texturing
+- Shading, lighting, and rendering controls
+- Smoothing the polygon
+
+## Important commands and tips:
+- Commands:
+	- Extrude
+	- Booleans
+	- Selections
+	- Deformers
+- Tips:
+	- Spend some time to **analyze and plan** before beginning the modeling processes. 
+	- Well prepared blueprints are important to the modeling processes.	
+	- Switch often to check its position from the side, front, and perspective view.
+	- Menu / Select tools are useful and efficient.
+	- Naming: in the outline and layer editor, from time to time spend some time to name them properly. It will help a lot to work on more complex modeling tasks.   
+	- Using Layer editor and Shading options to control its **transparent/opaque views** and **templete/reference/object** view & selection modes.
+
+-------------------------
+
+## Preparation
+- Prepare the front and side images of a Lego model.
+- Importing blueprints to a front camera and a side camera (View / Image Plane).
+
+![pre](img/maya/character/imageplane.png) 
+
+- You can adjust the image plane position: using the Image Center X, Y, or Z.   
+And check out the attributes of the image plane from its attribute editor. 
+	
+![pre01](img/maya/character/imageplane01.png) 
+
+------------------------------
+## Low polygon modeling
+### Head
+- Create from a cylinder polygon object and modify its position and scale. (subdiv: 12) 
+- From the front view, go to the component face selection mode and drag - select faces and from the menu Select / Shrink to select only top faces or neck faces and apply Edit Mesh / **Extrude**. Click its local / world switch and move & scale and apply Extrude to make the head-top or neck geometry: ***Be careful not to apply several extrude commands at once. It is easy to do so. Use Undo to make sure that you didn't multi-fully applied the same function.***
+ 
+ 
+![head](img/maya/character/ext.png)  
+
+### Body
+- Start from a box. Move & scale it and use its vertices to make the right shape.  
+
+![body](img/maya/character/body.png)  
+
+- Use Extrude to make the lower body.
+
+### Middle belt piece
+![belt](img/maya/character/belt.png)  
+ 
+- From the side view, let's start a cylinder to make the lower part of belt. 
+- Create a box for a belt and apply Mesh / **Booleans / Union** to make an unified geometry.
+
+### Leg
+- Create a cylinder and go to the side view and locate it.
+
+![leg01](img/maya/character/leg01.png)  
+
+- In the component mode, select faces as the image below and delete them.
+
+![leg02](img/maya/character/leg02.png)  
+
+- Select the edge and extrude.
+
+![leg03](img/maya/character/leg03.png)  
+
+- Select the edge and extrude several times to make the faces of the leg as the image below using the front and side view.
+
+![leg04](img/maya/character/leg04.png)  
+![leg05](img/maya/character/leg05.png)  
+
+- Apply the **Mesh Tools / Append to Polygon** to create the bottom face of the leg. After this, apply the **Mesh / Fill Hole** to create the closed mesh.  
+
+![leg06](img/maya/character/leg06.png)  
+
+- Now create a box to prepare the Boolean operation. Create a box bigger than the leg we created and from the front view, rotate it as the image plane. Select the leg and the shift select the box and apply Mesh / **Booleans / Difference.** 
+
+![leg07](img/maya/character/leg07.png)  
+
+- This time create a cylinder which is a bit larger than the lower belt part and select the leg and the cylinder and apply Mesh / **Booleans / Difference.** 
+
+![leg08](img/maya/character/leg08.png) 
+
+- Now right leg is done. Before duplicating it, let's clean it. Go to Edit and **Delete by Type / History.** 
+  
+![leg09](img/maya/character/leg09.png)  
+
+- In order to use the duplicate special, let's **reset Transformation** to make the manipulator locate in the world center.
+ 
+![leg10](img/maya/character/leg10.png)  
+
+- Let's duplicate special. Note that scale X value is -1. 
+
+![leg11](img/maya/character/leg11.png)  
+
+- Great! Now we completed the legs. 
+- Plus, we can duplicate legs and make them a bit larger and apply Booleans / Difference to the belt to complete the belt.
+
+![leg12](img/maya/character/leg12.png)  
+
+### Arm
+- Let's create a sphere and delete its faces to fit the contour of the image plane. 
+- Then, extrude the edge three times (choose one edge and apply **Select / Contiguous Edges** to select the entire edge perimeter) to make a base arm mesh. (when you apply the second extrude, increase its Divisions to 4 to make more lines for its deformation later.)
+
+![arm01](img/maya/character/arm01.png)  
+
+- Now apply **Deform / Lattice** to shape the arm. You can control the grid complexity using S, T, U divisions and its components are the Lattice Point. Using the lattice points, you can control and shape the main geometry.   
+
+![arm02](img/maya/character/arm02.png)  
+![arm03](img/maya/character/arm03.png)  
+![arm04](img/maya/character/arm04.png)  
+
+- Once shaping the arm is done, apply Mesh / Fill Hole to close it. 
+
+![arm05](img/maya/character/arm05.png)  
+
+- You can use the sculpt tool to add more fine controls. 
+
+![arm06](img/maya/character/arm06.png) 
+
+### Hand
+- Preparation: let's start from a Polygon Pipe. Transform it and then in the component mode, delete faces to shape it. You can apply Mesh / Fill Hole to close the mesh. 
+
+- Once it's done, you can apply lattices not only to an object but also to selected faces to deform. I applied the lattice to inner faces once and to outer faces again.   
+
+![hand01](img/maya/character/hand01.png) 
+
+- When the hand is done, you can extrude the face from the arm to make a wrist. Then apply Booleans / Union to complete. 
+ 
+![hand02](img/maya/character/hand02.png) 
+
+- Duplication: now delete its history and apply Reset Transformations and apply duplicate it with -1 scale X to complete both arms.  
+
+![hand03](img/maya/character/hand03.png)  
+![hand04](img/maya/character/hand04.png) 
+
+- *Congratulations!* The low polygon modeling is completed. Before starting the UV layout, please delete all histories and work on naming in the outliner and layer editor.
+
+![hand05](img/maya/character/hand05.png) 
+
+
+----------------------------------------------
+
+## UV layout & texturing
+![uv01](img/maya/character/uv01.png) 
+
+- You can download a Lego uv texture from [LEGO Universe Wiki is a Fandom Games Community](http://legouniverse.wikia.com/wiki/File:Torsos_NPC_VandaDarkflame_I5.png)
+Content is available under CC-BY-SA. 
+
+- For this tutorial, [Vanda Darkflame character](http://legouniverse.wikia.com/wiki/Vanda_Darkflame) texture is used.
+
+- [Custom Minifig Textures](http://nexusadventures.wikia.com/wiki/User_blog:Ferfature/Custom_Minifig_Textures) 
+
+### Preparation
+- Create 5 materials and apply each material to a head, a body, a belt, legs, and arms respectively.
+
+- Link the texture from the color attributes for all materials.
+
+- Work on panel layouts for a comfortable workflow.
+
+### Planar UV mapping
+- Let's apply planar uv mapping for each part and move the uv shells to proper parts. 
+- Then from a camera view, select the face which has a texture from the Lego geometry and apply **Select / Convert Selection / To Edge Perimeter.**  
+
+![uv02](img/maya/character/uv02.png)  
+
+- Move to the UV texture editor and apply UV Edtor / Polygon / Cut UV Edges.
+
+![uv03](img/maya/character/uv03.png)  
+
+- In the UV texture editor, choose Shell from the component mode, and select & move around to find the cut shell.
+  
+![uv04](img/maya/character/uv04.png)  
+
+- Move the shell and select UV from the component mode and move UVs to map the texture to the UV layout.
+- Repeat the same process to the head, body, belt, and legs.
+  
+![uv05](img/maya/character/uv05.png) 
+
+- For the arms, which have more geometry faces, you can select a few faces and use Select / Grow or Shrink and other commands to make the selection processes efficient.
+ 
+![uv06](img/maya/character/uv06.png)  
+![uv07](img/maya/character/uv07.png)  
+
+-----------------------------------------------
+
+## Shading, lighting, and rendering
+- Let's work on the cinematography. Create lights and soft shadows. 
+	- In the below rendering, one directional and one ambient light were used.
+- Make a rendering quality high.
+	- In the render settings, make the Anti-aliasing quality to the production quality.
+- Let's tweak the shading parameters to make it look good.
+- You can create an environment such as a ground and a sky too.
+
+![sh01](img/maya/character/lego.jpg)  
+
+- Let's switch to the Maya Vector render.
+	- Tweak the Fill Options and Edge Options in the render settings.
+
+![sh02](img/maya/character/lego_vec01.png)  
+![sh03](img/maya/character/lego_vec02.png)  
+
+-------------------------------------------------
+
+## Smoothing
+
+- Let's apply Bevel to the Edge loop to add smoother lines.
+ 
+![sm01](img/maya/character/sm01.png) 
+![sm02](img/maya/character/sm02.png) 
+
+- Optionally, you can apply Mesh / Smooth Proxy / Subdiv Proxy.
+From the option box, you can create layers which can divide the subdiv surfaces from its low polygon geometry.  
+
+![sd01](img/maya/character/sd01.png) 
+
+- To keep the boundary, you can use Mesh / Smooth Proxy / Crease Tool. When you apply, you need choose edges from the component mode and drag while holding a mouse middle button to decide its intensity.
+  
+![sd02](img/maya/character/sd02.png) 
+
+- Please compare the low poly, its exponential level is one or two in the PolySmoothProxy node.
+
+![sd03](img/maya/character/sd03.png) 
+![sd04](img/maya/character/sd04.png) 
+
+- ***Congratualtions! It's completed!***
+
+______________________________
+
+## Lego related reference
 - [Lego Man 3D Minifig Reference
 by Quandtum](http://quandtum.deviantart.com/art/Lego-Man-3D-Minifig-Reference-145171513) 
 - [Anatomy Of A Lego Minifig](http://wtf.thebizzare.com/offbeat/uncategorized/anatomy-of-a-lego-minifig/)  
-- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)
-
-## Lego related reference
+- [LEGO-Textures: Textures scanned from real LEGO bricks!](https://github.com/rioforce/LEGO-Textures)  
 - [CgTrader](https://www.cgtrader.com/3d-models/sport-hobby/toy/lego-man-collection-10-characters)  
 - [LEGO HEAD DECALS](http://fantasticpixcool.com/lego+head+decals)  
 - [Base Lego Model](https://3docean.net/item/base-lego-model/8762731)  
@@ -204,12 +433,15 @@ _____________________________
 
 ## Lab work to do
 - Review & practice based on today's lecture & lab class material.  
-- Let's prepare project 2: free theme modeling & rendering. 
+- Let's prepare project 2 & 3 
+	- Project 2: the completion of project 1
+	- Project 3: free theme modeling & rendering. 
+	- [Project link](project.html)
 
 ____________________________
 
 ## Assignment
-- Please upload screenshot of your organic modeling to the class Tumblr.
+- By Sunday Nov 13th midnight, please complete your lego modeling and customized texturing (represent you as a lego character) and upload **rendering images** to the class Tumblr with simple descriptions: **"a09 by your name, date"**.	
 
 -------------------
 
@@ -234,11 +466,11 @@ ____________________________
 				<a href="week06.html">6: Shading</a><br/>  
 				<a href="week07.html">7: Texturing</a><br/>
 				<a href="week08.html">8: Modeling Techniques</a><br/>
-				<a href="week2_4.html">9: Character M & T</a><br/>
+				<a href="week09.html">9: Character M & T</a><br/>
 				<a href="week2_5.html">10: Organic M & T</a><br/>		
 				<a href="week3_1.html">11: Global Illumination</a><br/>
 				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
-				Project II + Project III<br/>	
+				<a href="project.html">Project II + Project III</a><br/>	
 	</div>
 	<div class="section">
 		<script type="text/javascript">
