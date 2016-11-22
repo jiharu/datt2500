@@ -126,8 +126,10 @@ An artificial depth of field is constructed by masking multiple copies of a rend
 
 ______________________
 ## Advanced topic: render layers and passes  
-### Render layer editor
 When a shot is animated in a 3D program for a professional production, it is rarely rendered out as is. Instead, the shot is divided into layers and/or render passes. In Maya, the Render Layer Editor allows you to create and manage various render layers and render passes.
+
+### Render layer editor
+Render layers can be used to separate the elements of a single scene into different versions or into different layers of a composite. Each layer can have its own shaders, lights, and settings. Using overrides, you can change the way each layer renders.
 
 ![rp01](img/maya/rendering/comp_car_luminance.png), ![rp02](img/maya/rendering/comp_car_shadow.png)
 ![rp03](img/maya/rendering/comp_car_reflection.png), 
@@ -161,11 +163,14 @@ You can create and manage render layers using the Layer Editor in Render mode (c
 It shows overlapping of two render layers.
 
 ### Render passes
-Render passes divide the output created by a render layer into separate images or image sequences. Using render passes, you can separate the reflections, shadows, diffuse color, ambient occlusion, specular highlights, and so on into images or image sequences, which can then be reassembled in compositing software. By separating things such as the reflections from the diffuse color, you can then exert maximum creative control over how the different images work together in the composite. This approach also allows you to make changes or variations easily or fix problems in individual elements rather than re-rendering the entire image or sequence every time you make a change.
+Render passes allow you to separate material properties into different images. These passes are derived from calculations stored in the frame buffer. Each pass can be used in compositing software to rebuild the rendered scene efficiently. Render pass contribution maps define which objects and lights are included in a render pass.
+
 
 [MULTI-RENDER PASSES](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-9BF67900-7FD6-463C-A8C9-9D29B95FC535-htm.html)  
 [SET UP MENTAL RAY SCENE PASSES](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-3D987BC5-5CD7-4051-B7A6-4B669B7146B7-htm.html)    
 [Render Passes in Maya 2016](http://www.cgmeetup.net/home/render-passes-in-maya-2016/)
+
+- [Maya tutorial: Setting up render passes | lynda.com](https://www.youtube.com/watch?v=LdUpTK94G4M)  
 
 
 ### Render layout overview 
@@ -207,9 +212,9 @@ _____________
 
 # Lab
 ## To do list
-- Lab practice A: Using Batch Bake to bake an ambient occlusion texture  
-- Lab practice B: Baking occlusion from high to low res models	
-- Lab practice C: Using a surface shader to bake an ambient occlusion texture in the Hypergraph  
+- Lab practice A01: Using Batch Bake to bake an ambient occlusion texture  
+- Lab practice A02: Baking occlusion from high to low res models	
+- Lab practice A03: Using a surface shader to bake an ambient occlusion texture in the Hypergraph  
 
 -----------------------
 ## Ambient Occlusion shading
@@ -217,7 +222,7 @@ There are several ways to apply ambient occlusion.
 
 You can download the toad object files from here: [toad high resolution](obj/toad.obj), [toad low resolution](obj/toad_low.obj)
 
-## Lab practice A: Using Batch Bake to bake an ambient occlusion texture 
+## Lab practice A01: Using Batch Bake to bake an ambient occlusion texture 
 Let's create ambient occlusion map by using Batch Bake (mental ray).  
 Where: Rendering // Lighting/Shading / Batch Bake (Mental ray)  
 
@@ -230,14 +235,14 @@ Where: Rendering // Lighting/Shading / Batch Bake (Mental ray)
 Applying normal map, © CC BY-SA 3.0
 
  
-## Lab practice B: Baking occlusion from high to low res models  
+## Lab practice A02: Baking occlusion from high to low res models  
 Maya help [Create texture maps with the Transfer Maps editor](http://help.autodesk.com/view/MAYAUL/2016/ENU/?guid=GUID-B011A4BC-1B7A-4EC3-9B73-BCF744886C84)   
 Where to create your normal map:   
 Command: Rendering // Lighting/Shading / Transfer Maps... 
 
 - Ambient occlusion maps can also be used to complement normal maps. The occlusion values from a high poly model can be baked to the UV layout of a low poly model. This helps to sell the normal mapped details if used in a subtle way. This function is found in the **transfer maps** window under lighting/shading in the Render menu set.
 
-## Lab practice B: Using a surface shader to bake an ambient occlusion texture in the Hypergraph 
+## Lab practice A03: Using a surface shader to bake an ambient occlusion texture in the Hypergraph 
 Related tutorial: [Ambient Occlusion in Maya - by Alchemist101 (2011).](http://www.game-artist.net/forums/spotlight-articles/1317-tutorial-ambient-occlusion-maya-alchemist101.html) 
 ### Setting up the shader network
 - First open the hypershade window and from the Maya nodes list MMB drag **a Surface Shader node** into the work area.   
@@ -275,41 +280,14 @@ Related tutorial: [Ambient Occlusion in Maya - by Alchemist101 (2011).](http://w
 ________________________
 ## Lab work to do
 - Review & practice based on today's lecture & lab class material.  
-
-____________________________
-
-## Assignment
-- Please upload screenshots of your practices to the class Tumblr.
-
--------------------
-
-# Project 3 - free theme modeling & rendering.
-## Due date: 
-
-- Please collect your final work and related files into one folder:
-
-	1. The name of folder: ```your school id_your name``` (e.g., 123456_your name)
-	  
-	2. Include in the folder: 
-		1. Your final render image: 720~1k pixels size, saved as JPG or PNG. 
-		2. Your Maya file (.mb or ma file) 
-		3. One page documentation PDF file, showing a - a description of your choice and focus, b - a process of making and problem solving, and c - your discoveries and achievement.    
-	3. Where to submit: please upload your assignment folder (including three documents: one image file, one Maya file, one PDF file) to the [Google drive space]().
+- Let's complete project 2 & 3 
+	- Project 2: the completion of project 1
+	- Project 3: free theme modeling & rendering. 
+	- [Project link](project.html)
 	
-	4. Consider the technical and aesthetic challenges plus the level of completion. 
-	
-----------------------
-## General guide for the final project
-
-- Cleaning the file: proper naming, and delete the history once it is ready.
-
-- Modeling details: Work on good proportion. Adding bevels to smooth edges. Apply smoothing if it is a curved surface. If it is NURBS surface, rebuild it by increasing number of spans, or if it is polygon, either do smooth or smooth proxy, or by manually adding more divisions or edges.
-
-- Cinematography: redefine your camera set-up (file gate) and match it to the render setting (resolution gate). Check that your lighting shows good balance and overall contrast, helps viewers to focus on the main objects, and reveals important details in your scene. Finally try to create good soft shadows.
-
-- Shading & rendering: define and reveal proper material characteristics and when you do render, properly apply ray tracing, direct or indirect illumination if it fits, and most of all don't forget to apply anti-aliasing. Try to use photoshop in order to utilize multiple render passes too.
-
-Overall, work on it until you are pleased with your final render result. 
+## Office hour
+Haru Ji's shard office location: 229 Goldfarb Centre for Fine Arts  
+Hours: Tue - 1:30 to 4:30 & Wed - 1:30 to 3:30
 
 __________________________________
 
