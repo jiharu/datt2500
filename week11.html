@@ -262,8 +262,7 @@ _______________
 ## To do list
 - Lab practice A: Glass and mirror balls in the Cornell box 
 - Lab practice B: Global Illumination
-- Lab practice C: Final Gathering  
-- Lab practice D: Global Illumination and Final Gathering    
+- Lab practice C: Global Illumination and Final Gathering    
 
 -----------------------
 ## Practice A: Glass and mirror balls in the Cornell box 
@@ -323,45 +322,10 @@ Lighting & Soft Shadow
 >If the default settings are not sufficient to achieve the look you want (or to reduce render speed), tweak the global illumination settings until you achieve the look you want. 
 
 - Please check **how to create photons** from the lecture notes.
-   
-_______________________
-## Practice C: Final Gather
-1. Turn off Maya default lights from the Render Setting/Common/Render Option. If you have any light sources in the scene, turn off their *Illuminates by Default* attribute. 
-
-2. You can turn on Final Gather from the **Render Settings/Mental ray/Quality tab**. You can either choose **Advanced Light Sampling / Indirect Diffuse (Gl) Mode** or **Legacy Options/Final Gathering.** 
-
->Change any of the following optional settings, which can have an effect:
->
-- The camera background color: You can change background color or attach a environment texture to the image plane. You can also turn on the **Physical Sun and Sky** to simulate sun and shadow without adding any light in the scene. (from **Render Settings/Mental ray/Scene/Cameras/Environment)
-- The object material’s colored Incandescence or Ambient color attributes.
-- Irradiance contributions from shaders.
-- Irradiance color mapping contributions from shaders.
-- The number and location of lights in the scene.
-
-![fg01](img/maya/rendering/gl/fg.jpg)
-![fg02](img/maya/rendering/gl/phy.jpg)
-
-Render image with no actual light but with turning on the 'Physical Sun and Sky' attribute from the Mental Ray render setting. 
-
-![ibl01](img/maya/rendering/gl/ibl.jpg)
-![ibl02](img/maya/rendering/gl/ibl_close.jpg)
-
-Render image using IBL. Image-based lighting (IBL) uses an image to create lighting in a scene. High dynamic range images (HDRIs) are usually the most effective sources for IBL. 
-
-### Related tutorial
-
-- [MR Basic Final Gather using Image Based Lighting](http://wiki.bk.tudelft.nl/toi-pedia/MR_Basic_Final_Gather_using_Image_Based_Lighting_(IBL)
-- [IBL Tutorial Maya - IMAGE BASED LIGHTING EASY SETUP](https://www.youtube.com/watch?v=AyWEKvIUImU&feature=youtu.be) 
-- [Maya tutorial: Setting up image-based lighting | lynda.com](https://www.youtube.com/watch?v=YXor6gDoVvc)  
-
-### High dynamic image 
- 
-- [A light probe image by Paul Debevec and Dan Lemmon](http://ict.debevec.org/~debevec/Probes/)   
-You can find hdr files here to download.
 
 ___________________________
 
-## Practice D: Global Illumination, Final Gathering, and Caustics
+## Practice C: Global Illumination, Final Gathering, and Caustics
 
 After you load the Mental Ray plug-in (and select Mental Ray as the renderer), the Render menu lists available menu items for Mental Ray for Maya. As well, the Attribute Editor contains a Mental Ray section in which you can edit attributes that are used exclusively when rendering with Mental Ray for Maya.
 
@@ -441,7 +405,7 @@ __________________________________
 				<a href="week09.html">9: Character M & T</a><br/>
 				<a href="week10.html">10: Organic M & T</a><br/>		
 				<a href="week11.html">11: Global Illumination</a><br/>
-				<a href="week3_2.html">12: Ambient occlusion</a><br/>	
+				<a href="week12.html">12: Ambient occlusion</a><br/>	
 				<a href="project.html">Project II + Project III</a><br/>		
 	</div>
 	<div class="section">
